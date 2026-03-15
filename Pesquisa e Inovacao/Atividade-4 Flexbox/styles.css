@@ -1,0 +1,55 @@
+/* Siga as orientações no arquivo README para concluir o exercício */
+
+.container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: green;
+    color:#66c987;
+}
+
+.cabecalho {
+    background-color: #f0f8ff;
+    text-align: center;
+}
+
+/*
+Já que não posso mexer no HTML, uso o "nth-child()" para pegar algo do <p>, então
+como coloquei 1, pega o primeiro filho de cabecalho 
+*/
+.cabecalho p:nth-child(1) {
+  color: #00008b;
+  font-weight: bold;
+  font-size: 32px;
+}
+/*O mesmo do de cima*/
+.cabecalho p:nth-child(2) {
+  color: #555;
+}
+
+.conteudo {
+  background-color: #f2f2f2; 
+  color: #800080; 
+}
+
+
+/*desafio
+.conteudo p {
+  color: #E4005A;
+  font-size: 42px;
+}
+*/
+
+/*Desafio 2
+.conteudo p:nth-child(4) {
+  color: purple;
+  vertical-align: sub;
+}
+*/
+
+/*Desafio 3
+@media (max-width: 480px) {
+  .container {
+    background-color: #ADD8E6;
+  }
+}
+  */
