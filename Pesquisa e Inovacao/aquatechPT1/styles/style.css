@@ -1,0 +1,115 @@
+/* Adicionar aqui toda a estilização criada para sua aplicação. */
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family:  Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*MINHA HEADER*/
+.header {
+    background-color: black;
+    height: 5em;
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    height: 5em;
+}
+.container h1 {
+    color: #0abbbb;
+    align-self: center;
+    margin-left: -5%;
+}
+.navbar {
+    display: flex;
+    width: 20%;
+    margin-left: 5%;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar li, .navbar a {
+    color: orange;
+    text-decoration: none;
+    list-style: none;
+    font-size: 14px;
+}
+.agora a {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/*HERO SECTION*/
+.banner .container {
+    background: url(../assets/imgs/bg-jelly-fish-para-home.png);
+    height: 70dvh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-start;
+}
+.banner .container p {
+    margin-left: 45%;
+    font-size: 2.2em;
+    width: 10%;
+    text-align: justify;
+    align-self: center;
+    color: white;
+}
+.banner .container span {
+    font-weight: bold;
+}
+/*CONTEÚDO*/
+.social {
+    display: flex;
+    height: 50dvh;
+    align-items: center;
+}
+.social .container {
+    height: 100%;
+}
+.boxes {
+    display: flex;
+    background-color: #f1f1f1;
+    justify-content: space-around;
+    align-items: center;
+}
+.box {
+    width: 20%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.box h4 {
+    color: #ec7ba1;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 2px #c50021;
+}
+.box p {
+    text-align: center;
+}
+.box img {
+    width: 120px;
+    height: 120px;
+}
+/* MEU FOOTER */
+.footer {
+    width: 100%;
+    height: 15dvh;
+    background-color: #02bebe;
+    display: flex;
+    justify-content: center;
+}
+.footer .container {
+    text-align: center;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    font-size: 1.2em;
+}
