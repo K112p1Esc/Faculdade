@@ -1,0 +1,205 @@
+/* CORES GLOBAIS
+   Aqui eu defino tudo uma vez só e depois só reutilizo */
+:root {
+    --vermelhoPrincipal: #ff0000;
+    --vermelhoEscuro: #660000;
+    --vermelhoFundo: #330000;
+    --vermelhoClaro: #ff4d4d;
+    --vermelhoHover: #ff3333;
+    --preto: #000000;
+    --pretoSuave: #0d0d0d;
+    --cinzaTexto: #e6e6e6;
+}
+
+/* RESET BÁSICO 
+   Com isso eu removo qualquer possível bug de tamanho*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+/* FUNDO DA PÁGINA
+   Gradiente escuro com vermelho e preto*/
+body {
+    height: 100vh; /*Ocupa toda tela*/
+    background: radial-gradient(var(--vermelhoFundo) 0%, var(--preto) 90%);
+    color: var(--cinzaTexto);
+    font-family: 'Cinzel', serif;
+    overflow: hidden; /* evita scroll por causa dos efeitos */
+}
+/* TEXTURA DO FUNDO
+   linhas no fundo e tals */
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        #ff000008,
+        #ff000008 2px,
+        transparent 2px,
+        transparent 10px
+    );
+    pointer-events: none; /*Faz ficar invisivel ao clique, se não, não clico em nada*/
+}
+
+/* CENTRALIZA TODO O CONTEÚDO
+   só garantindo uma centralização mais bonitinha dos elementos*/
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* TÍTULO PRINCIPAL
+   estilizei a fonte com o bgl do HTML e meti uns frufru 
+   como uma sombra total de fundo e tals*/
+h1 {
+    font-family: 'Uncial Antiqua', cursive;
+    font-size: 3em;
+    color: var(--vermelhoPrincipal);
+    text-shadow: 
+        0 0 10px var(--vermelhoPrincipal), /*Deixa mais "brilhante"*/
+        20px 20px 2px var(--preto);
+    margin-bottom: 20px;
+    letter-spacing: 8px;
+    position: relative; /* Sem isso, a seguir não funciona */
+}
+
+/* SÍMBOLOS
+   Vou adicionar através de um "pseudoelemento" antes e depois(no próximo) */
+h1::before {
+    content: "✇";
+    position: absolute;
+    left: -80px;
+    color: var(--vermelhoPrincipal);
+    text-shadow: 0 0 10px var(--vermelhoPrincipal);
+}
+
+h1::after {
+    content: "✇";
+    position: absolute;
+    right: -80px;
+    color: var(--vermelhoPrincipal);
+    text-shadow: 0 0 10px var(--vermelhoPrincipal);
+}
+
+/* SUBTÍTULOS
+   padrão de texto */
+h3 {
+    color: var(--vermelhoClaro);
+}
+
+/* INPUT
+   Campo escuro com borda vermelha sutil */
+input {
+    padding: 10px;
+    width: 200px;
+    border: 2px solid var(--vermelhoEscuro);
+    border-radius: 12px;
+    background-color: var(--pretoSuave);
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* EFEITO AO CLICAR NO INPUT
+   borda vermelhinha brilhante linda */
+input:focus {
+    outline: none;
+    border-color: var(--vermelhoPrincipal);
+    box-shadow: 0 0 10px var(--vermelhoPrincipal);
+}
+
+/* ANIMAÇÃO DO BOTÃO (PULSO)
+   Faz o brilho aumentar e diminuir */
+@keyframes pulse { /*Além disso, keyframes é basicamente o inicializador de uma animação, tipo variável*/
+    0% { box-shadow: 0 0 5px var(--vermelhoEscuro); }
+    50% { box-shadow: 0 0 20px var(--vermelhoPrincipal); }
+    100% { box-shadow: 0 0 5px var(--vermelhoEscuro); }
+}
+
+/* BOTÃO PRINCIPAL
+   Gradiente vermelho + animação constante de energia */
+button {
+    padding: 12px 25px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(
+        45deg, /*Métrica de graus*/
+        var(--vermelhoEscuro), 
+        var(--vermelhoPrincipal)
+        );
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    animation: pulse 1.5s infinite; /*Faz ficar pulsando tudo*/
+    transition: all 0.3s ease-in-out;
+}
+
+/* HOVER DO BOTÃO
+   Pequeno zoom*/
+button:hover {
+    transform: scale(1.08);
+}
+
+/* TEXTOS DE RESULTADO */
+p {
+    margin-top: 15px;
+    font-weight: bold;
+    color: var(--vermelhoHover);
+}
+
+/* CAIXAS DE RESULTADO
+   Tudo na caixa, estilo escuro e tudo mais
+   Além disso, tem a transição e tals */
+#demo2, #demo3, #demo4 {
+    padding: 8px;
+    min-width: 150px;
+    background-color: var(--pretoSuave);
+    border: 2px solid var(--vermelhoEscuro);
+    border-radius: 8px;
+    color: #ffffff;
+    text-align: center;
+    transition: 0.5s;
+}
+
+/* HOVER NAS CAIXAS
+   Glow leve pra indicar interação */
+#demo2:hover, #demo3:hover, #demo4:hover {
+    box-shadow: 0 0 15px var(--vermelhoPrincipal);
+    transform: scale(1.05);
+}
+
+/* ANIMAÇÃO DA EXPLOSÃO 
+   Faz ir de pequeno pra gigante sumindo */
+@keyframes explodir {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 10px var(--vermelhoPrincipal);
+    }
+    100% {
+        transform: scale(15);
+        opacity: 0;
+        box-shadow: 0 0 50px var(--vermelhoPrincipal);
+    }
+}
+
+/* EXPLOSÃO AO CLICAR
+   Efeito visual rápido louco */
+.explosao {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--vermelhoPrincipal);
+    border-radius: 50%;
+    pointer-events: none; /*Faz ficar invisivel ao clique*/
+    animation: explodir 0.6s ease-out forwards;
+}
