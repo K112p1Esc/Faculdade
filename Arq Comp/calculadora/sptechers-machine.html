@@ -1,0 +1,71 @@
+<!-- Criado por Marise Miranda | 2017.1 -->
+<!-- Adaptado por Matheus Matos | 2025.1 -->
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPTecher's Machine</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Uncial+Antiqua&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="center">
+        <h1>K11 Machine</h1>
+
+        <h3>Digite um número decimal:</h3>
+        <input id="demo1" type="text" placeholder="Ex: 42">
+        <br><br>
+
+        <button onclick="converter()">Converter</button>
+
+        <h3>Resultados:</h3>
+        <p>Octal:
+        <div id="demo2">0</div>
+        </p>
+        <p>Hexadecimal:
+        <div id="demo3">0</div>
+        </p>
+        <p>Binário:
+        <div id="demo4">0</div>
+        </p>
+    </div>
+    <script>
+
+        function converter() {
+            var decimal = Number(demo1.value);
+
+            demo2.innerHTML = decimal.toString(8);
+            demo3.innerHTML = decimal.toString(16);
+            demo4.innerHTML = decimal.toString(2);
+
+            /* CRIA EXPLOSÃO
+             basicamente eu tô criando uma div do "nada" via JS*/
+            let explosao = document.createElement("div"); /*Document em resumo adiciona as coisas no html tlgd? Mas não substitui*/
+
+            /* aqui eu aplico a classe que já tem o estilo e animação no CSS*/
+            explosao.classList.add("explosao");
+
+            /* POSIÇÃO DA EXPLOSÃO
+             pego o meio da tela (é o window.innerWidth / 2)
+             e jogo um valor aleatório pra não ficar sempre no mesmo lugar com o math.random *100 e diminuo em 150 para não distanciar mtt*/
+            explosao.style.left = (window.innerWidth / 2 + (Math.random() * 100 - 50)) + "px";
+            explosao.style.top = (window.innerHeight / 2 + (Math.random() * 100 - 50)) + "px";
+
+            /* aqui eu coloco a div dentro do body (senão ela nem aparece)*/
+            document.body.appendChild(explosao);
+
+            /*REMOVE A EXPLOSÃO
+            isso aqui é BEMMMMMMMMMMM importante, senão vai acumulando div invisível para sempre e ai é complicado né? Desempenho vai pras cucuias */
+            setTimeout(() => {
+                explosao.remove();
+            }, 600); // 600ms = tempo da animação no CSS
+        }
+    </script>
+</body>
+
+</html>
