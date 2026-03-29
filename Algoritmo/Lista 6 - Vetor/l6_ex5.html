@@ -1,0 +1,55 @@
+<!-- 5. Painel de Favoritos: Seus Filmes em Destaque
+Crie um programa o qual: 
+a) Usuário cadastre os nomes de seus filmes favoritos e adiciona cada um ao clicar em "Cadastrar Filme";
+
+b) Na medida em que vai cadastrando, deve ser exibido ou atualizado um "painel" como neste exemplo: 
+
+  Seu filme favorito: Donnie Darko
+
+  Seu 3º filme favorito: A era do gelo 1 
+
+  Total de filmes cadastrados: 5 
+
+Obs: no "3º filme", caso não tenham sido cadastrados ainda 3 filmes, exibir "Ainda não existe". 
+
+Obs: o "Filme favorito" é o primeiro cadastrado. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="cadFilme">
+    <button onclick="analisar()">Cadastrar Filme</button>
+    <div id="msg"></div>
+</body>
+
+</html>
+<script>
+    let filmes = [];
+    function analisar() {
+        let valor = cadFilme.value;
+        let vazio = '';
+        filmes.push(valor);
+
+        if (!filmes[2]) {
+            vazio = 'Ainda não existe'
+        } else {
+            vazio = filmes[2]
+        }
+
+        msg.innerHTML =
+            `
+                Seu filme favorito: ${filmes[0]}
+                    <br>
+                Seu 3º filme favorito: ${vazio} 
+                    <br>
+                Total de filmes cadastrados: ${filmes.length} 
+        `
+    }
+</script>

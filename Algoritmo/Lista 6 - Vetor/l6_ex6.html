@@ -1,0 +1,31 @@
+<!-- 6. Lista Viva de Filmes Favoritos
+Crie um programa o qual:
+
+a) O usuário informa os nomes dos filmes que mais gosta e clica em "Cadastrar"; 
+b) Na medida em que vai cadastrando, os filmes vão aparecendo um abaixo do outro, abaixo do botão.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira um dos seus filmes favoritos
+    <input type="text" id="filmesFavoritos">
+    <button onclick="analisar()">Cadastrar</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    filmes = [];
+    function analisar() {
+        let valor = filmesFavoritos.value;
+        filmes.push(valor);
+        formatado = filmes.toString();
+        formatado = formatado.replaceAll(',','<br>')
+        msg.innerHTML = formatado
+    }
+</script>

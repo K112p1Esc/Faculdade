@@ -1,0 +1,35 @@
+<!-- 7. Filmes em Cores: Azul e Vermelho Alternados
+Crie um programa o qual:
+a) O usuário informa os nomes dos filmes que mais gosta e clica em "Cadastrar"; 
+b) Na medida em que vai cadastrando, os filmes vão aparecendo um abaixo do outro, abaixo do botão, só que aparecem na cor azul, depois vermelho, depois azul, depois vermelho, e assim por diante ...   -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira um dos seus filmes favoritos
+    <input type="text" id="filmesFavoritos">
+    <button onclick="analisar()">Cadastrar</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    filmes = [];
+    function analisar() {
+        let valor = filmesFavoritos.value;
+        if (filmes.length == 0 || filmes.length%2==0){
+            valor = `<span style="color:blue;">${valor}</span><br>`
+        }else {
+            valor = `<span style="color:red;">${valor}</span><br>`
+        }
+        filmes.push(valor);
+        let formatado = filmes.toString()
+        formatado = formatado.replaceAll(',','')
+        msg.innerHTML = formatado;
+    }
+</script>

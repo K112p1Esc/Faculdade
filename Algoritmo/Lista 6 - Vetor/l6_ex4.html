@@ -1,0 +1,53 @@
+<!-- 4. Top Filmes Favoritos: Do Mais Amado ao Menos
+Crie um programa o qual:
+
+a) O usuário informa os nomes dos filmes que mais gosta, começando pelo seu favorito e depois o segundo que mais gosta e assim por diante. 
+
+b) Para cadastrar cada filme, ele clica em "Cadastrar filme";
+
+c) Crie um botão "Ver Favoritos" que, ao ser clicado, exibe os filmes favoritos;
+
+d) Exiba também, abaixo de tudo, uma frase assim:  "Total: X";
+
+d.1) Após a frase acima, mostre as seguintes frases: 
+
+ O que filme que mais gosta é A.
+
+ E desses, o que menos gosta é B 
+
+  Obs: "A" é o primeiro filme cadastrado e "B" o último. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira seu Filme Favorito
+    <input type="text" id="filmeFavorito">
+    <br><br>
+    <button onclick="cad()">Cadastrar Filme</button>
+    <button onclick="favorito()">Ver Favoritos</button>
+    <div id="msg"></div>
+</body>
+
+</html>
+
+<script>
+    let filmes = [];
+    function cad() {
+        valor = filmeFavorito.value;
+        filmes.push(valor);
+    }
+
+    function favorito() {
+        valor = filmes.toString();
+        valor = valor.replaceAll(',',', ');
+        msg.innerHTML = `${valor}<br>Total:${filmes.length}<br>O Filme que mais gosta é ${filmes[0]}<br>O Filme que menos gosta é ${filmes[filmes.length-1]}`;
+
+    }
+</script>
