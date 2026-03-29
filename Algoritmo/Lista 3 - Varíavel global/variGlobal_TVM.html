@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantia de dias em operação:<input type="text" id="qntDia">
+    <button onclick="processoDia()">Processar Dias</button>
+    <br>
+    <br>
+    <button onclick="stop()">Stop Operação</button>
+    <button onclick="reinicio()">Reiniciar Processo</button>
+    <div id="exibir"></div>
+</body>
+</html>
+<script>
+    let saldoTVM = 1000;
+    function processoDia() {
+        let dias = Number(qntDia.value)
+        let antigoTVM = saldoTVM;
+        saldoTVM = saldoTVM-dias*24;
+
+        exibir.innerHTML = exibir.innerHTML+`O TVM anterior era de ${antigoTVM} horas e após ${dias} 
+        dias de operação o TVM passou para ${saldoTVM} horas <br>`
+    }
+    function stop() {
+        let antigoTVM = saldoTVM;
+        saldoTVM = saldoTVM - 100;
+
+        exibir.innerHTML = exibir.innerHTML + `O TVM anterior era de ${antigoTVM} horas, 
+        após o Stop de operação o TVM passou para ${saldoTVM} horas <br>`;
+    }
+    function reinicio() {
+        let antigoTVM = saldoTVM;
+        saldoTVM = 1000;
+
+        exibir.innerHTML = `Ainda existia  ${antigoTVM} horas, com o reinicio do processo
+        , o TVM passou para 1000 horas. <br>`
+    }
+</script>

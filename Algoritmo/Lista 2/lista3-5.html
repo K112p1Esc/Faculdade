@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 5</title>
+</head>
+<body>
+
+Qual seu ki base?
+<input type="text" id="ki">
+<br>
+
+<button onclick="ssj()">SSJ</button>
+<button onclick="ssj2()">SSJ2</button>
+<button onclick="ssj3()">SSJ3</button>
+
+<div id="exibir5"></div>
+
+<script>
+function ssj() {
+  n5 = ki.value * 50;
+  exibir5.innerHTML =
+    "Após se transformar em Super Sayajin, o ki desse Saiyajin passa a ser de " +
+    n5 +
+    "BP";
+}
+function ssj2() {
+  n5 = ki.value * 100;
+  exibir5.innerHTML =
+    "Após se transformar em Super Sayajin, o ki desse Saiyajin passa a ser de " +
+    n5 +
+    "BP";
+}
+function ssj3() {
+  n5 = ki.value * 200;
+  exibir5.innerHTML =
+    "Após se transformar em Super Sayajin, o ki desse Saiyajin passa a ser de " +
+    n5 +
+    "BP";
+}
+</script>
+
+</body>
+</html>

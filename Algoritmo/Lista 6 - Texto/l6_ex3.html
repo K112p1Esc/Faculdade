@@ -1,0 +1,51 @@
+<!-- 3. Primeira e Última letra
+
+Crie um programa que:  
+
+a) Solicite uma frase ao usuário.  
+
+b) Solicite uma palavra ao usuário.  
+
+c) Ao clicar num botão "Analisar Frase": 
+
+   c1) Caso a frase comece e termine com a palavra informada, exiba: "A frase começa e termina com ZZZ!", sendo ZZZ a palavra informada.
+
+   c2) Caso a frase apenas comece com a palavra informada, exiba: "A frase começa com ZZZ!", sendo ZZZ a palavra informada.
+
+   c3) Caso a frase apenas termine com a palavra informada, exiba: "A frase termina com ZZZ!", sendo ZZZ a palavra informada.
+
+   c4) Caso a frase não comece nem termine com a palavra informada, exiba: "A frase não começa e nem termina com ZZZ!", sendo ZZZ a palavra informada..
+
+OBS: utilize .startsWith() e .endsWith() para validar se o texto começa ou termina com algum valor específico. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira a frase<input type="text" id="fraseUsuario">
+    Insira a palavra<input type="text" id="palavraUsuario">
+    <button onclick="analisar()">Analisar a Frase</button>
+    <div id="msg"></div>
+</body>
+</html>
+<script>
+    function analisar() {
+        let palavra = palavraUsuario.value;
+        let fraseStart= fraseUsuario.value.startsWith(palavra);
+        let fraseEnd = fraseUsuario.value.endsWith(palavra);
+
+        if (fraseStart && fraseEnd){
+            msg.innerHTML = `A frase começa e termina com ${palavra}`;
+        }else if(fraseStart) {
+            msg.innerHTML = `A frase começa com ${palavra}`;
+        }else if(fraseEnd){
+            msg.innerHTML = `A frase termina com ${palavra}`;
+        }else {
+            msg.innerHTML = `A frase não começa e nem termina com ${palavra}`;
+        }
+    }
+</script>

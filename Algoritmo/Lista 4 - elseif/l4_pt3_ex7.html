@@ -1,0 +1,60 @@
+<!-- Uma nutricionista precisa ajudar seus pacientes em com suas dietas. 
+Ajude-a criando um programa o qual: 
+
+a) Pergunte quantos pães franceses o usuário tem comido por dia; 
+
+b) Pergunte quantos pacotes de bolacha recheada o usuário tem comido por dia; 
+
+c) Pergunte quantos copos de achocolatado o usuário tem tomado por dia; 
+
+d) Ao clicar em "Verificar calorias", calcule quantas calorias o usuário tem consumido 
+com base nas 3 informações. Considere que um pão francês tem 50 calorias, 
+um pacote de bolacha, 80 e um copo de achocolatado, 70. 
+
+e) Após fazer o cálculo, exiba uma dessas frases, abaixo do botão: 
+
+   "Parabéns, vai ficar em forma!", caso as calorias sejam menores do que 200. 
+
+   "Cuidado, vai ficar menos saudável !" caso as calorias sejam entre 200 e 400. 
+
+   "Alerta crítico de saúde !!!", caso as calorias sejam mais de 400. 
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    Insira quantos pãos franceses são comidos por dia
+    <input type="text" id="qtdPao">
+    <br>
+    Insira quanta bolacha recheada é comida por dia
+    <input type="text" id="qtdBolacha">
+    <br>
+    Insira quantos copos de achocolatado são bebidos por dia
+    <input type="text" id="qtdAchocolatado">
+    <button onclick="calorias()">Verificar Calorias</button>
+    <div id="msg"></div>
+ </body>
+ </html>
+
+ <script>
+    function calorias() {
+        let pao = Number(qtdPao.value);
+        let bolacha = Number(qtdBolacha.value);
+        let achocolatado = Number(qtdAchocolatado.value);
+
+        let caloTotal = pao*50+achocolatado*70+bolacha*80;
+
+        if (caloTotal < 200){
+            msg.innerHTML = 'Parabéns vai ficar em forma!'
+        }else if (caloTotal < 401){
+            msg.innerHTML = 'Cuidado, vai ficar menos saúdavel!'
+        }else {
+            msg.innerHTML = 'Alerta crítico de saúde!!!'
+        }
+    }
+ </script>

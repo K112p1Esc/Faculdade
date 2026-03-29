@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 1</title>
+</head>
+<body>
+
+Qual a sua idade?
+<input type="text" id="idade">
+<br><br>
+
+<button onclick="homemAposenta()">Aposentadoria Homem</button>
+<button onclick="mulherAposenta()">Aposentadoria Mulher</button>
+
+<div id="exibir1"></div>
+
+<script>
+function homemAposenta() {
+  if (idade.value >= 70) {
+    exibir1.innerHTML = "Você já deveria ter se aposentado.";
+  } else {
+    n1 = 70 - idade.value;
+    exibir1.innerHTML =
+      "O tempo que falta para se aposentar é: " + n1 + " anos";
+  }
+}
+function mulherAposenta() {
+  if (idade.value >= 60) {
+    exibir1.innerHTML = "Você já deveria ter se aposentado.";
+  } else {
+    n1 = 60 - idade.value;
+    exibir1.innerHTML =
+      "O tempo que falta para se aposentar é: " + n1 + " anos";
+  }
+}
+</script>
+
+</body>
+</html>

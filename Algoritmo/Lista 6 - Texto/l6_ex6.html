@@ -1,0 +1,50 @@
+<!-- 6. Observador de Índices
+
+Crie um programa o qual: 
+
+a) Solicite uma frase qualquer ao usuário 
+
+b) Solicite o número de qual letra o usuário deseja ver (por exemplo, 3ª letra, 5ª letra)
+
+c) Enquanto ele digita, abaixo deve aparecer uma frase como esta: 
+
+    A primeira letra é: AA
+
+    A XXª letra é: BB
+
+    A última letra é: CC
+
+Onde XX é a posição informada pelo usuário, AA é a primeira letra da frase, BB é a letra da frase que está na posição informada e CC a letra final da frase. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira uma frase <input type="text" id="fraseUsu" oninput="analisar()">
+    <br>
+    Insira o número da letra que deseja ver <input type="text" id="numUsu" oninput="analisar()">
+    <div id="msg"></div>
+</body>
+
+</html>
+
+<script>
+    function analisar() {
+        let frase = fraseUsu.value;
+        let numero = numUsu.value;
+        let ultima = frase.length;
+
+        msg.innerHTML =
+            `
+            A primeira letra é: ${frase[0]} <br>
+            A ${numero}ª letra é: ${frase[numero]} <br>
+            A última letra é: ${frase[ultima-1]}
+        `
+    }
+</script>

@@ -1,0 +1,42 @@
+<!-- 22. Análise de temperatura
+
+Crie um programa o qual: 
+
+a) Solicita a temperatura do ambiente 
+
+b) Ao clicar em "Verificar clima", determine se o clima está: 
+
+    Apropriada p/ conservar alimento - Caso a temperatura for menor que 10 
+
+    Inapropriada p/ conservar alimento - Caso a temperatura for a partir de 10 
+
+c) Em caso de temperatura apropriada, exiba a figura de um alimento em 
+bom estado. Caso contrário, exiba a imagem de um alimento estragado  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Temperatura do ambiente:
+    <input type="text" id="tempAmbiente">
+    <br>
+    <button onclick="verificar()">Verificar clima</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+    function verificar() {
+        let temp = Number(tempAmbiente.value);
+
+        if (temp < 10){
+            exibir.innerHTML = `<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrJa5Q2BbIxEa1luDTk8pwnf1jFPTg-ZuALQ&s' />`
+        }else {
+            exibir.innerHTML = `<img src='https://ojoioeotrigo.com.br/wp-content/uploads/2025/02/macarrao-1024x852.jpg'/>`
+        }
+    }
+</script>

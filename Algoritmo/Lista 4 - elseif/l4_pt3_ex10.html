@@ -1,0 +1,45 @@
+<!-- Crie um programa que avalie se um motorista ultrapassou o limite de velocidade.
+
+a) Pergunte ao usuário a velocidade que ele estava dirigindo (km/h).
+b) Pergunte qual é o limite de velocidade da via (km/h).
+c) Ao clicar em "Verificar", exiba uma das mensagens abaixo:
+
+"Velocidade dentro do limite. Boa direção!", caso a velocidade seja menor 
+ou igual ao limite.
+"Atenção! Excedendo o limite permitido.", caso a velocidade esteja até 20% 
+acima do limite.
+"Multa grave! Velocidade muito acima do permitido.", caso esteja mais de 20% 
+acima do limite. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Qual velocidade está dirigindo
+    <input type="text" id="kmAtual">
+    <br>
+    Qual limite de velocidade
+    <input type="text" id="velocidadeVia">
+    <button onclick="verificar()">verificar</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function verificar() {
+        let km = Number(kmAtual.value);
+        let via = Number(velocidadeVia.value)
+
+        if (km <=via){
+            msg.innerHTML = 'Velocidade dentro do limite. Boa direção!'
+        }else if (km <= via+via*0.2){
+            msg.innerHTML = 'Atenção! Excedendo o limite permitido.'
+        }else {
+            msg.innerHTML = 'Multa grave! Velocidade muito acima do permitido.'
+        }
+    }
+</script>

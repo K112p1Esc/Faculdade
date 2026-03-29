@@ -1,0 +1,48 @@
+<!-- 17. Par ou Impar
+
+Crie um programa no qual receba um número e quando o usuário clicar no botão “Analisar” emita uma das mensagens abaixo:
+
+Se o número for par, emitir na cor vermelha com fundo amarelo “Esse número é PAR”
+
+Se o número for impar, emitir cor azul e em negrito “Esse número é impar” -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira um número
+    <input type="text" id="numeroDec">
+    <br>
+    <button onclick="analisar()">Analisar</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        let numero = Number(numeroDec.value);
+        let resolucao = numero % 2;
+
+        if (resolucao == 0){
+            exibir.innerHTML = 
+            `
+            <div style='color:red;background-color:yellow;'>
+                Esse número é PAR
+            </div>
+            `
+        }else {
+           exibir.innerHTML = 
+            `
+            <div style='color:blue;'>
+                <b>
+                    Esse número é IMPAR
+                </b>
+            </div>
+            `
+        }
+    }
+</script>

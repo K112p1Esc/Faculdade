@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+        <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-family: "Poppins", "Courier New", "Courier", "monospace";
+        background-color: beige;
+      }
+
+      .titulo {
+        margin-bottom: -1%;
+        font-size: 24px;
+      }
+
+      .exercicio {
+        word-spacing: -1px;
+        width: 500px;
+        overflow-wrap: break-word;
+      }
+
+      .exercicio p {
+        margin-top: -10px;
+        text-align: center;
+      }
+
+      input {
+        border-radius: 10px;
+        padding: 4px;
+        width: 280px;
+        box-shadow: 2px 2px 3px 1px;
+        margin-bottom: 5px;
+      }
+
+      button {
+        border-radius: 10px;
+        width: 240px;
+        padding: 10px;
+        background-color: aquamarine;
+        border: none;
+        box-shadow: 2px 2px 3px 1px;
+        transition: all 0.3s ease-in-out;
+        margin-bottom: 20px;
+      }
+
+      button:hover {
+        transform: scale(1.2);
+        background-color: rgb(201, 255, 255);
+      }
+    </style>
+    Primeiro numero
+    <input type="text" id="num1">
+
+    Segundo numero
+    <input type="text" id="num2">
+
+    <button onclick="multiplicar()">Multiplicar</button>
+    <button onclick="dividir()">Dividir</button>
+    <button onclick="subtrair()">Subtrair</button>
+    <button onclick="somar()">Somar</button>
+    <button onclick="exponenciacao()">Exponenciação</button>
+    <button onclick="resto()">Resto</button>
+    <div id="exibir"></div>
+</body>
+
+</html>
+
+<script>
+    function multiplicar() {
+        let n1 = Number(num1.value);
+        let n2 = Number(num2.value);
+        let n3;
+        n3 = n1 * n2;
+        // n3 = n3.toFixed(2);
+        exibir.innerHTML = `A multiplicação de ${n1} por ${n2} é igual a ${n3}`
+    }
+    function dividir() {
+        let n1 = Number(num1.value);
+        let n2 = Number(num2.value);
+        let n3;
+        n3 = n1 / n2;
+        n3 = n3.toFixed(2);
+        exibir.innerHTML = `A divisão de ${n1} por ${n2} é igual a ${n3}`
+    }
+    function subtrair() {
+        let n1 = Number(num1.value);
+        let n2 = Number(num2.value);
+        let n3;
+        n3 = n1 - n2;
+        n3 = n3.toFixed(2);
+        exibir.innerHTML = `A subtração de ${n1} por ${n2} é igual a ${n3}`
+    }
+    function somar() {
+        let n1 = Number(num1.value);
+        let n2 = Number(num2.value); let n3;
+        n3 = n1 + n2;
+        n3 = n3.toFixed(2);
+        exibir.innerHTML = `A soma de ${n1} por ${n2} é igual a ${n3}`
+    }
+    function exponenciacao() {
+        let n1 = Number(num1.value);
+        let n2 = Number(num2.value);
+        let n3;
+        n3 = n1 ** n2;
+        n3 = n3.toFixed(2);
+        exibir.innerHTML = `A exponenciação de ${n1} por ${n2} é igual a ${n3}`
+    }
+    function resto() {
+        let n1 = Number(num1.value);
+        let n2 = Number(num2.value);
+        let n3;
+        n3 = n1 % n2;
+        n3 = n3.toFixed(2);
+        exibir.innerHTML = `O resto de ${n1} por ${n2} é igual a ${n3}`
+    }
+</script>

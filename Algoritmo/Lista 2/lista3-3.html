@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 3</title>
+</head>
+<body>
+
+Valor da Passagem?
+<input type="text" id="valorPassagem">
+Quantidade de Viagens?
+<input type="text" id="qtdViagens">
+
+<br><br>
+<button onclick="verEconomia()">Ver Economia</button>
+
+<div id="exibir3"></div>
+
+<script>
+function verEconomia() {
+  n3 = (valorPassagem.value / 2) * qtdViagens.value;
+  exibir3.innerHTML = "Você economizará R$" + n3 + " por mês";
+}
+</script>
+
+</body>
+</html>

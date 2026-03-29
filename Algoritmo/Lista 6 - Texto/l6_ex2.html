@@ -1,0 +1,40 @@
+<!-- 
+2. Detector de Palavras
+
+Crie um programa que:  
+
+a) Solicite uma frase ao usuário.  
+
+b) Ao clicar num botão "Analisar Frase":  
+
+   b1) Caso a frase possua as palavras "teste", "abc" ou "spam", exiba "Frase Inválida", na cor vermelha.
+
+   b2) Caso contrário, exiba "Frase Válida!" em verde.
+
+OBS: utilize .includes() para verificar se a frase possui o trecho desejado. -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira uma Frase
+    <input type="text" id="fraseUsuario">
+    <button onclick="analisar()">Analisar Frase</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        let frase = fraseUsuario.value.includes('teste' || 'abc' || 'spam');
+        if(frase) {
+            msg.innerHTML = `<span style='color:red;'>Frase inválida!</span>`
+        }else {
+            msg.innerHTML = `<span style='color:green;'>Frase válida!</span>`
+        }
+    }
+</script>

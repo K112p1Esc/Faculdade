@@ -1,0 +1,40 @@
+<!-- 11. Análise CNH  
+
+Criar um programa que auxilie uma Autoescola a identificar possíveis novos alunos. 
+
+a) Solicite o nome e a idade de uma pessoa 
+
+b) Ao clicar no botão "Avaliar aluno", se a pessoa tiver 18 anos ou mais emita a mensagem "NOME, 
+vamos tirar a CNH?", mas caso contrário, emita a mensagem "NOME, vai jogar PlayStation!"  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Qual seu nome?
+    <input type="text" id="nomePessoa">
+    <br>
+    Qual sua idade?
+    <input type="text" id="idadePessoa">
+    <br>
+    <button onclick = 'avaliar()'>Avaliar Aluno</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+    function avaliar() {
+        let nome = nomePessoa.value;
+        let idade = Number(idadePessoa.value);
+
+        if (idade>=18){
+            exibir.innerHTML = `${nome}, vamos tirar a CNH?`
+        }else {
+            exibir.innerHTML = `${nome}, vai jogar playstation!`
+        }
+    }
+</script>

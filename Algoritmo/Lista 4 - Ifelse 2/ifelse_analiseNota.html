@@ -1,0 +1,43 @@
+<!-- 15. Análise da média de notas
+
+Crie um programa o qual:  
+
+a) Solicite 2 notas de um aluno  
+
+b) Ao clicar em "Verificar situação", calcule sua média e...  
+
+c) Caso a média seja a partir de 6, exiba um alert com "Parabéns, aprovado!"  
+
+d) Caso a média seja menor que 6, exiba um alert com "Tente outra vez..."   -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira a primeira nota:
+    <input type="text" id="nota1">
+    <br>
+    Insira a segunda nota:
+    <input type="text" id="nota2">
+    <br>
+    <button onclick="media()">Verificar situação</button>
+</body>
+</html>
+
+<script>
+    function media() {
+        let n1 = Number(nota1.value)
+        let n2 = Number(nota2.value)
+        let media = (n1+n2)/2
+
+        if (media < 6) {
+            alert('Tente outra vez...')
+        }else{
+            alert('Parabéns, aprovado!')
+        }
+    }
+</script>

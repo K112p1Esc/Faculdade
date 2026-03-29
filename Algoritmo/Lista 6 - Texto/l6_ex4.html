@@ -1,0 +1,51 @@
+<!-- 4. Comparador de Palavras
+
+Crie um programa que:  
+
+a) Solicite duas palavras ao usuário.  
+
+b) Ao clicar num botão "Analisar Palavras": 
+
+   b1) Caso as palavras sejam exatamente iguais em conteúdo e digitação (letras maiúsculas e minúsculas), exiba "As palavras AAA e BBB são exatamente iguais!".
+
+   b2) Caso a digitação das palavras não seja exatamente igual, verifique se o conteúdo das palavras é igual, para exibir "As palavras AAA e BBB possuem o mesmo conteúdo, mas a digitação é diferente (maiúsculas e minúsculas)".
+
+   b3) Caso a digitação das palavras não seja igual e nem o conteúdo, exiba "As palavras AAA e BBB são completamente diferentes!".
+
+OBS: utilize .toLowerCase() e .toUpperCase() para manipular os textos em um tipo padrão de digitação.
+
+OBS2: exemplo de funcionamento com base nas inserções:
+
+ "morango" e "morango": deve exibir a primeira mensagem (b1)
+"morango" e "MorAngO", deve exibir a segunda mensagem (b2)
+"uva" e "morango": deve exibir a terceira mensagem (b3) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira uma palavra <input type="text" id="inpt1">
+    Insira uma palavra <input type="text" id="inpt2">
+    <button onclick="analisar()">Analisar Palavras</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        let frase1 = inpt1.value;
+        let frase2 = inpt2.value;
+        if (frase1 == frase2){
+            msg.innerHTML = `As palavras ${frase1} e ${frase2} são exatamente iguais`;
+        }else if(frase1.toLowerCase() == frase2.toLowerCase()) {
+            msg.innerHTML = `As palavras ${frase1} e ${frase2} possuem o mesmo conteúdo, 
+            mas a digitação é diferente (maiúsculas e minúsculas)`
+        }else {
+            msg.innerHTML = `As palavras ${frase1} e ${frase2} são completamente diferentes!`   
+        }
+    }
+</script>

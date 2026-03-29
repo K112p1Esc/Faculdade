@@ -1,0 +1,52 @@
+<!-- Crie um programa que ajude a exibir uma imagem representando o humor do
+  usuário, conforme a escolha feita.
+
+a) Solicite ao usuário que selecione como ele está se sentindo hoje (Opções: 
+"Feliz", "Triste", "Bravo", "Surpreso", "Cansado").
+b) Ao clicar no botão "Mostrar Humor", exiba uma imagem correspondente abaixo do botão:
+
+"Feliz" → Exibir imagem de um emoji sorridente 😊
+"Triste" → Exibir imagem de um emoji chorando 😢
+"Bravo" → Exibir imagem de um emoji irritado 😡
+"Surpreso" → Exibir imagem de um emoji surpreso 😲
+"Cansado" → Exibir imagem de um emoji sonolento 😴 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Selecione o humor
+    <select id="humor">
+        <option value="Feliz">Feliz</option>
+        <option value="Triste">Triste</option>
+        <option value="Bravo">Bravo</option>
+        <option value="Surpreso">Surpreso</option>
+        <option value="Cansado">Cansado</option>
+    </select>
+    <br>
+    <button onclick="humorAtual()">mostrar Humor</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function humorAtual() {
+        let estado = humor.value;
+
+        if(estado =='Feliz') {
+            msg.innerHTML = '😊'
+        }else if (estado =='Triste'){
+            msg.innerHTML = '😢'
+        }else if (estado =='Bravo'){
+            msg.innerHTML = '😡'
+        }else if (estado =='Surpreso'){
+            msg.innerHTML = '😲'
+        }else {
+            msg.innerHTML = '😴'
+        }
+    }
+</script>

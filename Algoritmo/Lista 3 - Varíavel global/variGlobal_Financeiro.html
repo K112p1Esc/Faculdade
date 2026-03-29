@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Valor da Peça: <input type="text" id="peca">
+    Valor da serviços: <input type="text" id="servico">
+    Percentual de imposto: <input type="text" id="percentual">
+    Total de gastos: <input type="text" id="gasto">
+    <button onclick="realizar()">Acumular</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+    let mes = 0;
+    let acum = 0;
+    function realizar() {
+        let valorP = Number(peca.value);
+        let valorR = Number(servico.value);
+        let imposto = Number(percentual.value);
+        let gastos = Number(gasto.value);
+
+        let total = valorP+valorR;
+        let totalImp = total * (imposto/100);
+        let saldoFin = total - totalImp - gastos;
+        mes++;
+        acum = acum+saldoFin;
+
+        exibir.innerHTML = 
+        exibir.innerHTML + `
+            Resumo do mês ${mes}
+            <br>
+            Total recebido = R$ ${total}
+            <br>
+            Valor do Imposto = R$ ${totalImp}
+            <br>
+            Saldo Final de R$ ${saldoFin}
+            <br>
+            Acumulado até o Momento = R$ ${acum}
+            <br>
+            <br>
+        `
+    }
+</script>

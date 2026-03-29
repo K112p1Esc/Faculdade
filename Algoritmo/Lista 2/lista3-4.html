@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 4</title>
+</head>
+<body>
+
+Qual sua Altura?
+<input type="text" id="altura">
+Qual seu peso?
+<input type="text" id="peso">
+
+<br><br>
+<button onclick="imc()">Calcular IMC</button>
+
+<div id="exibir4"></div>
+
+<script>
+function imc() {
+  n4 = peso.value / (altura.value * altura.value);
+  n4 = n4.toFixed(2);
+  exibir4.innerHTML = "Seu IMC é: " + n4;
+}
+</script>
+
+</body>
+</html>

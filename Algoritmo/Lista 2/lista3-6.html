@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 6</title>
+</head>
+<body>
+
+Qual a quantidade de B-Dollars?
+<input type="text" id="qtdBDollar">
+Qual a cotação?
+<input type="text" id="cotacao">
+
+<br><br>
+<button onclick="cambio()">calcular Câmbio</button>
+
+<div id="exibir6"></div>
+
+<script>
+function cambio() {
+  n6 = qtdBDollar.value * cotacao.value - 5.5;
+  n6 = n6.toFixed(2);
+  exibir6.innerHTML =
+    "Ao converter seus B-Dollars, o dinheiro disponível será: R$" + n6;
+}
+</script>
+
+</body>
+</html>

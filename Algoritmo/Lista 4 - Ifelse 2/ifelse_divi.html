@@ -1,0 +1,49 @@
+<!-- 18. Teste de divisibilidade
+
+Crie um programa no qual:
+
+a)      Receba dois números
+
+b)     Tenha o botão “Testar”, verifique se o primeiro número é divisível pelo segundo número. OBS. 
+Um número é divisível por outro quando o resto da divisão entre eles é zero.
+
+c)      Se for divisível mostrar uma imagem com um “positivo”, caso contrário, mostrar uma imagem “negativo”. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    Insira o primeiro Número: <input type="text" id="num1">
+    <br>
+    Insira o segudno Número: <input type="text" id="num2">
+    <br>
+    <button onclick="testar()">Testar</button>
+    <div id="exibir"></div>
+<body>
+
+</body>
+
+</html>
+<script>
+    function testar() {
+        let n1 = Number(num1.value)
+        let n2 = Number(num2.value)
+        let teste = n1 % n2;
+
+        if (teste == 0){
+            exibir.innerHTML =
+            `
+            <img width: 300px height:300px src='https://img.freepik.com/vetores-premium/emoticon-feminino-com-o-polegar-para-cima_1303870-63.jpg?semt=ais_hybrid&w=740&q=80'/>
+            `
+        }else {
+            exibir.innerHTML =
+            `
+            <img width: 300px height:300px src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGxmrsucvv6P_7KENmK97LN3B9GKdv23-PKA&s'/>
+            `
+        }
+    }
+</script>

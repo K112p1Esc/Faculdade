@@ -1,0 +1,52 @@
+<!-- Crie um programa que receba um número maior que zero, se não for maior 
+que zero dê um alerta "Digite um número maior que zero" e não faça mais nada.
+
+Ao clicar no botão "Múltiplo de 5" analise o resto da divisão do número informado 
+por 5 e emita uma das mensagens abaixo:
+
+·         Se o resto for 0 - "Perfeito, esse número é múltiplo de cinco"
+
+·         Se o resto for 1 - "Vich, sobrou um"
+
+·         Se o resto for 2 - "Para esse o resto é dois"
+
+·         Se o resto for 3 - "Com mais dois daria certo"
+
+·         Se o resto for 4 - "Só faltou 1 para ser múltiplo de 5" -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    insira um número
+    <input type="text" id="numeroCinco">
+    <button onclick="calculo()">Multiplo de 5</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function calculo() {
+        let num = Number(numeroCinco.value);
+        let num2 = num%5;
+        if (num > 0){
+            if (num2 == 0){
+                msg.innerHTML = 'Perfeito, esse número é múltiplo de cinco';
+            }else if(num2 == 1) {
+                msg.innerHTML = 'Vich, sobrou um'
+            }else if(num2 == 2) {
+                msg.innerHTML = 'Para esse o resto é dois'
+            }else if(num2 == 3) {
+                msg.innerHTML = 'Com mais dois daria certo'
+            }else {
+                msg.innerHTML = 'Só faltou 1 para ser múltiplo de 5"'
+            }
+        }else {
+            alert('Digite um número maior que zero  ')
+        }
+    }
+</script>

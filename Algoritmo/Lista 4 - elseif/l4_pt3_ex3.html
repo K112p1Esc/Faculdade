@@ -1,0 +1,43 @@
+<!-- Para o ser humano, a temperatura é... 
+
+Congelante (até menos de 14ºC) 
+
+Com Frio (entre 14ºC e 21ºC) 
+
+Confortável (mais de 21ºC até 24ºC) 
+
+Com Calor (mais de 24ºC até 31ºC) 
+
+Calor escaldante (mais de 31ºC) 
+
+Crie um programa que, ao ler uma temperatura, exiba uma dessas situações acima.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe temperatura
+    <input type="text" id="temperatura">
+    <button onclick="analisar()">Analisar</button>
+    <div id="msg"></div>
+</body>
+</html>
+<script>
+    let temp = Number(temperatura.value);
+
+    if (temp < 14) {
+        msg.innerHTML = 'congelante'
+    }else if (temp <=21) {
+        msg.innerHTML = 'com frio'
+    }else if (temp <=24){
+        msg.innerHTML = 'Confortável '
+    }else if (temp <=31) {
+        msg.innerHTML = 'Com Calor'
+    }else {
+        msg.innerHTML = 'Calor Escaldante'
+    }
+</script>

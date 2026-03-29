@@ -1,0 +1,43 @@
+<!-- 1. Contador de Caracteres
+
+Crie um programa que:  
+
+a) Solicite uma frase ao usuário.  
+
+b) Ao clicar num botão "Analisar Frase":  
+
+   b1) Exiba "Tamanho da Frase: 99", sendo 99 a quantidade de caracteres na frase. 
+
+   b2) Caso a frase possua menos de 10 caracteres, exiba "Frase Curta!" em vermelho, abaixo da frase anterior. 
+
+   b3) Caso contrário, exiba "Frase longa!" em azul.
+
+OBS: utilize .length para obter a quantidade de caracteres de uma string (texto). -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira uma frase:
+    <input type="text" id="frase">
+    <button onclick="analise()">Analisar Frase</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function analise() {
+        let fra = frase.value;
+        let qtd = fra.length;
+
+        if (qtd < 10){
+            msg.innerHTML = `Tamanho da frase:${qtd}<br><span style='color:red;'>Frase curta!</span>`
+        }else {
+            msg.innerHTML = `Tamanho da frase:${qtd}<br><span style='color:blue;'>Frase longa!</span>`
+        }
+    }
+</script>

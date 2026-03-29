@@ -1,0 +1,42 @@
+<!-- 4. Autenticação Segura: Acesso ao Banco Melete
+Um novo banco eletrônico, o Banco Melete possui um sistema diferenciado de autenticação no qual pede um login, uma senha e uma 3ª informação pessoal, que pode ser o ano de nascimento ou o nome do animal de estimação do cliente. Crie um protótipo que simule a autenticação de um determinado cliente, o qual: 
+
+a) Solicite o login, a senha e a informação pessoal ao usuário 
+
+b) Ao clicar num botão "Autenticar", exiba uma dessas frases abaixo do botão: 
+
+     b.1.) "Usuário autenticado", caso o login seja "ana", a senha "braga" e a informação pessoal for ou "1949" ou "louro josé" 
+
+     b.2.) "Falha na autenticação", caso as regras de verificação em b.1) falhem  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Login:
+    <input type="text" id="login">
+    senha 
+    <input type="password" id="senha">
+    Pessoal info 
+    <input type="text" id="pessoal">
+    <button onclick="analisar()">Autenticar</button>
+    <div id="msg"></div>
+</body>
+</html>
+<script>
+    function analisar() {
+        let log = login.value;
+        let sen = senha.value;
+        let pess = pessoal.value;
+        
+        if (log == 'Ana' && sen =='braga' && (pess =='1949' || pess =='louro josé')){
+            msg.innerHTML = 'Usuário autenticado';
+        }else {
+            msg.innerHTML = 'Falha na autentificação';
+        }
+    }
+</script>

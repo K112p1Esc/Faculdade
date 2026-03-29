@@ -1,0 +1,61 @@
+<!-- 7. Autenticação Segura com Tentativas Limitadas
+Melhore o exercício 4, de tal forma que: 
+
+a) Sempre que ocorrer uma falha na autenticação, deve aparecer abaixo da frase de "Falha de autenticação" uma outra frase, como esta: 
+
+            Você ainda tem 2 tentativa(s) 
+
+b) A ideia é que o usuário tem 3 tentativas de autenticação. Sempre que errar novamente na autenticação, o "contador" de tentativas reduz em 1 na tela. 
+
+c) Uma vez que se esgotarem as tentativas, deve surgir mais uma frase abaixo, que seria 
+
+     Usuário BLOQUEADO! Procure seu gerente! 
+
+d) Em caso de usuário bloqueado, não adianta nem tentar fazer uma autenticação com as credenciais corretas, que nada mais acontecerá 
+
+e) Caso o usuário autentique com sucesso, sem que tenham sido queimadas as 3 tentativas, a mensagem de autenticação aparece normalmente e a frase com a quantidade de tentativas deve sumir da tela e deve ser "reiniciada" para as próximas falhas.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Login:
+    <input type="text" id="login">
+    senha 
+    <input type="password" id="senha">
+    Pessoal info 
+    <input type="text" id="pessoal">
+    <button onclick="analisar()">Autenticar</button>
+    <div id="msg"></div>
+    <div id="tentativa"></div>
+</body>
+</html>
+<script>
+    let analise = 3;
+    function analisar() {
+        let log = login.value;
+        let sen = senha.value;
+        let pess = pessoal.value;
+        
+        if (analise == 0){
+
+        }else if (log == 'Ana' && sen =='braga' && (pess =='1949' || pess =='louro josé')){
+            msg.innerHTML = 'Usuário autenticado';
+            analise = 3;
+            tentativa.innerHTML = ''
+        }
+        else {
+            analise--;
+            if (analise > 0){
+            msg.innerHTML = 'Falha na autentificação';
+            tentativa.innerHTML = tentativa.innerHTML + `<br>Você ainda tem ${analise} tentativa(s)`
+            }else {
+                tentativa.innerHTML = tentativa.innerHTML + '<br>Usuário BLOQUEADO! Procure seu gerente!'
+            }
+        }
+    }
+</script>

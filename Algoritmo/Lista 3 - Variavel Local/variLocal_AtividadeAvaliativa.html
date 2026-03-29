@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Insira o seu Nome:
+    <input type="text" id="inptNome" />
+    <br />
+    <br />
+    Insira a primeira nota:
+    <input type="text" id="inptNota1" />
+    &nbsp;&nbsp;&nbsp; Insira a segunda nota:
+    <input type="text" id="inptNota2" />
+    &nbsp;&nbsp;&nbsp; Insira a terceira nota:
+    <input type="text" id="inptNota3" />
+    <br />
+    <button onclick="mostrarNota()">Mostrar Nota</button>
+    <div id="exibir"></div>
+  </body>
+</html>
+
+<script>
+  function mostrarNota() {
+    let nome = inptNome.value;
+    let nota1 = Number(inptNota1.value);
+    let nota2 = Number(inptNota2.value);
+    let nota3 = Number(inptNota3.value);
+    let soma;
+    let media;
+
+    soma = nota1 + nota2 + nota3;
+    media = soma / 3;
+
+    exibir.innerHTML = `
+        A soma das suas três atividades é: ${soma}         
+        <br>
+        ${nome}, a média das suas atividades é: ${media} 
+    `;
+  }
+</script>

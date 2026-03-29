@@ -1,0 +1,54 @@
+<!-- 20. Análise de economia
+
+Crie um programa o qual: 
+
+a) Pergunte ao usuário qual sua meta de economia 
+
+b) Pergunte ao usuário quanto tem guardado 
+
+c) Ao clicar em "Analisar economia"... 
+
+d) Caso a meta tenha sido alcançada ou ultrapassada, exibir, abaixo do botão, a frase Parabéns, meta alcançada!. 
+Caso a meta tenha sido ultrapassada, exibir também a frase Meta ultrapassada em X (onde X é a 
+diferença entre a economia e a meta) 
+
+e) Caso a meta ainda não tenha sido alcançada, exibir, abaixo do botão, a frase Força! 
+Ainda em busca da meta! Falta X (onde X é a diferença entre a meta e a economia) 
+
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> 
+<body>
+    Insira sua meta de economia:
+    <input type="text" id="metaEconomia">
+    <br>
+    Quanto tem guardado:
+    <input type="text" id="guardadoEconomia">
+    <br>
+    <button onclick="analisar()">Analisar Economia</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        let meta = Number(metaEconomia.value);
+        let guardado = Number(guardadoEconomia.value);
+
+        if (meta > guardado){
+            exibir.innerHTML = `Força! Ainda em busca da meta! Falta ${meta-guardado}`
+        }else {
+            if (meta == guardado){
+                exibir.innerHTML = `Parabéns! Meta alcançada!`
+            }else {
+                exibir.innerHTML = `Parabéns! Meta alcançada! Meta ultrapassada em ${guardado-meta}`
+            }
+        }
+    }
+</script>

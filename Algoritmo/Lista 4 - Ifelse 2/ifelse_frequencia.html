@@ -1,0 +1,39 @@
+<!-- 21. Análise de frequência do aluno
+
+Crie um programa o qual: 
+
+a) Solicita a frequência do aluno 
+
+b) Ao clicar em "Analisar frequência", deve aparecer, abaixo dele: 
+
+    A imagem de um turista, caso a frequência for menor que 50 OU 
+
+    A imagem de um aluno estudioso, caso a frequência for a partir de 50  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Qual sua frequência?
+    <input type="text" id="alunoFreq">
+    <br>
+    <button onclick="analisar()">Analisar Frequência</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        let freq = Number(alunoFreq.value);
+
+        if (freq < 50){
+            exibir.innerHTML = `<img src='https://img.freepik.com/fotos-gratis/turista-apontando-para-cima_1368-7017.jpg?semt=ais_hybrid&w=740&q=80' />`
+        }else {
+            exibir.innerHTML = `<img src='https://st2.depositphotos.com/1752627/6892/i/950/depositphotos_68925511-stock-photo-schoolboy-doing-homework.jpg' />`
+        }
+    }
+</script>

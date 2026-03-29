@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-family: 'Poppins', 'Courier New', 'Courier', 'monospace';
+            background-color: beige;
+        }
+
+        .titulo {
+            margin-bottom: -2%;
+            font-size: 24px;
+        }
+
+        .exercicio {
+            word-spacing: -1px;
+            width: 500px;
+            overflow-wrap: break-word;
+        }
+
+        .exercicio p {
+            margin-top: -10px;
+            text-align: center;
+        }
+
+        input {
+            border-radius: 10px;
+            padding: 4px;
+            width: 280px;
+            box-shadow: 2px 2px 3px 1px;
+            margin-bottom: 5px;
+        }
+
+        button {
+            border-radius: 10px;
+            width: 240px;
+            padding: 10px;
+            background-color: aquamarine;
+            border: none;
+            box-shadow: 2px 2px 3px 1px;
+            transition: all 0.3s ease-in-out;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            transform: scale(1.2);
+            background-color: rgb(201, 255, 255);
+        }
+    </style>
+    <div class="titulo">
+        <h2>Exercício 1</h2>
+    </div>
+    <div class="exercicio">
+        <p>Crie um programa que contenha:</p>
+        <p>Um campo para inserir a Cidade Natal</p>
+        <p>Um campo para inserir o Ano de Nascimento</p>
+        <p>Um botão com o texto "Cadastrar"</p>
+        <p>Ao clicar no botão, uma caixa de alerta deve exibir a mensagem:</p>
+        <p>"Você nasceu na cidade de X em Y"</p>
+        <p>(onde X é a cidade informada e Y o ano de nascimento)</p>
+    </div>
+    <div>
+        Cidade Natal:
+        <br>
+        <input type="text" id="cidNatal" placeholder="Cidade Natal...">
+        <br>
+        Ano de Nascimento:
+        <br>
+        <input type="text" id="anoNasc" placeholder="Ano de nascimento...">
+    </div>
+    <br>
+    <div>
+        <button onclick="cadLocalNasc()">Cadastrar</button>
+    </div>
+
+
+
+    <div class="titulo">
+        <h2>Exercício 2</h2>
+    </div>
+    <div class="exercicio">
+        <p>Um campo para inserir o Peso</p>
+        <p>Um campo para inserir a Altura</p>
+        <p>Um botão com o texto "Fale comigo"</p>
+        <p>Ao clicar no botão, uma caixa de alerta deve exibir a mensagem:</p>
+        <p>"Você pesa X kg e tem Y m de altura"</p>
+        <p>(onde X e Y são os valores digitados pelo usuário)</p>
+    </div>
+    <div>
+        Peso
+        <br>
+        <input type="text" id="peso" placeholder="Peso...">
+        <br>
+        Altura
+        <br>
+        <input type="text" id="altura" placeholder="Altura...">
+    </div>
+    <br>
+    <div>
+        <button onclick="pesoAltura()">Fale comigo</button>
+    </div>
+
+
+
+    <div class="titulo">
+        <h2>Exercício 3</h2>
+    </div>
+    <div class="exercicio">
+        <p>Um campo para inserir o Nome do Time</p>
+        <p>Um campo para inserir a Quantidade de Títulos que o clube possui</p>
+        <p>Um botão com o texto "Amo meu time"</p>
+        <p>Ao clicar no botão, uma caixa de alerta deve exibir a mensagem:</p>
+        <p>"O time X tem Y títulos"</p>
+        <p>(onde X é o nome do time e Y é a quantidade de títulos informada)</p>
+    </div>
+    <div>
+        Nome do Time
+        <br>
+        <input type="text" id="time" placeholder="Nome do time...">
+        <br>
+        Quantidade de Títulos
+        <br>
+        <input type="text" id="qtdTitulo" placeholder="Quantidade de títulos...">
+    </div>
+    <br>
+    <div>
+        <button onclick="timeTitulo()">Amo meu Time</button>
+    </div>
+
+
+
+    <div class="titulo">
+        <h2>Exercício 4</h2>
+    </div>
+    <div class="exercicio">
+        <p>Um campo para inserir o Nome da Rua/Avenida/Vila</p>
+        <p>Um campo para inserir o Número da Casa</p>
+        <p>Um botão com o texto "Onde eu moro"</p>
+        <p>Ao clicar no botão, uma caixa de alerta deve exibir a mensagem:</p>
+        <p>"Seu logradouro é X" (onde X é o nome da rua/avenida digitada)</p>
+        <p>"O número do seu logradouro é Y" (onde Y é o número da casa informado)</p>
+    </div>
+    <div>
+        Nome da Rua/Avenida/Vila
+        <br>
+        <input type="text" id="nomeLoc" placeholder="Nome da rua/avenida/vila...">
+        <br>
+        Número da casa
+        <br>
+        <input type="text" id="numCasa" placeholder="Número da casa...">
+    </div>
+    <br>
+    <div>
+        <button onclick="ondeMoro()">Onde eu moro</button>
+    </div>
+
+
+
+    <div class="titulo">
+        <h2>Exercício 5</h2>
+    </div>
+    <div class="exercicio">
+        <p>Tenha um campo para inserir a sua nota na escola</p>
+        <p>Tenha um botão "opinião da avó"</p>
+        <p>Tenha um botão "opinião da mãe"</p>
+        <p>Ao clicar num botão "opinião da avó", abaixo dos botões, exibir "Muito bem, que neto inteligente, porque
+            tirou X".</p>
+        <p>Ao clicar num botão "opinião da mãe", abaixo dos botões, exibir "Não fez mais que tua obrigação com essa nota
+            X".</p>
+        <p>(Onde X é a nota que ele digitou.)</p>
+    </div>
+    <div>
+        Nota da Escola
+        <br>
+        <input type="text" id="notaEscola" placeholder="Nota da escola...">
+    </div>
+    <br>
+    <div>
+        <button onclick="opiniaoVo()">Opinião da Vó</button>
+        <br>
+        <button onclick="opiniaoMae()">Opinião da Mãe</button>
+    </div>
+    <div id="exibir">
+
+    </div>
+
+
+
+    <div class="titulo">
+        <h2>Exercício 6</h2>
+    </div>
+    <div class="exercicio">
+        <p>Tenha três botões: "Pare", "Pense" e "Siga".</p>
+        <p>Ao clicar no 1º botão, aparece abaixo dos botões a frase: "Pare e Aguarde!". </p>
+        <p>Ao clicar no 2º botão, aparece abaixo dos botões a frase: "Pense se pode seguir ou se deve parar!". </p>
+        <p>Ao clicar no 3º botão, aparece abaixo dos botões a frase: "Pode seguir adiante".</p>
+    </div>
+    <div>
+        <button onclick="pare()">Pare</button>
+        <br>
+        <button onclick="pense()">Pense</button>
+        <br>
+        <button onclick="siga()">Siga</button>
+    </div>
+    <div id="exibir2">
+
+    </div>
+
+
+
+    <div class="titulo">
+        <h2>Exercício 7</h2>
+    </div>
+    <div class="exercicio">
+        <p>Um campo para inserir o Nome do Pet.</p>
+        <p>Um campo para inserir a Espécie (ex: Cachorro, Gato).</p>
+        <p>Um botão com o texto "Identificar Pet".</p>
+        <p>Ao clicar no botão, uma caixa de alerta deve exibir: "O seu pet se chama X e ele é um Y".</p>
+    </div>
+    <div>
+        Nome do Pet
+        <br>
+        <input type="text" id="nomePet" placeholder="Nome do pet...">
+        <br>
+        Espécie
+        <br>
+        <input type="text" id="especie" placeholder="Espécie...">
+    </div>
+    <br>
+    <div>
+        <button onclick="mostrarPet()">Identificar Pet</button>
+    </div>
+
+
+
+    <div class="titulo">
+        <h2>Exercício 8</h2>
+    </div>
+    <div class="exercicio">
+        <p>Um campo para inserir o Nome do Filme.</p>
+        <p>Um campo para inserir o Horário da Sessão.</p>
+        <p>Um botão com o texto "Confirmar Ingresso".</p>
+        <p>Ao clicar no botão, uma caixa de alerta deve exibir: "Ingresso confirmado para o filme X no horário Y".</p>
+    </div>
+    <div>
+        Nome do Filme
+        <br>
+        <input type="text" id="nomeFilme" placeholder="Nome do filme...">
+        <br>
+        Horário da Sessão
+        <br>
+        <input type="text" id="horaSessao" placeholder="Horário da sessão...">
+    </div>
+    <br>
+    <div>
+        <button onclick="ingresso()">Confirmar Ingresso</button>
+    </div>
+
+
+
+    <div class="titulo">
+        <h2>Exercício 9</h2>
+    </div>
+    <div class="exercicio">
+        <p>Um campo para inserir a Temperatura Atual (em graus).</p>
+        <p>Um campo para inserir a Condição do Tempo (ex: Nublado, Ensolarado).</p>
+        <p>Um botão com o texto "Ver Dica".</p>
+        <p>Ao clicar no botão, uma caixa de alerta deve exibir: "Está fazendo X graus e o dia está Y".</p>
+    </div>
+    <div>
+        Temperatura Atual
+        <br>
+        <input type="text" id="tempAtual" placeholder="Temperatura Atual...">
+        <br>
+        Condição do Tempo
+        <br>
+        <input type="text" id="condTempo" placeholder="Condição do Tempo...">
+    </div>
+    <br>
+    <div>
+        <button onclick="dicaTempo()">Ver Dica</button>
+    </div>
+
+
+
+    <div class="titulo">
+        <h2>Exercício 10</h2>
+    </div>
+    <div class="exercicio">
+        <p>Um campo para inserir a Distância Percorrida (em km).</p>
+        <p>Um campo para inserir o Tempo Gasto (em minutos).</p>
+        <p>Um botão com o texto "Finalizar Treino".</p>
+        <p>Ao clicar no botão, devem aparecer dois alertas seguidos:</p>
+        <p>"Você percorreu X km hoje!"</p>
+        <p>"O seu tempo total de exercício foi de Y minutos."</p>
+    </div>
+    <div>
+        Distância Percorrida (KM)
+        <br>
+        <input type="text" id="distPercorrida" placeholder="Distância Percorrida...">
+        <br>
+        Tempo Gasto (Min)
+        <br>
+        <input type="text" id="tempGasto" placeholder="Tempo gasto...">
+    </div>
+    <br>
+    <div>
+        <button onclick="treino()">Finalizar Treino</button>
+    </div>
+    <br>
+</body>
+
+</html>
+
+<script>
+    // Função do exercício 1:
+    function cadLocalNasc() {
+        alert('Você nasceu na cidade de ' + cidNatal.value + ' em ');
+    }
+
+    // Função do exercício 2:
+    function pesoAltura() {
+        alert('Você pesa ' + peso.value + 'kg e tem ' + altura.value + 'm de altura');
+    }
+
+    // Função do exercício 3:
+    function timeTitulo() {
+        alert('O time ' + time.value + ' tem ' + qtdTitulo.value + ' títulos');
+    }
+
+    // Função do exercício 4:
+    function ondeMoro() {
+        alert('Seu logradouro é ' + nomeLoc.value);
+        alert('O número do seu Logradouro é ' + numCasa.value);
+    }
+
+    // Funções do exercício 5:
+    function opiniaoVo() {
+        // alert('Muito bem, que neto inteligente, porque tirou ' + notaEscola.value + '');
+        exibir.innerHTML = 'Muito bem, que neto inteligente, porque tirou ' + notaEscola.value + ''
+    }
+    function opiniaoMae() {
+        // alert('Não fez mais que tua obrigação com essa nota ' + notaEscola.value + '');
+        exibir.innerHTML = 'Não fez mais que tua obrigação com essa nota ' + notaEscola.value + ''
+    }
+
+    // Funções do exercício 6:
+    function pare() {
+        // alert('Pare e Aguarde!');
+        exibir2.innerHTML = 'Pare e Aguarde!';
+    }
+    function pense() {
+        // alert('Pense se pode seguir ou se deve parar!');
+        exibir2.innerHTML = 'Pense se pode seguir ou se deve parar!';
+    }
+    function siga() {
+        // alert('Pode seguir adiante');
+        exibir2.innerHTML = 'Pode seguir adiante';
+    }
+
+    // Função do exercício 7:
+    function mostrarPet() {
+        alert('O seu pet se chama ' + nomePet.value + ' e ele é um ' + especie.value + '')
+    }
+
+    // Função do exercício 8:
+    function ingresso() {
+        alert('Ingresso confirmado para o filme ' + nomeFilme.value + ' no horário ' + horaSessao.value)
+    }
+
+    // Função do exercício 9:
+    function dicaTempo() {
+        alert('Está fazendo ' + tempAtual.value + ' graus e o dia está ' + condTempo.value)
+    }
+
+    function treino() {
+        alert ('você percorreu '+distPercorrida.value+'km hoje!');
+        alert ('O seu tempo total de exercício foi de '+tempGasto.value+' minutos');
+    }
+</script>

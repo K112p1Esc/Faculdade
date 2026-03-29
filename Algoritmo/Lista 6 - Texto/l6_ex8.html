@@ -1,0 +1,42 @@
+<!-- 8. Jogo da Palavra Secreta
+
+Crie um programa que:  
+
+a) Defina uma palavra secreta no código, ao iniciar a página (ex: "morango").
+
+b) Solicite letras para o usuário.
+
+c) Ao clicar num botão "Verificar Letras":
+
+    c1) Caso as letras inseridas existam na palavra secreta, exiba "A letra XX aparece na palavra secreta!"
+
+    c2) Caso contrário, exiba "A letra XX não aparece na palavra secreta!"
+
+OBS: nesse momento, ainda existem algumas limitações devido à falta de vetores ou estruturas de repetição, portanto, pode considerar "letras repetidas" como sendo uma letra só. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira uma letra <input type="text" id="letraUsu">
+    <button onclick="analise()">Verificar Letras</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    let secreta = 'morango'
+    function analise() {
+        let letra = letraUsu.value;
+        if (secreta.indexOf(letra) > -1){
+            msg.innerHTML = `A letra ${letra} aparece na palavra secreta!`
+        }else {
+            msg.innerHTML = `A letra ${letra} não aparece na palavra secreta!`
+        }
+    }
+
+</script>

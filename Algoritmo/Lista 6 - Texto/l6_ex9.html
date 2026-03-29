@@ -1,0 +1,117 @@
+<!-- (DESAFIO) 9. Super Jogo da Palavra Secreta
+
+Crie um programa que:  
+
+a) Defina uma palavra secreta no código, logo ao iniciar a página (exemplo: "Aurélio").
+
+    a1) Após carregar a página, exiba: "Palavra secreta definida! Descubra todos os XX caracteres!", onde XX é o tamanho da palavra secreta.
+
+b) Solicite ao usuário uma letra por vez (apenas 1 caractere).
+
+c) Ao clicar num botão "Verificar Letra":
+
+    c1) Se a letra existir na palavra secreta, exiba "O caractere XX aparece na palavra secreta! Faltam YY caracteres", onde YY é o número de caracteres que ainda precisam ser descobertos.
+
+    c2) Se a letra não existir na palavra secreta, exiba "O caractere XX NÃO aparece na palavra secreta! Faltam YY caracteres".
+
+d) Após cada verificação de letra, atualize o contador de caracteres que faltam.
+
+    d1) Se ainda existirem caracteres não descobertos, continue o jogo.
+
+    d2) Se o contador chegar a zero, mostre a mensagem final: "Parabéns, você descobriu todas as letras da palavra secreta XXXXXXX!" e não faça mais nada.
+
+OBS: Para comparações de letras, use .toUpperCase() ou .toLowerCase() para que o jogo não seja sensível a maiúsculas/minúsculas.
+
+OBS2: Para a contagem dos caracteres restantes, você pode criar uma variável de contador para cada caractere e somá-los, como: 
+    "Abacate" (3 letras A, 1 letra B, 1 letra C, 1 letra T e 1 letra E, total 7 pendentes)
+
+    "morango" (1 letra M, 2 letras O, 1 letra R, 1 letra A, 1 letra N e 1 letra G, total 7 pendentes)
+
+OBS3: Ao passar por uma letra válida, reduz uma letra pendente na contagem, por exemplo: 
+
+    "morango" (1 letra M, 2 letras O, 1 letra R, 1 letra A, 1 letra N e 1 letra G)
+
+  Ao verificar a letra "o", deve reduzir de 2 para 1 "o" pendentes, atualizando o total. 
+
+  Ao verificar de novo a letra "o", reduz de 1 para 0 "o" pendentes, atualizando o total.
+
+  Ao verificar de novo a letra "o", exibe a mensagem de "Não aparece na palavra".
+
+OBS4: Para melhorar a experiência do jogo, após clicar no botão, você pode limpar o valor da input (input_frase.value = '') e focar o campo (input_frase.focus()), assim, o usuário não precisará limpar o campo para digitar a próxima letra, pois após clicar no botão, o programa vai limpar a input e focá-la automaticamente.
+
+OBS5: O uso de CSS é livre, faça sua imaginação tomar forma!
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="input">
+        <input type="text" id="letraUsu">
+    </div>
+    <div id="botao">
+        <button onclick="analisar()">Verificar Letra</button>
+    </div>
+    <div id="msg"></div>
+</body>
+</html>
+<script>
+    let secreta = 'morango';
+    let qtd = secreta.length;
+    msg.innerHTML = `Palavra secreta definida! Descubra todos os ${qtd} caracteres!`
+
+    // Inicializar letras
+    let m = 1;
+    let o = 2;
+    let r = 1;
+    let a = 1;
+    let n = 1;
+    let g = 1;
+
+    function analisar() {
+        let letra = letraUsu.value;
+        let letraUsa = letra.toLowerCase();
+        if (letra.length > 1){          
+            msg.innerHTML = `Quantia de letras inválidas! Digite apenas uma letra! Ainda faltam ${qtd} caracteres`  
+        }else {
+            if (letraUsa == 'm' && m > 0){
+                m--;
+                qtd--;
+                msg.innerHTML = `O caractere ${letraUsa.toUpperCase()} aparece na palavra secreta! Faltam ${qtd} caracteres`               
+            }else if(letraUsa == 'o' && o > 0) {
+                o--;
+                qtd--;
+                msg.innerHTML = `O caractere ${letraUsa.toUpperCase()} aparece na palavra secreta! Faltam ${qtd} caracteres`               
+            }else if (letraUsa == 'r' && r > 0){
+                r--;
+                qtd--;
+                msg.innerHTML = `O caractere ${letraUsa.toUpperCase()} aparece na palavra secreta! Faltam ${qtd} caracteres`               
+            }else if (letraUsa == 'a' && a > 0){
+                a--;
+                qtd--;
+                msg.innerHTML = `O caractere ${letraUsa.toUpperCase()} aparece na palavra secreta! Faltam ${qtd} caracteres`               
+            }else if (letraUsa == 'n' && n > 0){
+                n--;
+                qtd--;
+                msg.innerHTML = `O caractere ${letraUsa.toUpperCase()} aparece na palavra secreta! Faltam ${qtd} caracteres`               
+            }else if (letraUsa == 'g' && g > 0){
+                g--;
+                qtd--;
+                msg.innerHTML = `O caractere ${letraUsa.toUpperCase()} aparece na palavra secreta! Faltam ${qtd} caracteres`               
+            }else {
+                msg.innerHTML = `O caractere ${letraUsa.toUpperCase()} NÃO aparece na palavra secreta! Faltam ${qtd} caracteres`               
+            }
+
+        }
+        if(qtd < 1) {
+                msg.innerHTML = `Parabéns, você descobriu todas as letras da palavra secreta ${secreta}!`
+                botao.innerHTML = ''
+                input.innerHTML = ''
+        }
+            letraUsu.value = '';
+    }
+</script>

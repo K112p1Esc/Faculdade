@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Insira o primeiro número:
+    <input type="text" id="inptDividendo" />
+    &nbsp;&nbsp;&nbsp; Insira o segundo número:
+    <input type="text" id="inptDivisor" />
+    <br />
+    <button onclick="quociente()">Quociente</button>
+    &nbsp;&nbsp;&nbsp;
+    <button onclick="resto()">Resto</button>
+    &nbsp;&nbsp;&nbsp;
+    <button onclick="completo()">Completo</button>
+    <div id="exibir"></div>
+  </body>
+</html>
+
+<script>
+  function quociente() {
+    let dividendo = Number(inptDividendo.value);
+    let divisor = Number(inptDivisor.value);
+    let resultado;
+
+    resultado = dividendo / divisor;
+
+    exibir.innerHTML = `A divisão de ${dividendo} por ${divisor} é: ${resultado}`;
+  }
+
+  function resto() {
+    let dividendo = Number(inptDividendo.value);
+    let divisor = Number(inptDivisor.value);
+    let resultado;
+
+    resultado = dividendo % divisor;
+
+    exibir.innerHTML = `O resto da divisão de ${dividendo} por ${divisor} é: ${resultado}`;
+  }
+
+  function completo() {
+    let dividendo = Number(inptDividendo.value);
+    let divisor = Number(inptDivisor.value);
+    let resultado;
+    let n4;
+
+    resultado = dividendo / divisor;
+    n4 = dividendo % divisor;
+
+    exibir.innerHTML = `A divisão de ${dividendo} por ${divisor} é: ${resultado} e o resto dessa divisão é: ${n4}`;
+  }
+</script>
