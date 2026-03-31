@@ -1,0 +1,35 @@
+<!-- 3. Frase Numerada
+Refaça o programa anterior de tal forma que, antes de cada frase apareça um contador. Ex: Se a frase digitada foi “Boa Tarde” a página ficará assim:   
+
+   1. Boa tarde   
+
+   2. Boa tarde   
+
+   ...   
+
+   7. Boa tarde  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="analisar()">Diga Algo sobre a matéria de Algoritmos</button>
+    <div id="msgDiv"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        let i = 0;
+        let msg = '';
+        while (i < 7) {
+            i++
+            msg += `${i}. Contemplem o Mago<br>`
+        }
+        msgDiv.innerHTML = msg;
+    }
+</script>

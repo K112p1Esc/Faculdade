@@ -1,0 +1,39 @@
+<!-- 8. Múltiplos de 5
+Crie um programa o qual:
+
+a) Receba do usuário um número (tem que ser entre 20 e 100)  
+
+b) Ao clicar num botão "Adoro múltiplos de 5"...   
+
+c) Exiba, debaixo do botão, todos os múltiplos de 5 entre 0 e o número informado em a), um embaixo do outro. Ex: 5, 10, 15, 20...    -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira um número entre 20 e 100
+    <input type="text" id="numero">
+    <button onclick="analisar()">Adoro múltiplos de 5</button>
+    <div id="msgDiv"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        let num = Number(numero.value);
+        let i = 0;
+        let valor = 0;
+        num = parseInt(num / 5);
+        
+        while (i < num){
+            i++;
+            valor += `${i*5}<br>`
+        }
+
+        msgDiv.innerHTML = `${valor}`
+    }
+</script>

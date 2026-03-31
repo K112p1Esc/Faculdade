@@ -1,0 +1,48 @@
+<!-- 13. Papagaio Repetitivo
+Crie um programa o qual:
+
+a) Pergunte ao usuário um número  
+
+b) Pergunte ao usuário uma frase
+
+c) Ao clicar num botão "Papagaio Repetitivo", repita a frase informada, exibindo o número da frase atual e a frase repetida a cada fala, como abaixo: 
+
+     1 - oi
+     2 - oi oi
+     3 - oi oi oi
+     4 - oi oi oi oi
+     ... última frase, repetindo N vezes a frase -->
+
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira um número
+    <input type="text" id="numero">
+    Insira uma frase
+    <input type="text" id="frase">
+    <button onclick="analisar()">Papagaio Repetitivo</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        let num = Number(numero.value);
+        let fra = frase.value;
+        let i = 0;
+        let fraTotal = ''
+        let frag = ''
+
+        while (i<num) {
+            i++;
+            frag += `${fra} `;
+            fraTotal += `${i} - ${frag}<br>`
+        }
+        msg.innerHTML = fraTotal
+    }
+</script>
