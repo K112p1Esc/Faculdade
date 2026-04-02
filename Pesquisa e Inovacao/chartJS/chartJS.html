@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="display: flex; flex-direction: row;">
+    <div>
+        <canvas id="grafico1" style="position: relative; height:40vh; width:40vw"></canvas>
+    </div>
+    <div>
+        <canvas id="grafico2" style="position: relative; height:40vh; width:40vw"></canvas>
+    </div>
+</body>
+
+<script>
+  const ctx = document.getElementById('grafico1');
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+      datasets: [{
+        label: 'Temperatura',
+        data: [30, 29, 28, 25, 22, 23],
+        backgroundColor: [
+        'rgba(252, 100, 131)',
+        'rgba(252, 100, 131)',
+        'rgba(252, 100, 131)',
+        'rgba(252, 100, 131)',
+        'rgba(252, 100, 131)',
+        'rgba(252, 100, 131)'
+        ],
+        borderColor: [
+        'rgb(252, 100, 131)',
+        'rgb(252, 100, 131)',
+        'rgb(252, 100, 131)',
+        'rgb(252, 100, 131)',
+        'rgb(252, 100, 131)',
+        'rgb(252, 100, 131)',
+        'rgb(252, 100, 131)'
+      ],
+        borderWidth: 1
+      }, 
+      {
+        label: 'Umidade',
+        data: [80, 82, 80, 85, 80, 83],
+        backgroundColor: [
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)'
+        ],
+        borderColor: [
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)'
+      ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: false
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  const ctx2 = document.getElementById('grafico2')
+
+  new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+      datasets: [{
+        label: 'Temperatura Média',
+        data: [22, 24, 27, 23, 20, 18],
+        backgroundColor: [
+        'rgba(252, 100, 131)',
+        'rgba(252, 100, 131)',
+        'rgba(252, 100, 131)',
+        'rgba(252, 100, 131)',
+        'rgba(252, 100, 131)',
+        'rgba(252, 100, 131)'
+        ],
+        borderColor: [
+        'rgb(252, 100, 131)',
+        'rgb(252, 100, 131)',
+        'rgb(252, 100, 131)',
+        'rgb(252, 100, 131)',
+        'rgb(252, 100, 131)',
+        'rgb(252, 100, 131)',
+        'rgb(252, 100, 131)'
+      ],
+        borderWidth: 1
+      }, 
+      {
+        label: 'Umidade Média',
+        data: [90, 89, 93, 87, 88, 82],
+        backgroundColor: [
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)'
+        ],
+        borderColor: [
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)',
+        'rgba(52, 163, 238)'
+      ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
