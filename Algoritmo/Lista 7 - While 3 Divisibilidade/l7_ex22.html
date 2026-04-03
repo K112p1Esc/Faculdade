@@ -1,0 +1,97 @@
+<!-- 22. Contagem Simples
+Crie um programa o qual:
+
+a) Receba o limite inferior da amostragem. Esse número que ser maior que 1, caso contrário emitir mensagem explicativa e não seguir em frente.  
+
+b) Receba o limite superior da amostragem. Esse número que ser menor que 100 e maior que o limite inferior (item a), caso contrário emitir mensagem explicativa e não seguir em frente 
+
+c) Receba o número para testar a divisibilidade, esse número tem que estar entre 3 e 10, caso contrário, emitir mensagem explicativa e não seguir em frente. 
+
+d) Tenha num botão "Contar" que quando clicado exiba todos os números divisíveis pelo número informado no item c), desde o limite inferior (item a.) até o limite superior (item b.). Exibir esses números um ao lado do outro separados por uma vírgula e um espaço (, ).  
+
+e) Ao final, sem apagar as mensagens anteriores mostre as seguintes mensagens: 
+
+    QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: 99 
+
+    SOMATÓRIO DOS NÚMEROS EXIBIDOS: 999 
+
+    MÉDIA DOS NÚMEROS EXIBIDOS: 99,99 
+
+    MAIOR NÚMERO EXIBIDO: 99 
+
+    MENOR NÚMERO EXIBIDO: 99  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira um número inferior da amostragem.
+    <input type="text" id="inferior">
+    Insira um número superior da amostragem.
+    <input type="text" id="superior">
+    Insira a divisibilidade
+    <input type="text" id="divisibilidade">
+    <br>
+    <button onclick="analisar()">Contar</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        let inf = Number(inferior.value);
+        let sup = Number(superior.value);
+        let div = Number(divisibilidade.value);
+        let i = inf;
+        let final = `Números divisíveis por ${div}<br>`;
+        let qtd = 0;
+        let somatoria = 0;
+        let media = 0;
+        let primVerif = 1;
+        let prim = 0;
+        let lista = []
+
+        if(inf<2) {
+            alert(`O número ${inf} não é maior do que 1. Insira novamente`)
+        }else if(sup<100 && sup<inf) {
+            alert(`O número ${sup} não é menor que 100 ou maior que ${inf}. Insira novamente`)
+        }else if (div < 3 || div >10 ) {
+            alert(`O número ${div} não está entre 3 e 10`)
+        }else {
+            while(i<=sup){
+                if (i%div==0){
+                    lista.push(i);
+                    qtd++;
+                    somatoria +=i;
+                    if (primVerif == 1){
+                        prim = i;
+                        primVerif = 0;
+                    }
+                }
+                i++;
+            }
+            final = lista.toString().replaceAll(',',', ')
+            let last = i-1;
+            media = somatoria/qtd;
+            final += 
+            `
+                <br>
+                QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: ${qtd} 
+                <br>
+                SOMATÓRIO DOS NÚMEROS EXIBIDOS: ${somatoria} 
+                <br>
+                MÉDIA DOS NÚMEROS EXIBIDOS: ${media} 
+                <br>
+                MAIOR NÚMERO EXIBIDO: ${last} 
+                <br>
+                MENOR NÚMERO EXIBIDO: ${prim}
+            `
+
+            msg.innerHTML = final;
+        }
+    }
+</script>

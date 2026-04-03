@@ -1,0 +1,51 @@
+<!-- 17. Divisibilidade  
+Crie um programa o qual:
+
+a) Solicite um intervalo crescente de valores numéricos
+
+b) Solicite um número para teste de divisibilidade, ele tem que estar entre 3 e 13   
+
+c) Ao clicar num botão "Divisível"...   
+
+c) Exiba, debaixo do botão, todos os números contidos no intervalo do item a que NÃO são divisíveis pelo número do item b.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira um valor mínimo
+    <input type="text" id="minimo">
+    Insira um valor máximo
+    <input type="text" id="maximo">
+    <br>
+    Insira um número para testar divisibilidade 
+    <input type="text" id="divisibilidade">
+    <button onclick="analisar()">Divisível</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        let min = Number(minimo.value);
+        let max = Number(maximo.value);
+        let div = Number(divisibilidade.value);
+        let i = min;
+        let final = `Não é divísivel por ${div}:<br>`;
+        if (min<max){
+            if (div > 2 && div < 14){
+                while(i <= max){
+                    if(i%div!=0){
+                        final += `${i}<br>`
+                    }
+                    i++;
+                }
+            }
+        }
+        msg.innerHTML = final;
+    }
+</script>

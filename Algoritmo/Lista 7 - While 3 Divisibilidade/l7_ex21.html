@@ -1,0 +1,55 @@
+<!-- 21. Divisibilidade
+Crie  um programa o qual:
+
+a) Receba um número positivo do usuário, que é o limite da contagem;
+
+b) Receba um segundo número, para testes de divisibilidade, que deve estar entre 1 e o número informado em a);
+
+c) Ao clicar em "Somar Números", deve exibir todos os números múltiplos do número informado em b)  entre 1 e o número informado em a); 
+
+d) Ao final da contagem, exiba a frase "Soma dos Múltiplos: X", sendo X a soma de todos os números múltiplos do número informado pelo usuário -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira um número positivo para ser o limite
+    <input type="text" id="limite">
+    <br>
+    Insira um número para dividir entre 1 o limite
+    <input type="text" id="dividir">
+    <button onclick="analisar()">Somar números</button>
+    <div id="msg"></div>
+</body>
+
+</html>
+
+<script>
+    function analisar() {
+        let lim = Number(limite.value);
+        let div = Number(dividir.value);
+        let i = 1;
+        let soma = 0;
+        let final = `Os múltiplos são:<br>`;
+        if (lim > 0 && div >= 1 && div <= lim) {
+            while (i <= lim) {
+                if (i % div == 0) { //Demorei para entender, mas é basicamente a lógica de "Se a divisão de I por Div for igual"
+                // a 0, então I é um multiplo de div. Demorei para perceber... Tentei fazer com *.
+                    final += `${i}<br>`;
+                    soma += i;
+                }
+                i++;
+            }
+            final += `<br>Soma dos Múltiplos: ${soma}`;
+        } else {
+            final = `Valores inválidos!`;
+        }
+        msg.innerHTML = final;
+    }
+</script>

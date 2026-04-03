@@ -1,0 +1,59 @@
+<!-- 2. Parte 2 - While
+#Ficadica: Use a técnica de dedução de múltiplos por uso do resto da divisão
+15. É tri/penta!
+Crie um programa o qual:
+
+a) Deve ter dois campos para o usuário informar o intervalo crescente de números
+
+b) Deve ter um botão chamado "Curto 3 e 5!"
+
+c) Ao clicar nesse botão, devem aparecer QUASE todos os números entre o intervalo informado, porém...
+
+d) Se o número for múltiplo de 3, ao invés do número exiba "É TRI!". Se o número for múltiplo de 5, ao invés do número exiba "É PENTA!". Se o número for múltiplo de 3 e também de 5, ao invés do número exiba "É TRI!É PENTA!".
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    Insira um valor mínimo 
+    <input type="text" id="valor1">
+    insira um valor máximo
+    <input type="text" id="valor2">
+    <button onclick="analisar()">Curto 3 e 5!</button>
+    <div id="msg"></div>
+ </body>
+ </html>
+
+ <script>
+    function analisar() {
+        let num1 = Number(valor1.value)
+        let num2 = Number(valor2.value)
+        let i = num1;
+        let verdade = '';
+        let final = ''
+
+        if (i<num2){
+            while(i<=num2){
+                if(i%3==0 && i%5==0){
+                    verdade = 'É TRI!É PENTA!';
+                }else if(i%3==0) {
+                    verdade = 'É TRI!';
+                }else if(i%5==0) {
+                    verdade = 'É PENTA!';
+                }else {
+                    verdade = i;
+                }
+                final += `${verdade}<br>`
+                i++;
+            }
+            msg.innerHTML = final
+        }else {
+            msg.innerHTML = `Intervalo não crescente`
+        }
+    }
+ </script>

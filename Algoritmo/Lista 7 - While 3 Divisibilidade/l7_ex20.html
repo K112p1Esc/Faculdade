@@ -1,0 +1,45 @@
+<!-- 20. Divisibilidade
+Crie  um programa o qual:
+
+a) Solicite um número, que deve estar entre 10 e 500, exibindo alerta de erro caso não atenda os critérios;
+
+b) Ao clicar no botão "Somar Pares", deve exibir todos os números pares entre 1 e o número inserido pelo usuário;
+
+c) Ao final da listagem, deve exibir a frase "Soma dos pares: X", sendo X a soma de todos os números exibidos; -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira um número de 10 a 500
+    <input type="text" id="numero">
+    <button onclick="analisar()">Somar Pares</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        let num = Number(numero.value);
+        let i = 1;
+        let final = '';
+        let soma = 0;
+
+        if (num >= 10 && num <= 500){
+            while(i<=num){
+                if(num%i==0){
+                    final+=`${i}<br>`
+                    soma+=i;
+                }
+                i++;
+            }
+        }else{
+            alert('Insira um número entre 10 e 500');
+        }
+        msg.innerHTML = `Números pares até o númeor ${num} é:<br>${final} E a soma<br>${soma}`;
+    }
+</script>

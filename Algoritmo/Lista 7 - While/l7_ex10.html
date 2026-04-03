@@ -15,8 +15,10 @@ c) Exiba, debaixo do botão, todos os números pares contidos no intervalo.   --
     <title>Document</title>
 </head>
 <body>
-    Insira um valor
+    Insira um valor mínimo
     <input type="" id="valor">
+    Insira um valor máximo
+    <input type="" id="valor2">
     <button onclick="analisar()">S2 Pares</button>
     <div id="msgDiv"></div>
 </body>
@@ -24,16 +26,18 @@ c) Exiba, debaixo do botão, todos os números pares contidos no intervalo.   --
 
 <script>
     function analisar() {
-        let i = 0;
         let num = Number(valor.value);
+        let num2 = Number(valor2.value);
         let msg = '';
-        if (num%2!=0){
-            num--;
+        let i = num;
+        if(num<num2){    
+            while (i <= num2) {
+                if(i%2==0){
+                    msg += `${i}<br>`
+                }
+                i++;
+            }
         }
-        while (i < num) {
-            i+=2;
-            msg += `${i}<br>`
-        }
-        msgDiv.innerHTML =`0<br> ${msg}`;
+        msgDiv.innerHTML =`${msg}`;
     }
 </script>
