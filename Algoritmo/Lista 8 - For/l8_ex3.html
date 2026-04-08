@@ -1,0 +1,53 @@
+<!-- 3. Acompanhando a Poupança
+Crie um programa no qual:   
+a) O usuário informa quantos depósitos ele fez no banco   
+
+b) O usuário informa o valor de cada depósito, pois ele sempre depositava exatamente o mesmo valor   
+
+c) Ao clicar em "Acompanhar grana", deve aparecer o valor, mês a mês, como neste exemplo   
+
+    1º Mês: R$ 500.00   
+
+    2º Mês: R$ 1000.00   
+
+    3º Mês: R$ 1500.00   
+
+    4º Mês: R$ 2000.00   
+
+    5º Mês: R$ 2500.00   
+
+    Total guardado: R$2500.00   
+
+No exemplo acima, o usuário informou 5 depósitos e 500 por depósito.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe quantos depósitos você fez
+    <input type="text" id="depBanco">
+    <br>
+    Informe o valor dos depósitos
+    <input type="text" id="qtdDep">
+    <br>
+    <button onclick="analisar()">Acompanhar Grana</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        let dep = Number(depBanco.value);
+        let qtd = Number(qtdDep.value);
+        let mssg = '';
+
+        for(let i = 1; i<=dep;i++){
+            mssg += `${i}º Mês: R$ ${(i*qtd).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}<br>`
+        }
+        msg.innerHTML = mssg;
+    }
+</script>

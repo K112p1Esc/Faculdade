@@ -1,0 +1,58 @@
+<!-- Refaça o programa anterior de tal forma que: 
+A cada 3 depósitos o banco dê um bônus de 1% sobre o valor acumulado após o depósito. Ex:   
+
+    1º Mês: R$ 500.00   
+
+    2º Mês: R$ 1000.00   
+
+    3º Mês: R$ 1515.00   
+
+    4º Mês: R$ 2015.00   
+
+    5º Mês: R$ 2515.00   
+
+    6º Mês: R$ 3045.15   
+
+    Total guardado: R$3045.15   
+
+Note que nos meses 3 e 6, o valor aumentou em 1% do total após o depósito.   -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe quantos depósitos você fez
+    <input type="text" id="depBanco">
+    <br>
+    Informe o valor dos depósitos
+    <input type="text" id="qtdDep">
+    <br>
+    <button onclick="analisar()">Acompanhar Grana</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        let dep = Number(depBanco.value);
+        let qtd = Number(qtdDep.value);
+        let mssg = '';
+        let qtdTotal = 0
+
+        for(let i = 1; i<=dep;i++){
+            if (i%3==0){
+                qtdTotal = qtd+qtdTotal;
+                qtdTotal += qtdTotal*0.01;
+                mssg += `${i}º Mês: R$ ${(qtdTotal).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}<br>`;
+            }else {
+                qtdTotal = qtdTotal+qtd;
+                mssg += `${i}º Mês: R$ ${(qtdTotal).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}<br>`;
+            }
+        }
+        msg.innerHTML = mssg;
+    }
+</script>

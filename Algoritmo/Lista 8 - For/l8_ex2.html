@@ -1,0 +1,43 @@
+<!-- 2. Capacidade Flexível 
+Incremente a questão anterior de tal forma que:   
+a) Também tenha um campo no qual o usuário indique a capacidade de passageiros que o veículo suporta   
+
+b) Ao clicar no botão, as frases só começam a mostrar que o passageiro terá que esperar quando a capacidade indicada em a) for excedida.   -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantas pessoas vão entrar no carro?
+    <input type="text" id="qtdPessoas">
+    <br>
+    <br>
+    Quantas pessoas veículo comporta?
+    <input type="text" id="lmtPessoas">
+    <br>
+    <button onclick=analisar()>#Partiu Carona</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        let qtd = Number(qtdPessoas.value);
+        let mssg = '';
+        let lmt = Number(lmtPessoas.value);        
+        for (let i = 1; i<=qtd; i++){
+            if (i==1){
+                mssg += `Entrou o ${i}º passageiro (que é o(a) motorista)<br>`
+            }else if(i>lmt) {
+                mssg += `O ${i}º passageiro terá que esperar!<br>`
+            }else {
+                mssg += `Entrou o ${i}º passageiro<br>`
+            }
+        }
+        msg.innerHTML = mssg;
+    }
+</script>

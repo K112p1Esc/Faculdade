@@ -1,0 +1,58 @@
+<!-- 1. Carona Compartilhada:   
+a) Pergunte ao usuário quantas pessoas vão entrar no carro   
+
+b) Ao clicar num botão "#Partiu Carona"...   
+
+c) Exiba, debaixo do botão, frases como estas:   
+
+Entrou o 1º passageiro (que é o(a) motorista)   
+
+Entrou o 2º passageiro   
+
+Entrou o 3º passageiro   
+
+Entrou o 4º passageiro   
+
+Entrou o 5º passageiro   
+
+O 6º passageiro terá que esperar!   
+
+O 7º passageiro terá que esperar!   
+
+d) Note que, sempre na frase do 1º passageiro, deve constar ao lado que é motorista   
+
+e) A partir do 6º passageiro, a frase muda, pois o carro só comporta 5 passageiros    -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantas pessoas vão entrar no carro?
+    <input type="text" id="qtdPessoas">
+    <br>
+    <button onclick=analisar()>#Partiu Carona</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        let qtd = Number(qtdPessoas.value);
+        let mssg = '';
+        
+        for (let i = 1; i<=qtd; i++){
+            if (i==1){
+                mssg += `Entrou o ${i}º passageiro (que é o(a) motorista)<br>`
+            }else if(i>5) {
+                mssg += `O ${i}º passageiro terá que esperar!<br>`
+            }else {
+                mssg += `Entrou o ${i}º passageiro<br>`
+            }
+        }
+        msg.innerHTML = mssg;
+    }
+</script>
