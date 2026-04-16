@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Quantidade de batalhas
+    <input type="text" id="qtdBatalhas">
+    <br>
+    <br>
+    Quantidade de Marinheiros
+    <input type="text" id="qtdMarinheiro">
+    <br>
+    <br>
+    Quantidade de Carnes
+    <input type="text" id="qtdCarne">
+    <br>
+    <br>
+    <button onclick="impelDown()">Impel Down</button>
+    <br>
+    <div id="msg"></div>
+</body>
+
+</html>
+
+<script>
+    function impelDown() {
+        let batalhas = Number(qtdBatalhas.value);
+        let marinheiro = Number(qtdMarinheiro.value);
+        let carne = Number(qtdCarne.value);
+        let energia = 100;
+        let qtdDerrotado = 0;
+        let vali = true;
+        let posicao = true;
+
+        for (let i = 1; i <= batalhas && energia > 0; i++) {
+            if (energia >= 10) {
+                vali = true;
+            } else if (carne > 0) {
+                energia = 100;
+                carne--;
+                vali = true;
+            } else {
+                vali = false
+            }
+
+            if (vali == true) {
+                energia -= 10
+                for (let j = 1; j <= marinheiro; j++) {
+                    if (energia > 0) {
+                        energia -= 5
+                        qtdDerrotado++;
+                    } else if (energia <= 0 && carne > 0) {
+                        carne--;
+                        energia = 100;
+                        j--;
+                    } else {
+                        j = marinheiro + 1;
+                    }
+                }
+
+            }
+
+        }
+
+        if (qtdDerrotado == marinheiro * batalhas) {
+            posicao == true;
+        } else {
+            posicao = false;
+        }
+
+        if (posicao == true) {
+            posicao = 'Luffy saiu vitorioso!'
+        } else {
+            posicao = 'Luffy saiu derrotado!'
+        }
+        msg.innerHTML = `Resultado: ${posicao}<br>
+            Quantidade de carnes restantes: ${carne}<br>
+            Quantidade de marinheiros derrotados: ${qtdDerrotado}<br>
+            Energia restante ao final das batalhas: ${energia}<br>`
+    }
+</script>
