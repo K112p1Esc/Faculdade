@@ -48,7 +48,7 @@
                 vali = false
             }
 
-            if (vali == true) {
+            if (vali) {
                 energia -= 10
                 for (let j = 1; j <= marinheiro; j++) {
                     if (energia > 0) {
@@ -73,7 +73,7 @@
             posicao = false;
         }
 
-        if (posicao == true) {
+        if (posicao) {
             posicao = 'Luffy saiu vitorioso!'
         } else {
             posicao = 'Luffy saiu derrotado!'
