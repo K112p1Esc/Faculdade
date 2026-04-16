@@ -18,7 +18,7 @@ function nextSlide() {
     // Mostra o slide atual invocando a função
     showSlide(index);
 }
-// Executa a função nextSlide a cada 3 segundos, que é 3000 ms em JS
+// Executa a função nextSlide a cada 4 segundos, que é 4000 ms em JS
 // Ai fica parecendo que é automatico
 setInterval(nextSlide, 4000);
 

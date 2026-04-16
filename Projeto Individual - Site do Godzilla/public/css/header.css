@@ -1,66 +1,66 @@
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 7px 40px;
-        background: #000000;
-    }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 40px;
+    background: #000000;
+}
 
-    .logo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .logo img {
-        height: 50px;
-        width: 50px;
-    }
+.logo img {
+    height: 50px;
+    width: 50px;
+}
 
-    .titulo {
-        height: 20px;
-        font-size: 18px;
-        font-weight: 700;
-        color: #ffffff;
-    }
+.titulo {
+    height: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+}
 
-    .links {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 600;
-        gap: 20px;
-    }
+.links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    gap: 20px;
+}
 
-    .escolhaLinks {
-        text-decoration: none;
-        color: #ffffff;
-        font-size: 14px;
-        transition: 0.2s;
-    }
+.escolhaLinks {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    transition: 0.2s;
+}
 
-    .escolhaLinks.active {
-        color: #83a0ef;
-    }
+.escolhaLinks.active {
+    color: #83a0ef;
+}
 
-    .escolhaLinks:hover {
-        color: #83a0ef;
-        transform: scale(1.15);  
-    }
+.escolhaLinks:hover {
+    color: #83a0ef;
+    transform: scale(1.15);  
+}
 
-    .login {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 80px;
-        font-weight: 700;
-        background: #395ab5;
-        color: white;
-        padding: 8px 14px;
-        border-radius: 8px;
-    }
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    font-weight: 700;
+    background: #395ab5;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+}
 
-    .login:hover {
-        color: white;
-        background: #012790;
-    }
+.login:hover {
+    color: white;
+    background: #012790;
+}

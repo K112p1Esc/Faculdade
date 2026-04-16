@@ -50,9 +50,25 @@
     background-color: #bbb; /* cinza padrão para não dar tantoooooooo destaque */
     border-radius: 50%; /* deixa redonda bonitinha */
     transition: background 0.3s; /* muda cor suavemente */
+    
 }
 
 /* Ativou = branco */
 .indica.active {
     background-color: #fff;
+}
+
+.indicador {
+    position: absolute;
+    /*Para conseguir usar o bottom*/
+    bottom: 0px;
+    /* manda ficar na parte de baixo do carousel */
+    width: 100%;
+    text-align: center;
+    /* centraliza!!!!!!!!!! */
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    padding: 12px;
+    background: #000000b9;
 }

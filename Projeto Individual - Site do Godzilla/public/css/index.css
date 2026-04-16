@@ -1,0 +1,156 @@
+body {
+    background-color: #3e3e3e;
+    color: white;
+}
+
+/* ===== SOBRE ===== */
+.sobre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tituloSobre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 22px;
+}
+
+.textoSobre {
+    margin-right: 20%;
+    margin-left: 20%;
+    text-align: justify;
+    font-size: 18px;
+    padding: 20px;
+    line-height: 1.7;
+    word-spacing: 3px;
+}
+
+.bordaAnimada {
+    /* Em resumo, essa parte eu arrumo para quando for fazer animação + container */
+    position: relative;
+    width: 58vw;
+    height: 200px;
+    border-radius: 12px;
+}
+
+/* ajusto a imagem e tals */
+.bordaAnimada img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+/* borda animada bonitinha e tudo mais! Posição absoluta se não, não fica atrás, content vazio pq senão n aparece */
+.bordaAnimada::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 3px;
+    border-radius: 6px;
+    background: linear-gradient(120deg,
+            /*A tal parte que faz ficar mudando de cor!*/
+            #2f2f2f,
+            #444,
+            #666,
+            #444,
+            #2f2f2f);
+    background-size: 300% 300%;
+    animation: bordaAnimada 5s ease infinite;
+    /*Move infinito*/
+    -webkit-mask: /*Tudo isso eu garanto que não vai sobrepor o conteudo sabe? Área interna e total, para então remover onde ta a imagem! Não muito usado btw*/
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 2; /*Acima da imagem!*/
+}
+
+/* animação!!! */
+@keyframes bordaAnimada { /*Começa da esquerda e quando atinge 50% vai para direita e tals*/
+    0% {
+        background-position: 0% 50%; 
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* ===== NOTICIAS ===== */
+
+#noticias {
+    padding: 40px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.tituloNoticias {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+/* Crio meu grid para conseguir utilizar a imagem... */
+.gridNoticias {
+    display: flex;
+    gap: 15px;
+    height: 300px;
+}
+
+/* estilização padrão das noticias */
+.noticia {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+/* estilização da minha imagem! */
+.noticia img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+/* passar mouse dá bonitinho! */
+.noticia:hover img {
+    transform: scale(1.05);
+}
+
+/* texto por cima sabe */
+.textoCima {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+/* Estilização do grandão */
+.grande {
+    width: 60%;
+}
+
+/* O lado direito a parte (ficar em cima e tals */
+.ladoDireito {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* estilização da pequena */
+.pequena {
+    height: 50%;
+}
