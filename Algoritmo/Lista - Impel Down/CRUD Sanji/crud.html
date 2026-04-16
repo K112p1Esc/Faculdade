@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Cadastrar comida
+    <input type="text" id="CadComida">
+    <br>
+    Pesquisar
+    <input type="text" id="pesquisar">
+    <br>
+    Alterar Nome
+    <input type="text" id="atual">
+    <input type="text" id="novo">
+    <br>
+    Deletar
+    <input type="text" id="deletar2">
+    <br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="verif()">Verificar</button>
+    <button onclick="pesquisar()">pesquisar</button>
+    <button onclick="estoque()">Exibir Estoque</button>
+    <button onclick="alterar()">Altera</button>
+    <button onclick="deletar()">Deletar</button>
+    <div id="msg"></div>
+</body>
+
+</html>
+
+<script>
+    let lista = [];
+    function cadastrar() {
+        lista.push(CadComida.value);
+    }
+
+    function verif() {
+        let tam = lista.length;
+        if (tam < 3) {
+            msg.innerHTML = `Desse jeito, o Luffy devora até o navio`
+        } else if (tam < 8) {
+            msg.innerHTML = `O comilão do Luffy não vai deixar sobrar nenhuma comida`
+        } else if (tam < 11) {
+            msg.innerHTML = `Assim, talvez sobre um pouco para a tripulaçã`
+        } else {
+            msg.innerHTML = `Desse jeito vai ter comida para todo mundo e ainda consigo guardar um pouco para a senhorita Nami.`
+        }
+    }
+
+    function pesquisar() {
+        let valor = pesquisar.value;
+        let valor2 = 0;
+        for (let i = 0; i < lista.length; i++) {
+            if (valor == lista[i]) {
+                valor2++;
+            }
+        }
+        if (valor > 0) {
+            msg.innerHTML = `Temos a comida ${valor} e há ${valor2} unidade(s) dela`
+        } else {
+            msg.innerHTML = `Alguém vai ter que comprar ${valor}, tá fazendo falta...`
+        }
+    }
+
+    function estoque() {
+        let mssg = '';
+
+        for (let i = 0; i < lista.length; i++) {
+            let valor = 0;
+            let jaContado = false;
+
+            // Verifico se foi contado
+            for (let k = 0; k < i; k++) {
+                if (lista[i] === lista[k]) {
+                    jaContado = true;
+                }
+            }
+
+            //Tem que ser falso para prosseguir!
+            if (!jaContado) {
+                for (let j = 0; j < lista.length; j++) {
+                    if (lista[i] === lista[j]) {
+                        valor++;
+                    }
+                }
+
+                if (valor === 1) {
+                    mssg += `- ${lista[i]} (${valor} unidade)<br>`;
+                } else if (lista[i] == null){
+                }else {
+                    mssg += `- ${lista[i]} (${valor} unidades)<br>`;
+
+                }
+            }
+        }
+
+        msg.innerHTML = mssg;
+    }
+
+    function alterar() {
+        let atualNome = atual.value;
+        let novoNome = novo.value; 
+        let valor = 0;
+
+        for (let i = 0; i < lista.length; i++) {
+            if (lista[i] == atualNome) {
+                lista[i] = novoNome;
+                valor++;
+            }
+        }
+
+        if (valor > 0) {
+            msg.innerHTML = `${atualNome} foi alterada para ${novoNome}`;
+        } else {
+            msg.innerHTML = `${atualNome} não foi encontrada no estoque`;
+        }
+    }
+
+    function deletar() {
+        let del = deletar2.value;
+        let valor = 0;
+
+        for (let i = 0; i < lista.length; i++) {
+            if (lista[i] == del) {
+                lista[i] = null;
+                valor++;
+            }
+        }
+        if (valor > 0) {
+            msg.innerHTML = `A comida ${del} foi removida do estoque.`
+        } else {
+            msg.innerHTML = `A comida ${del} não está no estoque.`
+
+        }
+    }
+</script>
