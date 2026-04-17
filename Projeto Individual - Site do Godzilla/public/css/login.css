@@ -1,0 +1,115 @@
+/* === LOGIN === */
+.forms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.loginContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 160px;
+    width: 100%;
+    max-width: 900px;
+}
+
+/* LADO ESQUERDO O DA LOGO */
+.logoArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoArea img {
+    width: 240px;
+    margin-bottom: 12px;
+}
+
+.logoArea h1 {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+/* LADO DIREITO QUE É O FORMS */
+.loginCard {
+    background: #2a2a2a;
+    border-radius: 16px;
+    padding: 40px 36px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.loginCard h2 {
+    font-size: 24px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.loginSubtitle {
+    font-size: 14px;
+    color: #aaaaaa;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.inputGrupo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;    
+}
+
+.inputGrupo label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #cccccc;
+}
+
+.inputGrupo input {
+    background: #1e1e1e;
+    border: 1px solid #ffffff67;
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 10px 14px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.inputGrupo input:focus {
+    border-color: #395ab5;
+    box-shadow: 0 0 0 3px rgba(57, 90, 181, 0.2);
+}
+
+.cadastre-se {
+    display: block;
+    text-align: right;
+    font-size: 12px;
+    color: #83a0ef;
+    text-decoration: none;
+    margin-top: -5px;
+    margin-bottom: 24px;
+}
+
+.btnEntrar {
+    width: 100%;
+    background: #395ab5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.5s;
+}
+
+.btnEntrar:hover {
+    background: #012790;
+}
+
