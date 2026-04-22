@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Quiz</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/login.css">
 </head>
 
 <body>
@@ -26,39 +25,52 @@
             <a href="#" class="escolhaLinks login">Login</a>
         </div>
     </header>
+
     <main>
-        <section class="forms">
-            <div class="loginContainer">
-
-                <!-- LADO ESQUERDO -->
-                <div class="logoArea">
-                    <img src="../img/logo.png" alt="Logo Gojira View">
-                    <h1>Gojira View</h1>
-                </div>
-
-                <!-- LADO DIREITO -->
-                <div class="loginCard">
-                    <h2>Login</h2>
-                    <p class="loginSubtitle">Bem-vindo de volta!</p>
-
-                    <div class="inputGrupo">
-                        <label for="inputEmail">Email</label>
-                        <input type="email" id="inputEmail" placeholder="teste@algo.com">
-                    </div>
-
-                    <div class="inputGrupo">
-                        <label for="inputSenha">Senha</label>
-                        <input type="password" id="inputSenha" placeholder="Insira sua senha...">
-                    </div>
-
-                    <a href="cadastro.html" class="esqueciSenha">Não tem uma conta? Cadastre-se</a>
-
-                    <button type="submit" class="btnEntrar">Entrar</button>
-                </div>
+        <section class="quizContainer" id="apagar">
+            <div class="qualPergunta" id="qualPergunta">
 
             </div>
+            
+            <div class="tituloPergunta" id="tituloPergunta">
+            </div>
+            
+            <div class="imagemPergunta" id="imagemPergunta">
+
+            </div>
+
+            <div class="respostaPergunta" id="respostaPergunta1">
+
+            </div>
+
+            <div class="respostaPergunta" id="respostaPergunta2">
+
+            </div>
+
+            <div class="respostaPergunta" id="respostaPergunta3">
+
+            </div>
+
+            <div class="respostaPergunta" id="respostaPergunta4">
+
+            </div>
+            <div class="botaoPergunta">
+                <button onclick="confirmation()">
+                    Confirmar resposta
+                </button>
+            </div>
+        </section>
+        <section>
+            <div id="nomeTotal" class="nomeTotal">
+
+            </div>
+            <div id="quantiaAcerto" class="quantiaAcerto">
+
+            </div>
+            <div id="questoesCertas" class="questoesCertas"></div>
         </section>
     </main>
+
     <footer>
         <div class="footerContainer">
             <p class="footerCopy">
@@ -71,6 +83,8 @@
             </p>
         </div>
     </footer>
+
+    <script src="../js/quiz.js"></script>
 </body>
 
 </html>
