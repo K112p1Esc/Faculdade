@@ -1,0 +1,182 @@
+/* ===== CONTAINER PRINCIPAL ===== */
+.quizContainer {
+    /*Define a "caixa" onde todo o conteúdo aparece*/
+    max-width: 800px;
+    margin: 40px auto;
+    /* Maneira que encontrei para centralizar horizontalmente */
+    background: #1f1f1f;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Lembrando: Espaço entre elementos que são filhos */
+}
+
+/* ===== MINHA PERGUNTA ===== */
+.qualPergunta {
+    font-size: 14px;
+    color: #aaa;
+    /* Cinza claro */
+}
+
+.tituloPergunta {
+    font-size: 22px;
+    font-weight: 700;
+    /* Negrito BEMMM forte */
+    line-height: 1.4;
+    /* Altura da linha para legibilidade */
+}
+
+/* ===== IMAGEM ===== */
+.imagemPergunta {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.imagemPergunta img {
+    width: 100%;
+    max-height: 300px;
+    /* Limita altura da imagem */
+    object-fit: cover;
+    /* Corta imagem mantendo proporção */
+    border-radius: 12px;
+}
+
+/* ===== OPÇÕES DE RESPOSTA ===== */
+.respostaPergunta {
+    background: #2c2c2c;
+    padding: 15px;
+    border-radius: 10px;
+    transition: 0.2s;
+    cursor: pointer;
+    /* Mãozinha ao passar mouse */
+    padding: 0;
+}
+
+.respostaPergunta:hover {
+    background: #3a3a3a;
+    transform: scale(1.02);
+}
+
+/* Esconde o radio button padrãozinho e então o label é estilizado no lugar */
+.respostaPergunta input {
+    display: none;
+}
+
+/* Label pra ocupar tudo para então clicar */
+.respostaPergunta label {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    padding: 15px;
+    box-shadow: 0 0 0 0px transparent;
+    border-radius: 10px;
+    transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+    /*To usando para o elemento background e box-shadow terem uma animação suave dps do clique*/
+}
+
+/* Isso diz basicamente "Pega aquele label que vem em seguida do input!" em resumo. Por isso consigo clicar no label e funcionar! Tive que fazer isso por que antes estava bem bugadinho a questão de ao clicar, aparecer selecionado. Muitas vezes isso não acontecia... */
+.respostaPergunta input:checked+label {
+    background: #2a3a6b;
+    box-shadow: 0 0 0 3px #395ab5;
+}
+
+/* ===== BOTÃO DE CONFIRMAÇÃO ===== */
+.botaoPergunta {
+    display: flex;
+    justify-content: center;
+    /* Centraliza botão */
+}
+
+.botaoPergunta button {
+    background: #395ab5;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.botaoPergunta button:hover {
+    background: #012790;
+    transform: scale(1.05);
+}
+
+/* ===== TELA DE RESULTADO ===== */
+#resultadoArea {
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Título principal*/
+.nomeTotal {
+    font-size: 40px;
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 0 0 10px #395ab5, 0 0 20px #395ab5;
+    /* Usando isso, dá para fazer algo muito louco que é tipo um neon */
+}
+
+/* Container da pontuação, que na real é x/10 */
+.quantiaAcerto {
+    font-size: 20px;
+    color: #ccc;
+}
+
+/* Card destacado com pontuação, que é nada mais nada menos do que o acima só que tudo dentro estilizado certo agora */
+.scoreBox {
+    margin: 20px auto;
+    padding: 20px 30px;
+    border-radius: 16px;
+    background: #111;
+    border: 2px solid #395ab5;
+    box-shadow: 0 0 20px rgba(57, 90, 181, 0.5);
+    display: inline-block;
+}
+
+/* Mesma coisa de cima só que pro numero e tals*/
+.scoreNumero {
+    font-size: 48px;
+    font-weight: 900;
+    color: #83a0ef;
+}
+
+/* Texto abaixo do número só*/
+.scoreTexto {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* Container das bolinhas de quantas acertou */
+.questoesCertas {
+    margin-top: 15px;
+}
+
+/* Bolinhas numeradas */
+.questaoBolinha {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    margin: 5px;
+    border-radius: 50%;
+    border: 2px solid #395ab5;
+    color: white;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.questaoBolinha:hover {
+    background: #395ab5;
+    transform: scale(1.1);
+}

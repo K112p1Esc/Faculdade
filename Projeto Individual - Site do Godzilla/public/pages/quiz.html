@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/quiz.css">
 </head>
 
 <body>
@@ -21,56 +22,42 @@
         <div class="links">
             <a href="../index.html" class="escolhaLinks">Home</a>
             <a href="filmes.html" class="escolhaLinks">Filmes</a>
-            <a href="#" class="escolhaLinks">Trajes</a>
-            <a href="#" class="escolhaLinks login">Login</a>
+            <a href="trajes.html" class="escolhaLinks">Trajes</a>
+            <a href="login.html" class="escolhaLinks login">Login</a>
         </div>
     </header>
 
     <main>
-        <section class="quizContainer" id="apagar">
-            <div class="qualPergunta" id="qualPergunta">
 
-            </div>
-            
-            <div class="tituloPergunta" id="tituloPergunta">
-            </div>
-            
-            <div class="imagemPergunta" id="imagemPergunta">
+        <!-- QUIZ -->
+        <section id="quizArea" class="quizContainer">
+            <div class="qualPergunta" id="qualPergunta"></div>
 
-            </div>
+            <div class="tituloPergunta" id="tituloPergunta"></div>
 
-            <div class="respostaPergunta" id="respostaPergunta1">
+            <div class="imagemPergunta" id="imagemPergunta"></div>
 
-            </div>
+            <div class="respostaPergunta" id="respostaPergunta1"></div>
+            <div class="respostaPergunta" id="respostaPergunta2"></div>
+            <div class="respostaPergunta" id="respostaPergunta3"></div>
+            <div class="respostaPergunta" id="respostaPergunta4"></div>
 
-            <div class="respostaPergunta" id="respostaPergunta2">
-
-            </div>
-
-            <div class="respostaPergunta" id="respostaPergunta3">
-
-            </div>
-
-            <div class="respostaPergunta" id="respostaPergunta4">
-
-            </div>
             <div class="botaoPergunta">
                 <button onclick="confirmation()">
                     Confirmar resposta
                 </button>
             </div>
         </section>
-        <section>
-            <div id="nomeTotal" class="nomeTotal">
 
-            </div>
-            <div id="quantiaAcerto" class="quantiaAcerto">
-
-            </div>
+        <!-- RESULTADO -->
+        <section id="resultadoArea" class="quizContainer" style="display: none;">
+            <div id="nomeTotal" class="nomeTotal"></div>
+            <div id="quantiaAcerto" class="quantiaAcerto"></div>
             <div id="questoesCertas" class="questoesCertas"></div>
         </section>
-    </main>
 
+    </main>
+    
     <footer>
         <div class="footerContainer">
             <p class="footerCopy">
@@ -84,6 +71,7 @@
         </div>
     </footer>
 
+    <script src="../js/quiz2.js"></script>
     <script src="../js/quiz.js"></script>
 </body>
 

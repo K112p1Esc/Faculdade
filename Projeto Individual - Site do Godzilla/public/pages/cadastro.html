@@ -22,8 +22,8 @@
         <div class="links">
             <a href="../index.html" class="escolhaLinks">Home</a>
             <a href="filmes.html" class="escolhaLinks">Filmes</a>
-            <a href="#" class="escolhaLinks">Trajes</a>
-            <a href="#" class="escolhaLinks login">Login</a>
+            <a href="trajes.html" class="escolhaLinks">Trajes</a>
+            <a href="login.html" class="escolhaLinks login">Login</a>
         </div>
     </header>
     <main>
@@ -42,6 +42,11 @@
                     <p class="loginSubtitle">Bem-vindo! Cadastre-se conosco</p>
 
                     <div class="inputGrupo">
+                        <label for="inputNome">Nome</label>
+                        <input type="text" id="inputNome" placeholder="Insira seu nome...">
+                    </div>
+
+                    <div class="inputGrupo">
                         <label for="inputEmail">Email</label>
                         <input type="email" id="inputEmail" placeholder="teste@algo.com">
                     </div>
@@ -53,10 +58,10 @@
 
                     <div class="inputGrupo">
                         <label for="inputSenhaConfir">Confirmação de Senha</label>
-                        <input type="password" id="inputSenha" placeholder="Insira sua senha novamente...">
+                        <input type="password" id="inputSenhaConfir" placeholder="Insira sua senha novamente...">
                     </div>
 
-                    <button type="submit" class="btnEntrar">Entrar</button>
+                    <button type="submit" class="btnEntrar" onclick="cadastrar()">Cadastrar</button>
                 </div>
 
             </div>
@@ -74,6 +79,7 @@
             </p>
         </div>
     </footer>
+    <script src="../js/cadastro.js"></script>
 </body>
 
 </html>
