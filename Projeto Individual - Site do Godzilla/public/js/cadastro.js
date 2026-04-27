@@ -50,16 +50,12 @@ function cadastrar() {
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block";
-
-                mensagem_erro.innerHTML =
-                    "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                    console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
                 setTimeout(() => {
-                    window.location = "login.html";
+                    window.location = "../pages/login.html";
                 }, "2000");
 
-                limparFormulario();
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";
             }
