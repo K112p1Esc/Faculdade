@@ -1,0 +1,37 @@
+<!-- 2. Crie um programa o qual:  
+a) Ao clicar no botão "Sortear time", faz aparecer somente um dos escudos dos 4 times de futebol de maior torcida do estado de São Paulo. Independente da imagem, todas devem ter 150px de altura.   -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="sortear()">Sortear Time</button>
+    <div id="msg" style="width: 150px; height: 150px;"></div>
+
+</body>
+
+</html>
+
+<script>
+    function sortear()  {
+
+        const times = [
+            'https://a.espncdn.com/i/teamlogos/soccer/500/874.png', // Corinthians
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SE_Palmeiras_2025_crest.png/250px-SE_Palmeiras_2025_crest.png', // Palmeiras
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg/250px-S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg.png', // São Paulo
+            'https://a.espncdn.com/combiner/i?img=/i/teamlogos/soccer/500/2674.png' // Santos
+        ];
+
+        let i = parseInt(Math.random()* times.length) ;
+
+        let mensagem = `<img height="150px" src="${times[i]}">`;
+
+        msg.innerHTML = mensagem;
+    }
+</script>
