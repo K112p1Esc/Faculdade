@@ -1,0 +1,42 @@
+<!-- 14. Crie um programa que simule as fases da lua:  
+a) Ao clicar no botão "Ver a Lua", sorteie um dia do mês entre 1 e 31 e exiba o número sorteado na página  
+
+b) Mostre uma fase da lua, de acordo com o dia sorteado, conforme estes critérios (pode baixar e deixar as imagens locais, se preferir):  
+
+   "Lua nova", caso o dia do mês esteja entre 1 e 7  
+
+   "Lua cheia", caso o dia do mês esteja entre 8 e 16  
+
+   "Lua minguante", caso o dia do mês esteja entre 17 e 22  
+
+   "Lua crescente", caso o dia do mês esteja entre 23 e 31  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="ver()">Ver a Lua</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function ver() {
+        let random = Number(parseInt((Math.random()*31+1)))
+        let mssg = `${random}<br>`;
+        if (random < 8){
+            mssg += 'Lua Nova'
+        }else if (random < 17){
+            mssg += 'Lua Cheia'
+        }else if (random < 23){
+            mssg += 'Lua Minguante'
+        }else {
+            mssg += 'Lua Crescente'
+        }
+        msg.innerHTML = mssg;
+    }
+</script>

@@ -1,0 +1,45 @@
+<!-- 15. Crie um programa o qual:  
+a) Tenha no topo da página, o seguinte texto:  
+
+   Números pares: 0  
+
+   Números ímpares: 0  
+
+b) Ao clicar no botão "Sortear número", deve sortear um número entre -30 e -9 e exibir o número sorteado abaixo do botão 
+
+c) Aumente um dos contadores do item a) conforme ele seja par ou ímpar 
+
+OBS: o contador deve ser cumulativo, ou seja  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Números pares: <span id="pares">0</span>
+    <br>
+    Números ímpares: <span id="impares">0</span>
+    <br>
+    <button onclick="sortear()">Sortear Número</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    let par = 0;
+    let impar = 0;
+    function sortear() {
+        let random = parseInt(Math.random() * 22) - 30;
+        msg.innerHTML = random; 
+        if (random%2==0){
+            par++;
+            pares.innerHTML = par;
+        }else {
+            impar++;
+            impares.innerHTML = impar;
+        }
+    }
+</script>

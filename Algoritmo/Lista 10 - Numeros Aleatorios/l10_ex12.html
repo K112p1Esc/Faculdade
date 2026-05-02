@@ -1,0 +1,67 @@
+<!-- 12. Faça uma versão melhorada da questão anterior:  
+a) Tenha um botão "Verificar Média" que quando clicado, mostre abaixo da última avaliação a média de todas as avaliações realizadas. Ex: "Média geral: 3.9"  
+
+b) Mostrar também o emoji de acordo com a média.  
+
+OBS: Essa média é a soma de todas as avaliações dividida pela quantidade de avaliações realizadas  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="avaliar()">Avaliar</button>
+    <div id="msg"></div>
+    <button onclick="media()">Verificar Média</button>
+    <div id="msg2"></div>
+</body>
+
+</html>
+
+<script>
+    let salvar = []
+    function avaliar() {
+        let random = (Math.random() * 5).toFixed(1);
+        salvar.push(random)
+        let mssg = '';
+        if (random < 0.6) {
+            mssg = `Nota recebida: ${random}<br>😭`
+        } else if (random < 1.6) {
+            mssg = `Nota recebida: ${random}<br>🥹`
+        } else if (random < 3.6) {
+            mssg = `Nota recebida: ${random}<br>😐`
+        } else if (random < 4.6) {
+            mssg = `Nota recebida: ${random}<br>😊`
+        } else {
+            mssg = `Nota recebida: ${random}<br>😃`
+        }
+        msg.innerHTML = mssg;
+    }
+
+    function media() {
+        let soma = 0;
+        for (i = 0; i < salvar.length; i++) {
+            soma += Number(salvar[i]);
+        }
+        let mssg = '';
+        let dividir = salvar.length;
+        let div = (soma/dividir).toFixed(1);
+        if (soma < 0.6) {
+            mssg = `Nota recebida: ${div}<br>😭`
+        } else if (soma < 1.6) {
+            mssg = `Nota recebida: ${div}<br>🥹`
+        } else if (soma < 3.6) {
+            mssg = `Nota recebida: ${div}<br>😐`
+        } else if (soma < 4.6) {
+            mssg = `Nota recebida: ${div}<br>😊`
+        } else {
+            mssg = `Nota recebida: ${div}<br>😃`
+        }
+        msg2.innerHTML = mssg;
+    }
+</script>

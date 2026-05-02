@@ -1,0 +1,51 @@
+<!-- 10. Crie um programa que simule um jogo de dados, o qual:  
+a) Tenha um botão "Dado Jogador 1" que faz aparecer, abaixo dele, o valor de um dadinho de 6 lados sorteado  
+
+b) Tenha um botão "Dado Jogador 2" que faz aparecer, abaixo dele, o valor de um dadinho de 6 lados sorteado  
+
+c) Tenha um botão "Comparar Resultados", que exibe uma das frases abaixo de tudo:  
+
+  "Jogador [1 ou 2] venceu", caso um deles tenha vencido  
+
+  "Empate!", em caso dos dados serem iguais  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="jogador1()">Dado Jogador 1</button>
+    <div id="msgJog1"></div>
+    <button onclick="jogador2()">Dado Jogador 2</button>
+    <div id="msgJog2"></div>
+    <button onclick="comparar()">Comparar Resultados</button>
+    <div id="msgComp"></div>
+</body>
+</html>
+
+<script>
+    let jog1 = null;
+    let jog2 = null;
+    function jogador1() {
+        jog1 = parseInt((Math.random()*6+1));
+        msgJog1.innerHTML = jog1;
+    }
+    function jogador2() {
+        jog2 = parseInt((Math.random()*6+1));
+        msgJog2.innerHTML = jog2;
+    }
+    function comparar() {
+        if(jog1 == null || jog2 == null){
+            msgComp.innerHTML = `jogue ambos os dados primeiro`
+        }else if (jog1==jog2){
+            msgComp.innerHTML = `empate`
+        }else if (jog1>jog2){
+            msgComp.innerHTML = `Jogador 1 venceu`
+        }else {
+            msgComp.innerHTML = `Jogador 2 venceu`
+        }
+    }
+</script>

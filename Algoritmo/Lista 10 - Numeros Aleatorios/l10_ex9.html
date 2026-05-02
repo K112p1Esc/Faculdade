@@ -1,0 +1,68 @@
+<!-- 9. Crie um programa o qual:  
+a) Tenha um botão "Gerar uma nota de aluno entre 3 e 10" que faz aparecer, abaixo dele, a nota gerada  
+
+b) Tenha um botão "Gerar uma frequência de aluno entre 50 e 100" que faz aparecer, abaixo dele, a frequência gerada  
+
+c) Deixe todos os valores com 1 casa decimal na tela  
+
+d) Ao clicar no botão “Ver Aprovação”, exiba na tela uma mensagem como a abaixo, de acordo com a situação do aluno: 
+
+    "Com nota X e frequência Y, o aluno está Z!" 
+
+Onde X é a nota, Y a frequência e Z a situação do aluno (aprovado ou reprovado), sendo que para a aprovação, o aluno deve possuir nota a partir de 6 e frequência a partir de 75%.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="notaF()">Gerar uma nota de aluno entre 3 e 10</button>
+    <div id="notaMsg"></div>
+    <button onclick="frequenciaF()">Gerar uma frequência de aluno entre 50 e 100</button>
+    <div id="freqMsg"></div>
+    <button onclick="situacao()">Ver Aprovação</button>
+    <div id="aprovadoMsg"></div>
+</body>
+
+</html>
+
+<script>
+    let nota = null;
+    let frequencia = null;
+    function notaF() {
+        nota = Math.random() * 8+3;
+        if (nota > 10) {
+            nota = parseInt(nota);
+        } else {
+            nota = nota.toFixed(1);
+        }
+        notaMsg.innerHTML = nota;
+    }
+
+    function frequenciaF() {
+        frequencia = Math.random() * 51+50;
+        if (frequencia > 100) {
+            frequencia = parseInt(frequencia);
+        } else {
+            frequencia = frequencia.toFixed(1);
+        }
+        freqMsg.innerHTML = frequencia;
+    }
+
+    function situacao() {
+        let aprovado = 'reprovado'
+        if (nota == null || frequencia == null){
+            alert('gere a nota e frequencia primeiro')
+        }else {
+            if (nota >= 6 && frequencia >=75) {
+                aprovado = 'aprovado'
+            }
+            aprovadoMsg.innerHTML = `Com nota ${nota} e frequência ${frequencia}%, o aluno está ${aprovado}!`
+        }
+    }
+</script>

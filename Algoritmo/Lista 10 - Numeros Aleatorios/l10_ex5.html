@@ -1,0 +1,90 @@
+<!-- 5. Simulação
+Tente fazer uma pequena simulação do famoso jogo "jo ken po" (pedra, papel e tesoura) em HTML/JS:  
+
+a) Ao clicar no botão "Jogar", deve aparecer abaixo dele ou a figura de uma pedra, de uma folha de papel ou de uma tesoura (seja qual for a imagem, ela deve ter 200px de altura). 
+
+b) Abaixo das imagens, exiba quem venceu e exiba/atualize o placar de vitórias como abaixo: 
+
+     O jogador 1 venceu!  
+
+     Jogador 1: 1 vitória(s) 
+
+     Jogador 2: 0 vitória(s)  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="jogar()">Jogar</button>
+    <div id="msg1"></div>
+    <div id="msg2"></div>
+    <div id="msg3"></div>
+</body>
+
+</html>
+
+<script>
+    let jokenpo = ['https://cdn.dooca.store/72923/products/cjcpfqreixcswo8sikcprc7mz1bs6rvmmjil_640x640+fill_ffffff.png?v=1744292798&webp=0', 'https://img.freepik.com/fotos-gratis/textura-de-papel-branco_1194-2301.jpg?semt=ais_hybrid&w=740&q=80', 'https://img.kalunga.com.br/fotosdeprodutos/673693z_2.jpg']
+    let contadorJog1 = 0
+    let contadorJog2 = 0
+
+    function jogar() {
+        let random = Math.random() * 3;
+        random = parseInt(random);
+        if (random == 0) {
+            msg1.innerHTML = `Jogador 1: <img src=${jokenpo[0]}>`
+        } else if (random == 1) {
+            msg1.innerHTML = `Jogador 1: <img src=${jokenpo[1]}>`
+        } else {
+            msg1.innerHTML = `Jogador 1: <img src=${jokenpo[2]}>`
+        }
+        let random2 = Math.random() * 3;
+        random2 = parseInt(random2);
+        if (random2 == 0) {
+            msg2.innerHTML = `Jogador 2: <img src=${jokenpo[0]}>`
+        } else if (random2 == 1) {
+            msg2.innerHTML = `Jogador 2: <img src=${jokenpo[1]}>`
+        } else {
+            msg2.innerHTML = `Jogador 2: <img src=${jokenpo[2]}>`
+        }
+
+        let vencedor = '2';
+        let empate = false;
+
+        if (
+            random == 0 && random2 == 2 ||
+            random == 1 && random2 == 0 ||
+            random == 2 && random2 == 1
+        ) {
+            contadorJog1++
+            vencedor = '1'
+        } else if (random == random2) {
+            empate = true;
+        } else {
+            contadorJog2++
+        }
+
+        if (!empate) {
+            msg3.innerHTML = `
+            O jogador ${vencedor} venceu!  
+
+            Jogador 1: ${contadorJog1} vitória(s) 
+
+            Jogador 2: ${contadorJog2} vitória(s) `
+        } else {
+            msg3.innerHTML = 'Empate!'
+        }
+    }
+</script>
