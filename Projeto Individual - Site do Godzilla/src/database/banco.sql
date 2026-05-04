@@ -10,21 +10,24 @@ CREATE TABLE tbUsuario (
     tipoUsuario CHAR(1) DEFAULT "P"
 );
 
-CREATE TABLE tbQuiz (
-    idQuiz INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE tbTentativa (
+    idTentativa INT PRIMARY KEY AUTO_INCREMENT,
     quantiaAcertos INT,
     questoesAcertadas VARCHAR(40),
+    fkUsuario INT,
+    CONSTRAINT fkTentativaUsu FOREIGN KEY (fkUsuario) 
+        REFERENCES tbUsuario(idUsuario)
+);
+-- Será adicionado no futuro no site!
+CREATE TABLE tbPerfil (
+    idPerfil INT PRIMARY KEY AUTO_INCREMENT,
+    telefone VARCHAR(20),
+    bio VARCHAR(200),
+    fkUsuario INT UNIQUE,
+    CONSTRAINT perfilUsu FOREIGN KEY (fkUsuario)
+        REFERENCES tbUsuario(idUsuario)
 );
 
-CREATE TABLE tbQuizUsuario (
-    idQuizUsuario INT PRIMARY KEY AUTO_INCREMENT,
-    fkUsuario INT,
-    CONSTRAINT fkUsu FOREIGN KEY (fkUsuario)
-        REFERENCES tbUsuario(idUsuario)
-    fkQuiz INT,
-    CONSTRAINT fkQiz FOREIGN KEY (fkQuiz)
-        REFERENCES tbQuiz(idQuiz)
-);
 
 INSERT INTO tbUsuario VALUES
 	(default, 'admin', 'admin@gmail.com','admin@1234!', 'A');

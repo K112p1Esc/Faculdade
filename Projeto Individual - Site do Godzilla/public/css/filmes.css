@@ -1,0 +1,150 @@
+/* ===== CONTAINER FILMES ===== */
+.filmesContainer {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #1f1f1f;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+/* ===== TÍTULO DO FILME ===== */
+.filmeTítulo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+    text-shadow: 0 0 10px #395ab5, 0 0 20px #395ab5;
+}
+
+/* ===== IMAGEM DO FILME ===== */
+.imagemFilme {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.imagemFilme img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+}
+
+/* ===== TEXTO PRINCIPAL DO FILME ===== */
+.textoFilme {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #ccc;
+    background: #2c2c2c;
+    border-radius: 10px;
+    padding: 18px;
+    text-align: justify;
+}
+
+/* ===== AVISO DE SPOILER ===== */
+.avisoSpoiler {
+    background: #2a3a6b;
+    border: 2px solid #395ab5;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #83a0ef;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Ícone de "!" antes do aviso */
+.avisoSpoiler::before {
+    content: "!";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: #395ab5;
+    border-radius: 50%;
+    color: white;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+/* ===== TEXTO COM SPOILER ===== */
+.textoSpoiler {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #ccc;
+    background: #1a2240;
+    border-left: 3px solid #395ab5;
+    border-radius: 0 10px 10px 0;
+    padding: 16px 18px;
+    text-align: justify;
+}
+
+/* ===== TRAILER ===== */
+.trailerFilme {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Caso seja um iframe do YouTube */
+.trailerFilme iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: 12px;
+    display: block;
+}
+
+/* ===== BOTÕES DE NAVEGAÇÃO ===== */
+.botoesNavegacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.btnVoltar,
+.btnAvancar {
+    background: #395ab5;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.btnVoltar:hover,
+.btnAvancar:hover {
+    background: #012790;
+    transform: scale(1.05);
+}
+
+/*
+    Essa parte é essencial e funciona de maneira simples. Eu tenho dois botões
+    Um deles deve aaprecer apenas quando tiver avançado uma vez. Para o botão não bugar
+    eu adiciono por padrão ele ter a visibilidade escondida, onde assim, no JS, irei 
+    ativar essa visibilidade.
+*/
+.btnVoltar {
+    visibility: hidden;
+}
+
+.btnAvancar.invisivel {
+    visibility: hidden;
+}
+
+.btnVoltar.visivel {
+    visibility: visible;
+}

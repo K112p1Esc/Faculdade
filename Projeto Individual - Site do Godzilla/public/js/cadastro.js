@@ -13,13 +13,7 @@ function cadastrar() {
         senhaVar == "" ||
         confirmacaoSenhaVar == ""
     ) {
-        // cardErro.style.display = "block";
-        // mensagem_erro.innerHTML =
-        //     "(Mensagem de erro para todos os campos em branco)";
-
-        // finalizarAguardar();
-        // return false;
-
+        alert('Todos os campos em branco')
     } else if (nomeVar.length <= 1) {
         alert('Nome com um ou menos caracteres')
     } else if (emailVar.indexOf('@') == -1) {
@@ -50,7 +44,7 @@ function cadastrar() {
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                    console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+                console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
                 setTimeout(() => {
                     window.location = "../pages/login.html";
@@ -65,28 +59,4 @@ function cadastrar() {
         });
 
     return false;
-}
-
-// Listando empresas cadastradas 
-function listar() {
-    fetch("/empresas/listar", {
-        method: "GET",
-    })
-        .then(function (resposta) {
-            resposta.json().then((empresas) => {
-                empresas.forEach((empresa) => {
-                    listaEmpresasCadastradas.push(empresa);
-
-                    console.log("listaEmpresasCadastradas")
-                    console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-                });
-            });
-        })
-        .catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-}
-
-function sumirMensagem() {
-    cardErro.style.display = "none";
 }
