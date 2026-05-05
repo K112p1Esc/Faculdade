@@ -28,7 +28,6 @@ CREATE TABLE tbPerfil (
         REFERENCES tbUsuario(idUsuario)
 );
 
-
 INSERT INTO tbUsuario VALUES
 	(default, 'admin', 'admin@gmail.com','admin@1234!', 'A');
     

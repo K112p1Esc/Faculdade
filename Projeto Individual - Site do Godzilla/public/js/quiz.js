@@ -121,3 +121,49 @@ function nextQuestion(i) {
     // verificar da mesma maneira que a primeira para ficar decente. Poderia fazer com outra lógica? Sim, mas preferi
     // ir de uma maneira mais simples.
 }
+
+
+// ============================= ÁREA DO CADASTRO ============================= //
+function cadastrar() {    
+    // DESTA MANEIRA CONSIGO PUXAR O ID DO USUARIO. Logo, inicio com isso
+    let usuarioJSON = JSON.parse(sessionStorage.getItem('usuario')); // pega o objeto inteiro
+
+    // Estou declarando as variaveis que irei usar para o insert.
+    var questoesAcertadasVar = questoesAcertadas.toString();
+    var pontuacaoVar = pontuacao;
+    var idVar = usuarioJSON.id
+
+    // Enviando o valor da nova input
+    fetch("/quiz/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },  
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            questoesAcertadasServer: questoesAcertadasVar,
+            pontuacaoServer: pontuacaoVar,
+            idServer: idVar,
+        }),
+    })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log("Cadastro realizado com sucesso!");
+
+                setTimeout(() => {
+                    window.location = "../pages/index.html";
+                }, "1000");
+
+            } else {
+                throw "Houve um erro ao tentar realizar o cadastro!";
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+    return false;
+}
