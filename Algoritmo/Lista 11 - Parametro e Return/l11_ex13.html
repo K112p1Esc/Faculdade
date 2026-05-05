@@ -1,0 +1,32 @@
+<!-- 13) Crie uma função que receba um vetor de números e retorne true se todos os elementos do vetor forem positivos, ou false caso contrário. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="exibir()">Ver se é positivo ou não um vetor</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    array = [1,3,5,10,15,20,12,0,8,8,8,8,10,10,12,13]
+    // array = [1,3,5,10,15,20,12,0,8,8,8,8,10,10,12,13,-2]
+    function exibir() {
+        msg.innerHTML = positivoElementos(array);
+    }
+
+    function positivoElementos(a) {
+        let positivo = true;
+        for(let i = 0; i<a.length;i++){
+            if(a[i]<0){
+                positivo = false
+            }
+        }
+        return positivo;
+    }
+</script>

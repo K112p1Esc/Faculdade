@@ -1,0 +1,29 @@
+<!-- 1) Crie uma função que receba um número e retorne true caso o número seja positivo e false caso contrário. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Insira um numero" id="num">
+    <button onclick="exibir()">Inserir</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function exibir() {
+        msg.innerHTML = posiNeg(num.value);
+    }
+
+    function posiNeg(a){
+        if(a<0){
+            return false;
+        }else {
+            return true;
+        }
+    }
+</script>
