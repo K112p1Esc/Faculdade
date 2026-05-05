@@ -20,10 +20,10 @@
     }
 
     function imparesElementos(a) {
-        let impares = ''
+        let impares = []
         for(let i = 0; i<a.length;i++){
             if(a[i]%2!=0){
-                impares += `${a[i]}       `
+                impares.push(a[i])
             }
         }
         return impares;
