@@ -1,0 +1,32 @@
+<!-- 3. Cadastro de Alunos com Exibição Invertida
+Crie um programa o qual:  
+a) O usuário cadastre nomes de alunos;  
+
+b) Porém, na medida que vai cadastrando, aparecem um abaixo do outro na ordem inversa em que foram cadastrados (ou seja, o último sempre fica no topo, o penúltimo em abaixo dele e assim por diante). -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="nomeInput">Nome Aluno</label>
+    <input type="text" id="nomeInput">
+    <button onclick="cadastrar()">Cadastrar Aluno</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    let nomes = []
+    function cadastrar() {
+        nomes.push(nomeInput.value);
+        let mssg = '';
+        for(let i = nomes.length-1; i>=0; i--){
+            mssg+= `${nomes[i]}<br>`
+        }
+        msg.innerHTML = mssg;
+    }
+</script>

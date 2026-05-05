@@ -1,0 +1,70 @@
+<!-- 5. Registro de Linhas de Ônibus com Pesquisa de Histórico
+Crie um programa o qual:  
+a) O usuário vá registrando os nomes das linhas de ônibus que ele pegou durante a semana. Ele digita o nome da linha e clica em "Gravar busão"; 
+
+b) Cada vez que o botão é clicado o programa deve mostrar a lista de linhas de ônibus abaixo do botão e em ordem inversa (do último para o primeiro);  
+
+c) Deve haver outro campo em que ele pesquisa por uma linha que já tenha pego. Ao clicar em "Pesquisar", deve ver uma dessas frases, abaixo da lista de linhas de ônibus que já pegou:  
+
+   Você nunca pegou essa linha (caso não tenha cadastrado a linha em questão)  
+
+   OU  
+
+   Você já pegou essa linha 4 vezes, nessa ordem: 2, 4, 8, 9  
+
+   (supondo que ele cadastrou a mesma linha na 2ª vez, na 4ª vez, na 8ª vez e na 9ª vez). -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="pontoInput">Insira a linha de Onibus que pega na semana</label>
+    <input type="text" id="linhaInput">
+    <br>
+    <button onclick="gravar()">Gravar busão</button>
+    <div id="msg"></div>
+    <br>
+    <label for="pesquisaInput">Pesquisar linhas já pegas</label>
+    <input type="text" id="pesquisaInput">
+    <br>
+    <button onclick="pesquisa()">Pesquisar</button>
+    <div id="msg2"></div>
+</body>
+
+</html>
+
+<script>
+    let busao = [];
+    function gravar() {
+        busao.push(linhaInput.value);
+        let mensagem = '';
+        for (let i = busao.length - 1; i >= 0; i--) {
+            mensagem += `${busao[i]}<br>`
+        }
+        msg.innerHTML = mensagem;
+    }
+
+    function pesquisa() {
+        let pesquisa = pesquisaInput.value;
+        let vezes = 0;
+        let ordem = '';
+        if (busao.includes(pesquisa)) {
+            for (let i = 0; i <= busao.length; i++) {
+                if (busao[i] == pesquisa) {
+                    vezes++;
+                    ordem += ` ${i+1}, `
+                }
+            }
+            msg2.innerHTML = `Você já pegou essa linha ${vezes} vezes, nessa ordem: ${ordem}  `
+
+        } else {
+            msg2.innerHTML = 'Você nunca pegou essa linha'
+        }
+    }
+</script>

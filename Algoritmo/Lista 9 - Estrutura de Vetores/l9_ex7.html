@@ -1,0 +1,58 @@
+<!-- 7. Cadastro de Filhos sem Repetição e Estimativa de Custo Escolar
+Crie um programa o qual:  
+a) Pergunte ao usuário o nome de um de seus filhos; 
+
+b) Ao clicar em "Cadastrar", o nome do filho fica cadastrado num lugar que o usuário não vê, porém não permita o cadastro de nomes repetidos.  
+
+b.1) Em caso de tentativa de nome repetido, exiba um alert com a frase "Não pode mais de 1 filho com o mesmo nome!"  
+
+c) Ao clicar em "Atualizar Família", deve aparecer um texto como este abaixo:  
+
+   Você tem X filhos  
+
+   Seu custo mensal será aproximadamente R$Y se colocá-los em escola particular ou R$Z se eles estudarem em escola pública  
+
+   Em que X é a quantidade de filhos cadastrados.  
+
+   Y é o resultado do seguinte cálculo: filhos x 3000 
+
+   Z é o resultado do seguinte cálculo: filhos x 1500 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="nomeFilho">Qual o nome do seu filho?</label>
+    <input type="text" id="nomeFilho">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizar()">Atualizar Família</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    let nome = [];
+    function cadastrar() {
+        let filho = nomeFilho.value;
+        if(nome.includes(filho)){
+            alert('Não pode mais de 1 filho com o mesmo nome!')
+        }else {
+            nome.push(filho)
+        }
+    }
+
+    function atualizar() {
+        
+
+        msg.innerHTML = 
+        `
+        Você tem ${nome.length} filhos  
+        <br>
+        Seu custo mensal será aproximadamente R$${nome.length*3000} se colocá-los em escola particular ou R$${nome.length*1500} se eles estudarem em escola pública  
+        `
+    }
+</script>
