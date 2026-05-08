@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trajes</title>
+    <title>Dashboard</title>
+    <link rel="icon" type="image/png" href="../img/logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 
 <body>
@@ -19,16 +22,68 @@
         </div>
 
         <div class="links">
-            <a href="login.html" class="escolhaLinks dashboard" id="dashboard"></a>
+            <a href="dashboard.html" class="escolhaLinks active dashboard" id="dashboard"></a>
             <a href="quiz.html" class="escolhaLinks quiz" id="quiz"></a>
             <a href="../index.html" class="escolhaLinks">Home</a>
             <a href="filmes.html" class="escolhaLinks">Filmes</a>
-            <a href="trajes.html" class="escolhaLinks active">Trajes</a>
+            <a href="trajes.html" class="escolhaLinks">Trajes</a>
             <a href="login.html" class="escolhaLinks login" id="login">Login</a>
         </div>
     </header>
-    <main>
 
+    <main>
+        <section>
+            <div class="kpiContainer">
+                <div class="kpiTitulo">
+                    Total de Usuários
+                </div>
+                <div class="kpiValor" id="totalUsu">20</div>
+            </div>
+            <div class="kpiContainer">
+                <div class="kpiTitulo">
+                    Questão Menos Acertada
+                </div>
+                <div class="kpiValor" id="menosAcertada">10</div>
+            </div>
+            <div class="kpiContainer">
+                <div class="kpiTitulo">
+                    Questão Mais Acertada
+                </div>
+                <div class="kpiValor" id="maissAcertada">6</div>
+            </div>
+            <div class="kpiContainer">
+                <div class="kpiTitulo">
+                    Quantia de Quizes Feito
+                </div>
+                <div class="kpiValor" id="quantiaQuiz">30</div>
+            </div>
+        </section>
+
+        <section>
+            <!-- direita -->
+            <div class="dashContainer">
+                <div class="tituloDash">
+                    Quantia de Usuários cadastrados nos últimos 7 dias
+                </div>
+                <div class="dashGrafico">
+                    <canvas id="grafico" class="grafico"></canvas>
+                </div>
+            </div>
+            <!-- esquerda -->
+            <div class="rankingContainer">
+                <div class="nomeRanking">
+                    Top 10 Acertos
+                </div>
+                <div class="ranking">
+                    <div class="pessoaRanking">
+                        João
+                    </div>
+                    <div class="Quantia Acertada">
+                        10
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -45,6 +100,7 @@
     </footer>
 
     <script src="../js/finalizarLogin.js"></script>
+    <script src="../js/dashboard.js"></script>
 </body>
 
 </html>

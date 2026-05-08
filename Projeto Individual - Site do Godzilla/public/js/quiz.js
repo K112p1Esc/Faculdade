@@ -154,7 +154,7 @@ function cadastrar() {
                 console.log("Cadastro realizado com sucesso!");
 
                 setTimeout(() => {
-                    window.location = "../pages/index.html";
+                    window.location = "../index.html";
                 }, "1000");
 
             } else {

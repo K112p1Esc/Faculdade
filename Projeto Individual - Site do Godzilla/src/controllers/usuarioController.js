@@ -24,6 +24,7 @@ function autenticar(req, res) {
                             nome: resultadoAutenticar[0].nomeUsuario,
                             senha: resultadoAutenticar[0].senhaUsuario,
                             tipoUsuario: resultadoAutenticar[0].tipoUsuario,
+                            horarioCad: resultadoAutenticar[0].dataCadUsuario,
                         });
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");

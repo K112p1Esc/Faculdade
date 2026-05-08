@@ -1,0 +1,77 @@
+/* ===== KPIs ===== */
+.kpiContainer {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    border-top: 3px solid #395ab5;
+    border-radius: 8px;
+    padding: 20px;
+    transition: border-top-color 0.2s;
+}
+
+.kpiContainer:hover {
+    border-top-color: #83a0ef;
+}
+
+.kpiTitulo {
+    font-size: 12px;
+    color: #aaa;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.kpiValor {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* ===== MEU LAYOUT DE SECTIONS ===== */
+section:first-of-type {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+    padding: 32px 40px 0;
+}
+
+section:last-of-type {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 20px;
+    padding: 0 40px 32px;
+}
+
+/* ===== ÁREA DASH ===== */
+.dashContainer,
+.rankingContainer {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.tituloDash,
+.nomeRanking {
+    font-size: 13px;
+    font-weight: 600;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+/* ===== RANKING =====*/
+.ranking {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: #333;
+    border-radius: 6px;
+    border-left: 3px solid #395ab5;
+    margin-bottom: 8px;
+    font-size: 14px;
+}

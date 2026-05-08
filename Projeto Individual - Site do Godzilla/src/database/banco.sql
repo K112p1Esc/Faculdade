@@ -7,7 +7,8 @@ CREATE TABLE tbUsuario (
     nomeUsuario VARCHAR(50),
     emailUsuario VARCHAR(50),
     senhaUsuario VARCHAR(50),
-    tipoUsuario CHAR(1) DEFAULT "P"
+    tipoUsuario CHAR(1) DEFAULT "P",
+    dataCadUsuario DATETIME DEFAULT NOW()
 );
 
 CREATE TABLE tbTentativa (
@@ -18,6 +19,7 @@ CREATE TABLE tbTentativa (
     CONSTRAINT fkTentativaUsu FOREIGN KEY (fkUsuario) 
         REFERENCES tbUsuario(idUsuario)
 );
+
 -- Será adicionado no futuro no site!
 CREATE TABLE tbPerfil (
     idPerfil INT PRIMARY KEY AUTO_INCREMENT,
@@ -29,6 +31,6 @@ CREATE TABLE tbPerfil (
 );
 
 INSERT INTO tbUsuario VALUES
-	(default, 'admin', 'admin@gmail.com','admin@1234!', 'A');
+	(default, 'admin', 'admin@gmail.com','admin@1234!', 'A', default);
     
 SELECT * FROM tbUsuario;
