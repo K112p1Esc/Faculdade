@@ -1,7 +1,7 @@
 var dashboardModel = require("../models/dashboardModel");
 
 function consulta(req, res) {
-    dashboardModel.buscar_tentativas()
+    dashboardModel.buscar_usuarios_7dias()
         .then(
             function (resultadoconsulta) {
                 console.log(`\nResultados encontrados: ${resultadoconsulta.length}`);
@@ -23,7 +23,7 @@ function consulta(req, res) {
 }
 
 function consulta2(req, res) {
-    dashboardModel.buscar_tentativas2()
+    dashboardModel.buscar_tentativas()
         .then(
             function (resultadoconsulta) {
                 console.log(`\nResultados encontrados: ${resultadoconsulta.length}`);
@@ -88,9 +88,32 @@ function consulta4(req, res) {
         );
 }
 
+function consulta5(req, res) {
+    dashboardModel.buscar_top10_acertos()
+        .then(
+            function (resultadoconsulta) {
+                console.log(`\nResultados encontrados: ${resultadoconsulta.length}`);
+                console.log(`Resultados: ${JSON.stringify(resultadoconsulta)}`);
+
+                if (resultadoconsulta.length > 0) {
+                    res.json(resultadoconsulta); 
+                } else {
+                    res.status(404).send("Nenhuma tentativa encontrada");
+                }
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     consulta,
     consulta2,
     consulta3,
-    consulta4
+    consulta4,
+    consulta5
 }

@@ -4,6 +4,7 @@ function logar() {
 
     if (emailVar == "" || senhaVar == "") {
         console.log('Campos inválidos')
+        alert('Campos Inválidos')
         return false;
     }
     else {

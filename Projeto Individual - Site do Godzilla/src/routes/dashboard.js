@@ -18,4 +18,8 @@ router.post("/consulta4", function (req, res) {
     dashboardController.consulta4(req, res); 
 })
 
+router.post("/consulta5", function (req, res) {
+    dashboardController.consulta5(req, res); 
+})
+
 module.exports = router;
