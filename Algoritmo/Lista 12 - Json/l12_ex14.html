@@ -1,0 +1,60 @@
+<!-- 3. Catálogo de Jogos
+Crie um programa o qual:
+
+a) O usuário informe o nome de cada jogo que já jogou e clique em "Cadastrar";
+b) Na medida em que vai cadastrando, exiba abaixo do botão: "Você já cadastrou X jogos";
+c) Tenha um botão "Listar Jogos", que quando clicado, mostra os jogos cadastrados um abaixo do outro, em ordem inversa ao que foi cadastrado;
+d) Receba um intervalo crescente de dois números, que servem para filtrar a ordem dos jogos de acordo com o mínimo e máximo inserido;
+e) Ao clicar em "Filtrar Jogos", deve exibir os jogos em ordem inversa, porém filtrando de acordo com o mínimo e máximo solicitado pelo usuário.
+
+OBS: se o usuário solicitar "filtrar do jogo 3 ao 7", deve exibir em ordem inversa começando do item 7 até o 3. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira um jogo que jogou
+    <input type="text" id="nomeJogo">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="listar()">Listar Jogos</button>
+    <br>
+    Insira um intervalo crescente
+    <input type="text" id="umValor">
+    <input type="text" id="doisValor">
+    <br>
+    <button onclick="filtrar()">Filtrar</button>
+    <div id="msg"></div>
+</body>
+
+</html>
+
+<script>
+    let lista = [];
+    function cadastrar() {
+        lista.push(nomeJogo.value);
+        msg.innerHTML = `Você já cadastrou ${lista.length} jogos`
+    }
+
+    function listar() {
+        msg.innerHTML = ''
+        for (let i = lista.length - 1; i >= 0; i--) {
+            msg.innerHTML += `${lista[i]}<br>`
+        }
+    }
+
+    function filtrar() {
+        let n1 = Number(umValor.value) - 1;
+        let n2 = Number(doisValor.value) - 1;
+        if (n1 < n2) {
+            for (let i = n2; i >= n1; i--) {
+                msg.innerHTML += `${lista[i]}<br>`
+            }
+        }
+    }
+</script>

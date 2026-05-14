@@ -1,0 +1,54 @@
+<!-- 1. Cadastro de Pets com Informações Agrupadas
+Crie um programa o qual:
+
+a) O usuário informe:
+
+nome do pet;
+tipo do animal;
+idade;
+b) Ao clicar em "Cadastrar Pet", as informações sejam armazenadas em um objeto JSON;
+
+c) Exiba abaixo do botão:
+
+Pet: Rex
+Tipo: Cachorro
+Idade: 4 anos
+
+d) Mostre também no console.log() o objeto completo do pet.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do pet
+    <input type="text" id="nomePet"> <br>
+    Tipo do Animal
+    <input type="text" id="tipoPet"> <br>
+    Idade do pet
+    <input type="text" id="idadePet"> <br>
+    <button onclick="cadastrar()">Cadastrar Pet</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function cadastrar() {
+        let pet = {
+            nome: nomePet.value,
+            tipo: tipoPet.value,
+            idade: idadePet.value 
+        }
+        console.log(pet);
+
+        msg.innerHTML = `
+            Pet: ${nome.pet}<br>
+            Tipo: ${nome.tipo}<br>
+            Idade: ${nome.idade} anos
+        `
+    }
+</script>

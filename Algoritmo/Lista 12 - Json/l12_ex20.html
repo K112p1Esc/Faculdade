@@ -1,0 +1,58 @@
+<!-- 9. Catálogo de Cursos
+Crie um programa o qual:
+
+a) O usuário informe o nome de cursos que deseja guardar e clique em "Cadastrar";
+b) Ao clicar em "Exibir Cursos", os cursos devem aparecer um abaixo do outro;
+c) Tenha dois campos "De..." e "Até..." para informar uma faixa de posições;
+d) Ao clicar em "Filtrar Cursos", mostre apenas os cursos que estejam dentro da faixa informada;
+e) Exiba também a quantidade total de cursos cadastrados.
+
+OBS: se o usuário informar "de 2 até 6", devem aparecer apenas os cursos da segunda até a sexta posição.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe um curso que deseja guardar
+    <input type="text" id="nomeCurso">
+    <br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="exibir()">Exibir Cursos</button>
+    <br><br>
+    <input type="text" id="deCurso" placeholder="de...">
+    <input type="text" id="ateCurso" placeholder="até...">
+    <br>
+    <button onclick="filtrar()">Filtrar Cursos</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    lista = [];
+
+    function cadastrar() {
+        lista.push(nomeCurso.value);
+    }
+
+    function exibir() {
+        msg.innerHTML = ``
+        for(let i = 0; i<lista.length;i++){
+            msg.innerHTML += `${lista[i]}<br>`
+        }
+    }
+
+    function filtrar(){
+        msg.innerHTML = ``
+        let de =Number(deCurso.value)-1;
+        let ate = Number(ateCurso.value)-1;
+
+        for(let i = de; i < ate; i++){   
+            msg.innerHTML += `${lista[i]}<br>`
+        }
+    }
+</script>

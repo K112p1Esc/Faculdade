@@ -1,0 +1,59 @@
+<!-- 6. Cadastro de Carros com Remoção de Atributos
+Crie um programa o qual:
+
+a) O usuário informe:
+
+marca do carro;
+modelo;
+ano;
+b) Ao clicar em "Cadastrar Carro", crie um objeto JSON chamado carro;
+
+c) Depois do cadastro:
+
+crie um atributo chamado idade;
+calcule a idade do carro usando o ano atual;
+remova o atributo ano utilizando delete;
+d) Exiba:
+
+Marca: Toyota
+Modelo: Corolla
+Idade do carro: 6 anos -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Marca de Carro
+    <input type="text" id="marcaCarro"> <br>
+    Modelo de Carro
+    <input type="text" id="modeloCarro"> <br>
+    Ano do Carro
+    <input type="text" id="anoCarro"> <br>
+    <button onclick="cadastrar()">Cadastrar Carro</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function cadastrar() {
+        let carro = {
+            marca: marcaCarro.value,
+            modelo: modeloCarro.value,
+            ano: anoCarro.value
+        }
+
+        carro.idade = 2026 - carro.ano
+        delete carro.ano;
+
+        console.log(carro);
+        msg.innerHTML = `
+            Marca: ${carro.marca}
+            Modelo: ${carro.modelo}
+            Idade do carro: ${carro.idade} ano(s)
+        `
+    }
+</script>

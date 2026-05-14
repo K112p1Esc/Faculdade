@@ -1,0 +1,57 @@
+<!-- 11. Cadastro de Usuários com Nível de Acesso
+Crie um programa o qual:
+
+a) O usuário informe:
+
+nome;
+idade;
+cargo;
+b) Ao clicar em "Cadastrar Usuário", crie um objeto JSON chamado usuario;
+
+c) Verifique:
+
+se o cargo for "Administrador", crie o atributo acesso com valor "Total";
+caso contrário, "Limitado".
+d) Exiba:
+
+Usuário: Amanda
+Cargo: Administrador
+Nível de acesso: Total
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    nome 
+    <input type="text" id="nomeUsuario"> <br>
+    idade 
+    <input type="text" id="idadeUsuario"> <br>
+    cargo 
+    <input type="text" id="cargoUsuario"> <br>
+    <button onclick="cadastrar()">Cadastrar Usuario</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function cadastrar() {
+        let usuario = {
+            nome: nomeUsuario.value,
+            idade: idadeUsuario.value,
+            cargo: cargoUsuario.value
+        }
+        usuario.acesso = 'Limitado'
+        if((nome.cargo).toLowerCase() == 'administrador') usuario.acesso = 'Limitado'
+
+        msg.innerHTML = `
+        Usuário: ${usuario.nome}<br>
+        Cargo: ${usuario.cargo}<br>
+        Nível de acesso: ${usuario.acesso}<br>
+        `
+    }
+</script>

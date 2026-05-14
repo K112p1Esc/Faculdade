@@ -1,0 +1,62 @@
+<!-- 1. Caixa de Músicas
+ Crie um programa o qual:
+
+a) O usuário informa os nomes das músicas que mais gosta e clica em "Cadastrar"; 
+
+b) Ao clicar em "Exibir", as músicas vão aparecendo uma abaixo da outra, abaixo do botão. 
+
+c) Tenha dois campos "De..." e "Até...", que recebem um intervalo de dois números crescentes.
+
+d) Ao clicar em "Filtrar", deve exibir as músicas que estão dentro daquele intervalo.
+
+OBS: se o usuário informar "de 1 até 5", deve mostrar da primeira música até a quinta música da lista. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Informe a música que mais gosta
+    <input type="text" id="musicaGosta">
+    <br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="exibir()">Exibir</button><br>
+    De...
+    <input type="text" id="de"><br>
+    Até...
+    <input type="text" id="ate"><br>
+    <button onclick="filtrar()">Filtrar</button>
+    <div id="msg"></div>
+</body>
+
+</html>
+
+<script>
+    musica = [];
+    function cadastrar() {
+        musica.push(musicaGosta.value);
+    }
+
+    function exibir() {
+        let mssg = "";
+        for (let i = 0; i < musica.length; i++) {
+            mssg += `${musica[i]}<br>`
+        }
+        msg.innerHTML = mssg;
+    }
+
+    function filtrar() {
+        let mssg = "";
+        let d = Number(de.value)-1;
+        let at = Number(ate.value)-1;
+        for (let i = d; i <= at; i++) {
+            mssg += `${musica[i]}<br>`
+        }
+        msg.innerHTML = mssg;
+    }
+</script>

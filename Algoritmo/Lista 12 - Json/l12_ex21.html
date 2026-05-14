@@ -1,0 +1,57 @@
+<!-- 10. Cadastro de Animais de Estimação
+Crie um programa o qual:
+
+a) O usuário informe o nome do animal e a espécie;
+b) Ao clicar em "Cadastrar Animal", os dados devem ser guardados;
+c) Ao clicar em "Listar Animais", os animais cadastrados devem ser exibidos um abaixo do outro;
+d) Tenha um campo para informar a espécie;
+e) Ao clicar em "Filtrar Animais", mostre apenas os animais da espécie informada. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do animal
+    <input type="text" id="nomeAnimal"><br>
+    Especie do Animal
+    <input type="text" id="especieAnimal"><br>
+    <button onclick="cadastrar()">Cadastrar Animal</button>
+    <br>
+    <button onclick="listar()">Listar Animais</button>
+    <br><br>
+    informe a especie
+    <input type="text" id="infoAnimal">
+    <button onclick="filtrar()">Filtrar Animais</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    let lista = []
+    function cadastrar() {
+        let json = {
+            nome: nomeAnimal.value,
+            especie: especieAnimal.value
+        }
+        lista.push(json);
+    }
+
+    function listar() {
+        msg.innerHTML = ``
+        for(let i = 0; i<lista.length;i++){
+            msg.innerHTML += `${lista[i].nome} | ${lista[i].especie}`
+        }
+    }
+
+    function filtrar() {
+        msg.innerHTML = ``
+        let info = infoAnimal.value
+        for(let i = 0; i<lista.length;i++){
+            if(lista[i] == info) msg.innerHTML += `${lista[i].nome} | ${lista[i].especie}` 
+        }
+    }
+</script>

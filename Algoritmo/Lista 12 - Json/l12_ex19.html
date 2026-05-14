@@ -1,0 +1,57 @@
+<!-- 8. Registro de Despesas Mensais
+Crie um programa o qual:
+
+a) O usuário informe o nome da despesa e o valor gasto;
+b) Ao clicar em "Cadastrar Despesa", caso o valor seja positivo, registre as informações; caso contrário, exiba uma mensagem de erro;
+c) Ao clicar em "Resumo das Despesas", mostre a lista das despesas cadastradas e o total gasto no mês, como no exemplo:
+
+Você tem AAA despesas cadastradas:
+
+BBB - R$ CCC
+BBB - R$ CCC
+
+Total gasto: R$ DDD
+
+d) Tenha um campo para informar um valor;
+e) Ao clicar em "Filtrar Despesas", exiba apenas as despesas acima ou abaixo do valor informado. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe nome da despesa
+    <input type="text" id="nomeDespesa"><br>
+    Informe valor gasto
+    <input type="text" id="valorDespesa"><br>
+    <button onclick="cadastrar()">Cdastrar despesa</button>
+    <button onclick="resumo()">Resumo das despesas</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    let lista = [];
+
+    function cadastrar() {
+        let json = {
+            nome: nomeDespesa.value,
+            valor: Number(valorDespesa.value)
+        }
+        lista.push(json);
+    }
+
+    function resumo() {
+        let soma = 0;
+        let mssg = `Você tem ${lista.length} despesas cadastradas:<br>`;
+
+        for(let i = 0; i < lista.length; i++){
+            mssg += `${lista[i].nome} - R$ ${lista[i].valor}<br>`
+            soma+= lista[i].valor;
+        }
+        msg.innerHTML = `${mssg}<br><br> Total gasto: R$${soma}`
+    }
+</script>

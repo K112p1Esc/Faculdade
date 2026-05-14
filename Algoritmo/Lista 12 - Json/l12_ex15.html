@@ -1,0 +1,96 @@
+<!-- 4. Registro de Alimentos
+Crie um programa o qual:
+
+a) O usuário informe o nome e a quantidade de um alimento;
+b) Ao clicar em "Cadastrar", caso o nome contenha ao menos 3 letras e a quantidade seja maior que zero, registre as informações e exiba uma mensagem de sucesso; caso contrário, exiba uma mensagem explicativa;
+c) Ao clicar em "Atualizar Lista", deve aparecer a relação dos alimentos cadastrados e um texto como este abaixo:
+
+Você tem AAA alimentos cadastrados:
+
+BBB - CCC unidades
+BBB - CCC unidades
+
+d) Tenha um campo para informar uma quantidade;
+e) Ao clicar em "Filtrar Alimentos", deve exibir somente os alimentos que tenham quantidade maior ou menor do que o valor informado, de acordo com a opção escolhida. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nome do alimento
+    <input type="text" id="nomeAlimento"><br>
+    Quantidade de Alimento
+    <input type="text" id="quantiaAlimento"><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizar()">Atualizar lista</button>
+    <br><br>
+    Informe a quantia
+    <input type="text" id="quantiaDeseja">
+    <select id="selectDeseja">
+        <option>maior</option>
+        <option>menor</option>
+    </select>
+    <button onclick="filtrar()">Filtrar</button>
+    <div id="msg"></div>
+</body>
+
+</html>
+
+<script>
+    lista = [];
+    function cadastrar() {
+        if ((nomeAlimento.value).length >= 3 && quantiaAlimento.value > 0) {
+            let json = {
+                nome: nomeAlimento.value,
+                quantia: Number(quantiaAlimento.value)
+            }
+            lista.push(json);
+            msg.innerHTML = 'Cadastrado com sucesso'
+        } else {
+            msg.innerHTML = `O ${nomeAlimento.value} tem apenas ${(nomeAlimento.value).length} ao invés de no mínimo 3 OU ${quantiaAlimento.value} não é positivo`
+        }
+    }
+
+    function atualizar() {
+        let mssg = '';
+        for (let i = 0; i < lista.length; i++) {
+            mssg += `${lista[i].nome} - ${lista[i].quantia} unidades<br>`
+        }
+        msg.innerHTML = `
+            Você tem ${lista.length} alimentos cadastrados:
+            <br>
+            ${mssg}            
+        `
+    }
+
+    function filtrar() {
+        let deseja = selectDeseja.value;
+        let texto = Number(quantiaDeseja.value);
+        let mssg = '';
+        if (deseja == 'abaixo') {
+            for (let i = 0; i < lista.length; i++) {
+                if(lista[i].quantia < texto)mssg += `${lista[i].nome} - ${lista[i].quantia} unidades<br>` 
+            }
+            msg.innerHTML = `
+                Você tem ${lista.length} alimentos cadastrados com filtro:
+                <br>
+                ${mssg}            
+            `
+        }else{
+            for (let i = 0; i < lista.length; i++) {
+                if(lista[i].quantia > texto)mssg += `${lista[i].nome} - ${lista[i].quantia} unidades<br>` 
+            }
+            msg.innerHTML = `
+                Você tem ${lista.length} alimentos cadastrados com filtro:
+                <br>
+                ${mssg}            
+            `
+        }
+    }
+</script>

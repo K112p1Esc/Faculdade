@@ -1,0 +1,59 @@
+<!-- 2. Cadastro de Funcionários com Alteração de Dados
+Crie um programa o qual:
+
+a) O usuário informe:
+
+nome do funcionário;
+cargo;
+salário;
+b) Ao clicar em "Cadastrar Funcionário", crie um objeto JSON chamado funcionario;
+
+c) Após criar o objeto:
+
+transforme o nome em letras maiúsculas;
+crie um novo atributo chamado bonus;
+o bônus será 10% do salário;
+d) Exiba:
+
+Funcionário: MARCOS
+Cargo: Desenvolvedor
+Salário: R$3000
+Bônus: R$300 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do Funcionário:
+    <input type="text" id="nomeFuncionario"><br>
+    Cargo do Funcionário:
+    <input type="text" id="cargoFuncionario"><br>
+    Salário do Funcionário:
+    <input type="text" id="salarioFuncionario"><br>
+    <button onclick="cadastrar()">Cadastar Funcionário</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function cadastrar() {
+        let funcionario = {
+            nome: nomeFuncionario.value.toUpperCase(),
+            cargo: cargoFuncionario.value,
+            salario: salarioFuncionario.value
+        }
+
+        funcionario.bonus = funcionario.salario*0.10  ;
+
+        msg.innerHTML = `
+            Funcionário: ${funcionario.nome}<br>
+            Cargo: ${funcionario.cargo}<br>
+            Salário: R$${funcionario.salario}<br>
+            Bônus: R$${funcionario.bonus}<br>
+        `
+    }
+</script>

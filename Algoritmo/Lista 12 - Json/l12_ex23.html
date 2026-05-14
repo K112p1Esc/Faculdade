@@ -1,0 +1,79 @@
+<!-- 12. Catálogo de Filmes
+Crie um programa o qual:
+
+a) Pergunte ao usuário o nome e o gênero de cada filme que já viu na vida. Ele digita e clica em "Cadastrar". Na medida em que vai cadastrando, verifique quantos filmes já foram assistidos e exiba abaixo do botão:  "Você já assistiu X filmes". 
+
+b) Tenha um botão "Listar Filmes", que quando clicado, mostra os filmes cadastrados, um abaixo do outro, em ordem inversa ao que foi cadastrado.
+
+c) Receba um intervalo crescente de dois números, que servem para filtrar a ordem dos filmes vistos de acordo com o mínimo e máximo inserido.
+
+d) Ao clicar no botão "Filtrar Filmes por Registro", deve exibir os filmes em ordem inversa, porém filtrando de acordo com o mínimo e máximo solicitado pelo usuário.
+
+e) Receba um gênero informado pelo usuário, que servem para filtrar os filmes inseridos.
+
+f) Ao clicar no botão "Filtrar Filmes por Gênero", deve exibir os filmes na ordem em que foram cadastrados, porém filtrando de acordo com o gênero solicitado pelo usuário. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira o nome do Filme
+    <input type="text" id="nomeFilme"><br>
+    Insira o genero do filme
+    <input type="text" id="generoFilme"><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="listar()">listar filmes</button>
+    <br><br>
+    <input type="text" placeholder="Insira um minimo do filtro" id="minimo">
+    <input type="text" placeholder="Insira um maximo do filtro" id="maximo"><br>
+    <button onclick="filtrar()">Filtrar filmes por registro</button>
+    <br><br>
+    <input type="text" id="generoInfo" placeholder="insira um genero para filtrar">
+    <button onclick="filtroGenero()">Filtrar por genero</button>
+    <div id="msg"></div>
+</body>
+
+</html>
+
+<script>
+    let lista = [];
+
+    function cadastrar() {
+        let json = {
+            nome: nomeFilme.value,
+            genero: generoFilme.value
+        }
+        lista.push(json);
+    }
+
+    function listar() {
+        msg.innerHTML = ``
+        for (let i = 0; i < lista.length; i++) {
+            msg.innerHTML = `${lista[i].nome} | ${lista[i].genero}`;
+        }
+    }
+
+    function filtrar() {
+        msg.innerHTML = ``
+        let min = Number(minimo.value);
+        let max = Number(maximo.value);
+
+        for (let i = lista.length - 1; i >= min; i--) {
+            if (i <= max) msg.innerHTML = `${lista[i].nome} | ${lista[i].genero}`;
+        }
+    }
+
+    function filtroGenero() {
+        msg.innerHTML = ``
+        let info = generoInfo.value
+        for (let i = 0; i < lista.length; i++) {
+            if (lista[i].genero == info) msg.innerHTML = `${lista[i].nome} | ${lista[i].genero}`;
+        }
+    }
+</script>

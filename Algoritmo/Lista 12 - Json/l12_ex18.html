@@ -1,0 +1,59 @@
+<!-- 7. Biblioteca de Jogos de Tabuleiro
+Crie um programa o qual:
+
+a) O usuário informe o nome do jogo de tabuleiro e a quantidade de jogadores;
+b) Ao clicar em "Cadastrar Jogo", registre os dados;
+c) Ao clicar em "Listar Jogos", mostre os jogos cadastrados um abaixo do outro;
+d) Exiba também uma mensagem com a quantidade total de jogos cadastrados;
+e) Tenha um campo para informar a quantidade de jogadores e um botão "Filtrar por Jogadores";
+f) Ao clicar no botão, devem aparecer apenas os jogos que tenham a quantidade de jogadores informada. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira um nome de Jogo
+    <input type="text" id="nomeTabuleiro"><br>
+    Insira a quantia jogador
+    <input type="text" id="quantiaTabuleiro"><br>
+    <br>
+    <button onclick="cadastrar()">cadastrar jogo</button>
+    <button onclick="listar()">listar jogo</button>
+    <br><br>
+    <input type="text" id="quantiaJogador" placeholder="insira quantia de jogadores">
+    <button onclick="filtro()">Filtrar</button>
+    <div id="msg"></div>
+</body>
+
+</html>
+
+<script>
+    let lista = [];
+    function cadastrar() {
+        let json = {
+            nome: nomeTabuleiro.value,
+            quantia: quantiaTabuleiro.value
+        }
+        lista.push(json)
+        msg.innerHTML = `Quantia de tabuleiros cadastrados: ${lista.length}`
+    }
+
+    function listar() {
+        for (let i = 0; i < lista.length; i++) {
+            msg.innerHTML += `${lista[i].nome} | ${lista[i].quantia}`
+        }
+    }
+
+    function filtro() {
+        let quantia = quantiaJogador.value;
+        for (let i = 0; i < lista.length; i++) {
+            if (quantia == lista[i].quantia) msg.innerHTML += `${lista[i].nome} | ${lista[i].quantia}`
+        }
+    }
+</script>

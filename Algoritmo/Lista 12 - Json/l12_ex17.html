@@ -1,0 +1,60 @@
+<!-- 6. Controle de Contatos
+Crie um progarama o qual:
+
+a) O usuário informe o nome e o telefone de um contato;
+b) Ao clicar em "Cadastrar Contato", os dados devem ser armazenados;
+c) Ao clicar em "Exibir Contatos", os contatos cadastrados devem aparecer um abaixo do outro, com nome e telefone;
+d) Tenha dois campos para informar um intervalo de posições;
+e) Ao clicar em "Filtrar Contatos", devem ser exibidos apenas os contatos que estiverem dentro do intervalo solicitado.
+
+OBS: se o usuário informar "de 1 até 4", devem aparecer do primeiro ao quarto contato da lista. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira o nome
+    <input type="text" id="nomeUsuario"><br>
+    Insira o telefone
+    <input type="text" id="telefoneUsuario"><br>
+    <button onclick="cadastrar()">cadastrar contato</button>
+    <button onclick="exibir()">Exibir contatos</button><br>
+    Insira um intervalo
+    <input type="text" id="inter1" placeholder="número 1">
+    <input type="text" id="inter2" placeholder="número 2">
+    <br>
+    <button onclick="filtrar()">Filtrar Contatos</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    let lista = [];
+
+    function cadastrar() {
+        let json = {
+            nome: nomeUsuario.value,
+            telefone: telefoneUsuario.value
+        }
+        lista.push(json);
+    }
+
+    function exibir() {
+        for(let i = 0; i<lista.length;i++){
+            msg.innerHTML += `${lista[i].nome} | ${lista[i].telefone} <br>`
+        }
+    }
+
+    function filtrar() {
+        let int1 = Number(inter1.value)-1;
+        let int2 = Number(inter2.value)-1;
+
+        for(let i = int1;i<=int2;i++){   
+            msg.innerHTML += `${lista[i].nome} | ${lista[i].telefone} <br>`
+        }
+    }
+</script>

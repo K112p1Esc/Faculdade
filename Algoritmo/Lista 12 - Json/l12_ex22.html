@@ -1,0 +1,69 @@
+<!-- 11. Agenda de Eventos
+Crie um programa o qual:
+
+a) O usuário informe o nome do evento, a data e o local;
+b) Ao clicar em "Cadastrar Evento", as informações devem ser armazenadas em um objeto JSON;
+c) Ao clicar em "Exibir Agenda", os eventos cadastrados devem aparecer um abaixo do outro, na ordem em que foram informados;
+d) Tenha dois campos para informar um intervalo de posições;
+e) Ao clicar em "Filtrar Agenda", devem ser exibidos apenas os eventos dentro do intervalo solicitado.
+
+OBS: se o usuário informar "de 1 até 3", devem aparecer os três primeiros eventos cadastrados. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nome do evento
+    <input type="text" id="nomeEvento"><br>
+    Data do Evento
+    <input type="text" id="dataEvento"><br>
+    Local do Evento
+    <input type="text" id="localEvento"><br>
+    <button onclick="cadastrar()">Cadastrar Evento</button>
+    <button onclick="exibir()">Exibir Agenda</button>
+    <br><br>
+    <input type="text" id="Inter1" placeholder="intervalo 1">
+    <input type="text" id="inter2" placeholder="intervalo 2">
+    <br>
+    <button onclick="filtrar()">Filtrar Agenda</button>
+    <div id="msg"></div>
+</body>
+
+</html>
+
+<script>
+    let lista = [];
+
+    function cadastrar() {
+        let json = {
+            nome: nomeEvento.value,
+            data: dataEvento.value,
+            local: localEvento.value
+        }
+
+        lista.push(json)
+    }
+
+    function exibir() {
+        msg.innerHTML = ``
+        for (let i = 0; i < lista.length; i++) {
+            msg.innerHTML += `${lista[i].nome} | ${lista[i].data} | ${lista[i].local}`
+        }
+    }
+
+    function filtrar() {
+        msg.innerHTML = ``
+        let int1 = Number(inter1.value) - 1;
+        let int2 = Number(inter2.value) - 1;
+
+        for (let i = int1; i < int2; i++) {
+            msg.innerHTML += `${lista[i].nome} | ${lista[i].data} | ${lista[i].local}`
+        }
+    }
+</script>

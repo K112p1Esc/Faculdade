@@ -1,0 +1,60 @@
+<!-- 9. Cadastro de Viagens com Destino Internacional
+Crie um programa o qual:
+
+a) O usuário informe:
+
+destino;
+preço da viagem;
+quantidade de dias;
+b) Ao clicar em "Cadastrar Viagem", crie um objeto JSON chamado viagem;
+
+c) Verifique:
+
+se o preço for maior que 5000, crie o atributo tipo com valor "Internacional Premium";
+caso contrário, "Viagem Nacional".
+d) Exiba:
+
+Destino: Paris
+Preço: R$8000
+Dias: 10
+Tipo: Internacional Premium
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    destino
+    <input type="text" id="destinoViagem"><br>
+    preço da viagem
+    <input type="text" id="precoViagem"><br>
+    quantidade de dias
+    <input type="text" id="quantidadeViagem"><br>
+    <br>
+    <button onclick="cadastrar()">Cadastrar Viagem</button>
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function cadastrar() {
+        let viagem = {
+            destino: destinoViagem.value,
+            preco: precoViagem.value,
+            dias: quantidadeViagem.value
+        }
+        viagem.tipo = 'Viagem Nacional'
+        if(viagem.preco > 5000) viagem.tipo = 'Internacional Premium'
+
+        msg.innerHTML = `
+            Destino: ${viagem.destino}<br>
+            Preço: R$${viagem.preco}<br>
+            Dias: ${viagem.dias}<br>
+            Tipo: ${viagem.tipo}<br>
+        `
+    }
+</script>

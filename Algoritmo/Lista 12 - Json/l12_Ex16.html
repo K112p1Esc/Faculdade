@@ -1,0 +1,67 @@
+<!-- 5. Cadastro de Usuários do Sistema
+Crie um programa o qual:
+
+a) O usuário informe:
+
+   nome;
+   idade;
+   cargo;
+
+b) Ao clicar em "Cadastrar Usuário", crie um objeto JSON chamado usuario;
+c) Verifique:
+
+se o cargo for "Administrador", crie o atributo acesso com valor "Total";
+caso contrário, "Limitado";
+
+d) Exiba:
+
+   Usuário: Amanda
+   Cargo: Administrador
+   Nível de acesso: Total
+
+e) Mantenha os usuários cadastrados em uma lista e permita exibir todos eles um abaixo do outro.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    nome
+    <input type="text" id="nomeUsuario"> <br>
+    idade
+    <input type="text" id="idadeUsuario"> <br>
+    cargo
+    <input type="text" id="cargoUsuario"> <br>
+    <button onclick="cadastrar()">Cadastrar Usuario</button>
+    <div id="msg"></div>
+</body>
+
+</html>
+
+<script>
+    let lista = []
+    function cadastrar() {
+        let usuario = {
+            nome: nomeUsuario.value,
+            idade: idadeUsuario.value,
+            cargo: cargoUsuario.value
+        }
+        usuario.acesso = 'Limitado'
+        if ((nome.cargo).toLowerCase() == 'administrador') usuario.acesso = 'Limitado'
+        lista.push(usuario)
+        for (let i = 0; i < lista.length; i++) {
+            msg.innerHTML += `
+                Usuário: ${lista[i].nome}<br>
+                Cargo: ${lista[i].cargo}<br>
+                Nível de acesso: ${lista[i].acesso}<br><br>
+            `
+        }
+
+    }
+</script>

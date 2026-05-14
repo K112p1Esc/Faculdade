@@ -1,0 +1,66 @@
+<!-- 8. Cadastro de Comprador e Produto
+Crie um programa o qual:
+
+a) O usuário informe:
+
+nome do comprador;
+e-mail do comprador;
+nome do produto;
+valor do produto;
+b) Ao clicar em "Finalizar Compra", crie:
+
+um objeto JSON chamado comprador;
+um objeto JSON chamado produto;
+c) Exiba:
+
+Comprador: Carlos | carlos@email.com
+
+Produto: Headset
+Valor: R$250
+
+d) Mostre os dois objetos no console.log(). -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    nome do Comprador
+    <input type="text" id="nomeComprador">
+    e-mail do Comprador
+    <input type="text" id="emailComprador">
+    nome do produto
+    <input type="text" id="nomeProduto">
+    valor do produto
+    <input type="text" id="valorProduto">
+    <button onclick="finalizar()">finalizar compra</button>
+    <div id="msg"></div>
+</body>
+
+</html>
+<script>
+    function finalizar() {
+        let comprador = {
+            nome: nomeComprador.value,
+            email: emailComprador.value
+        }
+        let produto = {
+            nome: nomeProduto.value,
+            valor: valorProduto.value
+        }
+
+        msg.innerHTML = `
+        Comprador: ${comprador.nome} | ${comprador.email}
+        <br>
+        Produto: ${produto.nome}<br>
+        Valor: R$${produto.valor}
+        `
+        console.log (comprador)
+        console.log (produto)
+    }
+</script>
