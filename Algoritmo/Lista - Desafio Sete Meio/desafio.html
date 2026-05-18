@@ -1,0 +1,229 @@
+<!-- Jogo de Baralho - Sete e Meio
+Sette e Mezzo ("Sete e Meio" em italiano) é um jogo de cartas italiano semelhante ao Blackjack (conhecido como 21 no Brasil).
+
+O objetivo do jogo é obter uma pontuação maior que a do adversário, sem que ultrapasse o limite de 7.5 pontos, sendo que ao obter exatamente 7.5 pontos, vence (igual ao jogo 21).
+
+Sete e Meio é jogado com um baralho de 40 cartas, removendo as cartas de número oito, nove, dez e os coringas.
+
+Portanto, o baralho do jogo Sete e Meio é composto das cartas "Ás", "2", "3", "4", "5", "6", "7", "Valete", "Rainha" e "Rei", dos naipes de "copas", "espadas", "ouros" e "paus", sendo que: 
+
+- Cartas de Ás valem 1 ponto;
+
+- Cartas de 2 a 7 valem uma pontuação correspondente ao número da carta;
+
+- Cartas de figura (Valete, Rainha e Rei) valem meio ponto (0.5 ou 1/2);
+
+O jogo funciona da seguinte maneira (com exemplos de funcionamento ao final do enunciado para melhor entendimento):
+
+- A banca vira uma carta para o jogador;
+
+- O jogador decide se compra outra carta ou não, tentando obter uma pontuação de exatamente 7.5 ou próxima, sem passar do limite para não estourar;
+
+- Ao passar a vez do jogador, a banca vira uma carta para ela, que caso o valor seja maior que a carta do jogador, a banca vence; mas caso sua carta seja menor, ela obrigatoriamente compra cartas até obter uma pontuação maior que a do jogador ou até estourar, passando de 7.5 pontos;
+
+OBS: um baralho inteiro contém 54 cartas, sendo 13 de cada naipe (copas, espadas, paus e ouros) + 2 coringas.
+
+OBS.2: o baralho de "Sete e Meio" não utiliza as cartas de número oito, nove, dez e os coringas, portanto o baralho do jogo é composto de "Ás", "2", "3", "4", "5", "6", "7", "Valete", "Rainha" e "Rei" dos 4 naipes.
+
+OBS.3: o jogador pode comprar cartas opcionalmente para aumentar sua pontuação, mas a banca deve comprar cartas obrigatoriamente caso o jogador possua mais pontos, até que a banca fique com mais pontos ou ultrapasse o limite, estourando.
+
+EXERCICIO ÚNICO 
+
+Crie um programa que simule um jogo de cartas "Sete e Meio", no qual:
+
+a) Ao carregar a página, crie um baralho (utilize vetores) com 40 cartas, sendo: 
+
+- Ás, 2, 3, 4, 5, 6, 7, Valete, Rainha e Rei de Copas;
+
+- Ás, 2, 3, 4, 5, 6, 7, Valete, Rainha e Rei de Espadas;
+
+- Ás, 2, 3, 4, 5, 6, 7, Valete, Rainha e Rei de Ouros;
+
+- Ás, 2, 3, 4, 5, 6, 7, Valete, Rainha e Rei de Paus;
+
+b) Tenha na página apenas o botão "Jogar Sete e Meio", que ao ser clicado, deve exibir na tela os dois botões "Pedir Outra Carta" e "Passar Vez" e depois sortear uma carta do baralho para o jogador, exibindo sua pontuação atual com base na carta: 
+
+Jogador: 
+
+(X pontos) - YYY de ZZZZZ
+
+Sendo X a quantidade de pontos obtidos na carta, YYY a carta sorteada e ZZZZZ o naipe sorteado
+
+c) Ao clicar no botão "Pedir Outra Carta", deve sortear uma nova carta para o jogador e deve exibir o total de pontos acumulados, abaixo da mensagem anterior:  
+
+Quero mais uma carta!
+
+(X pontos) - YYY de ZZZZZ
+
+Sendo X a pontuação total do jogador, que é a soma dos pontos das cartas viradas, YYY a carta sorteada e ZZZZZ o naipe sorteado 
+
+c1) Caso o jogador tenha decidido pedir uma carta, valide se o total de pontos do jogador não ultrapassou o limite de 7.5  após essa nova carta e caso tenha ultrapassado, vá para o item g).
+
+d) Ao clicar no botão "Passar Vez", deve sortear uma nova carta para a banca e deve exibir sua pontuação, como:
+
+Banca: 
+
+(X pontos) - YYY de ZZZZZ
+
+
+Sendo X a quantidade de pontos obtidos na carta, YYY a carta sorteada e ZZZZZ o naipe sorteado
+
+e) Caso a banca tenha menos pontos que o jogador, ela obrigatoriamente deverá virar uma nova carta, exibindo o total de pontos atualizado: 
+
+É necessário virar outra carta para a banca!
+
+        (X pontos) - YYY de ZZZZZ
+
+Sendo X a pontuação total da banca, que é a soma dos pontos das cartas viradas, YYY a carta sorteada e ZZZZZ o naipe sorteado 
+
+f) A banca deve virar cartas até que possua mais pontos que o jogador ou tenha estourado, passando do limite de 7.5 pontos.
+
+g) Exiba uma mensagem final de acordo com as pontuações obtidas, sendo:
+
+         "SETE E MEIO! O jogador venceu com 7.5 pontos!" - caso o jogador tenha feito exatamente 7.5 pontos;
+
+         "A BANCA ESTOUROU! O jogador venceu com X pontos!" - caso o jogador tenha mais pontos e a banca tenha estourado tentando ultrapassá-lo; 
+
+         "O JOGADOR ESTOUROU! A banca venceu com X pontos" - caso o jogador tenha ultrapassado o limite de 7.5 pontos;
+
+         "SETE E MEIO! A banca venceu com 7.5 pontos!" - caso o jogador tenha passado a vez e a banca tenha feito exatamnete 7.5 pontos;
+
+         "A banca venceu com X pontos!" - caso o jogador tenha passado a vez e a banca tenha feito mais pontos que o jogador;
+
+OBS: é recomendado utilizar 4 vetores (um para cada naipe) para criar o baralho do item a) .
+
+OBS.2: para sortear uma carta do baralho, gere um número aleatório inteiro que seja de 0 até a ultima posição/índice do vetor e utilize esse número para acessar as informações da carta do vetor através do seu índice com "vetor [ indice ]".
+
+OBS.3: utilize uma estrutura de repetição para sortear cartas para a banca obrigatoriamente enquanto ela estiver com menos pontos que o jogador e ainda não tenha estourado. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="botao">
+        <button onclick="iniciar()">Jogar Sete e Meio!</button>
+    </div>
+    <div id="msg"></div>
+</body>
+
+</html>
+
+<script>
+    let primeira = false;
+    let jogador = 0;
+    let maquina = 0;
+    let passou = false;
+    let vezesJogador = 0;
+    function iniciar() {
+        primeira = false;
+        jogador = 0;
+        maquina = 0;
+        passou = false;
+        vezesJogador = 0;
+        botao.innerHTML = ``
+        msg.innerHTML = ''
+        botao.innerHTML = `        
+            <button onclick="sorteio()">Pedir Outra Carta</button>
+            <button onclick="passar()">Passar Vez</button>
+        `
+        if (primeira == false) {
+            primeira = true;
+            sorteio()
+        }
+    }
+
+    function sorteio() {
+        let i = 0
+        vezesJogador++;
+        if (vezesJogador > 1) {
+            msg.innerHTML += `<br>Quero mais uma carta!`
+        }
+
+        //verificação se a carta existe ainda a quantia
+        while (i > -1) {
+            let carta = parseInt((Math.random() * 40))
+            if (baralho[carta].quantia == 0) {
+                i++;
+            } else if (passou == false) {
+                baralho[carta].quantia = 0;
+                i = -1
+                //chamo a função para verificar o jogador
+                verifJogador(baralho[carta].valor, baralho[carta].naipe)
+            } else {
+                baralho[carta].quantia = 0;
+                i = -1
+                //chamo a função para verificar o jogador
+                verifBanca(baralho[carta].valor, baralho[carta].naipe);
+            }
+        }
+    }
+
+    function verifJogador(valor, naipe) {
+        //verificação do valor passado
+        if (valor == 'Ás') {
+            jogador++;
+        } else if (valor >= 2 && valor <= 7) {
+            jogador += Number(valor);
+        } else {
+            jogador += 0.5;
+        }
+        //Verificação dos pontos da Banca
+        if (jogador == 7.5) {
+            botao.innerHTML = ``
+            msg.innerHTML += `<br>SETE E MEIO! O jogador venceu com 7.5 pontos!`
+            msg.innerHTML += `<br>Deseja jogar de novo? <br><button onclick="iniciar()">Jogar Sete e Meio!</button>`
+        } else if (jogador > 7.5) {
+            botao.innerHTML = ``
+            msg.innerHTML += `<br>Jogador:<br>(${jogador} pontos) - ${valor} de ${naipe}`
+            msg.innerHTML += `<br>O JOGADOR ESTOUROU! A banca venceu com ${maquina} pontos`
+            msg.innerHTML += `<br>Deseja jogar de novo? <br><button onclick="iniciar()">Jogar Sete e Meio!</button>`
+        } else {
+            msg.innerHTML += `<br>Jogador:<br>(${jogador} pontos) - ${valor} de ${naipe}`
+        }
+    }
+
+    function passar() {
+        passou = true;
+        msg.innerHTML+='<br><br>'
+        sorteio();
+    }
+
+    function verifBanca(valor, naipe) {
+        //verificação do valor passado
+        if (valor == 'Ás') {
+            maquina++;
+        } else if (valor >= 2 && valor <= 7) {
+            maquina += Number(valor);
+        } else {
+            maquina += 0.5;
+        }//Verificação dos pontos da banca
+        if (maquina == 7.5) {
+            botao.innerHTML = ``
+            msg.innerHTML += `<br>SETE E MEIO! A banca venceu com 7.5 pontos!`
+            msg.innerHTML += `<br>Deseja jogar de novo? <br><button onclick="iniciar()">Jogar Sete e Meio!</button>`
+        } else if (maquina > 7.5) {
+            botao.innerHTML = ``
+            msg.innerHTML += `<br>Banca:<br>(${maquina} pontos) - ${valor} de ${naipe}`
+            msg.innerHTML += `<br>O Banca ESTOUROU! O jogador venceu com ${jogador} pontos`
+            msg.innerHTML += `<br>Deseja jogar de novo? <br><button onclick="iniciar()">Jogar Sete e Meio!</button>`
+        } else if (maquina > jogador) {
+            botao.innerHTML = ``
+            msg.innerHTML += `<br>Banca:<br>(${maquina} pontos) - ${valor} de ${naipe}`
+            msg.innerHTML += `<br>A banca venceu com ${maquina} pontos!`
+            msg.innerHTML += `<br>Deseja jogar de novo? <br><button onclick="iniciar()">Jogar Sete e Meio!</button>`
+        } else {
+            msg.innerHTML += `<br>Banca:<br>(${maquina} pontos) - ${valor} de ${naipe}`
+            msg.innerHTML += `<br>É necessário virar outra carta para a banca!`
+            sorteio()
+        }
+
+    }
+</script>
+
+<script src="./json.js"></script>

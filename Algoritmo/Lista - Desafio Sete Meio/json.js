@@ -1,0 +1,161 @@
+let baralho = [{
+    naipe: 'Copas',
+    valor: 'Ás',
+    quantia: 1
+}, {
+    naipe: 'Espadas',
+    valor: 'Ás',
+    quantia: 1
+}, {
+    naipe: 'Ouros',
+    valor: 'Ás',
+    quantia: 1
+}, {
+    naipe: 'Paus',
+    valor: 'Ás',
+    quantia: 1
+}, {
+    naipe: 'Copas',
+    valor: '2',
+    quantia: 1
+}, {
+    naipe: 'Espadas',
+    valor: '2',
+    quantia: 1
+}, {
+    naipe: 'Ouros',
+    valor: '2',
+    quantia: 1
+}, {
+    naipe: 'Paus',
+    valor: '2',
+    quantia: 1
+}, {
+    naipe: 'Copas',
+    valor: '3',
+    quantia: 1
+}, {
+    naipe: 'Espadas',
+    valor: '3',
+    quantia: 1
+}, {
+    naipe: 'Ouros',
+    valor: '3',
+    quantia: 1
+}, {
+    naipe: 'Paus',
+    valor: '3',
+    quantia: 1
+}, {
+    naipe: 'Copas',
+    valor: '4',
+    quantia: 1
+}, {
+    naipe: 'Espadas',
+    valor: '4',
+    quantia: 1
+}, {
+    naipe: 'Ouros',
+    valor: '4',
+    quantia: 1
+}, {
+    naipe: 'Paus',
+    valor: '4',
+    quantia: 1
+}, {
+    naipe: 'Copas',
+    valor: '5',
+    quantia: 1
+}, {
+    naipe: 'Espadas',
+    valor: '5',
+    quantia: 1
+}, {
+    naipe: 'Ouros',
+    valor: '5',
+    quantia: 1
+}, {
+    naipe: 'Paus',
+    valor: '5',
+    quantia: 1
+}, {
+    naipe: 'Copas',
+    valor: '6',
+    quantia: 1
+}, {
+    naipe: 'Espadas',
+    valor: '6',
+    quantia: 1
+}, {
+    naipe: 'Ouros',
+    valor: '6',
+    quantia: 1
+}, {
+    naipe: 'Paus',
+    valor: '6',
+    quantia: 1
+}, {
+    naipe: 'Copas',
+    valor: '7',
+    quantia: 1
+}, {
+    naipe: 'Espadas',
+    valor: '7',
+    quantia: 1
+}, {
+    naipe: 'Ouros',
+    valor: '7',
+    quantia: 1
+}, {
+    naipe: 'Paus',
+    valor: '7',
+    quantia: 1
+}, {
+    naipe: 'Copas',
+    valor: 'Valete',
+    quantia: 1
+}, {
+    naipe: 'Espadas',
+    valor: 'Valete',
+    quantia: 1
+}, {
+    naipe: 'Ouros',
+    valor: 'Valete',
+    quantia: 1
+}, {
+    naipe: 'Paus',
+    valor: 'Valete',
+    quantia: 1
+}, {
+    naipe: 'Copas',
+    valor: 'Rainha',
+    quantia: 1
+}, {
+    naipe: 'Espadas',
+    valor: 'Rainha',
+    quantia: 1
+}, {
+    naipe: 'Ouros',
+    valor: 'Rainha',
+    quantia: 1
+}, {
+    naipe: 'Paus',
+    valor: 'Rainha',
+    quantia: 1
+}, {
+    naipe: 'Copas',
+    valor: 'Rei',
+    quantia: 1
+}, {
+    naipe: 'Espadas',
+    valor: 'Rei',
+    quantia: 1
+}, {
+    naipe: 'Ouros',
+    valor: 'Rei',
+    quantia: 1
+}, {
+    naipe: 'Paus',
+    valor: 'Rei',
+    quantia: 1
+}]
