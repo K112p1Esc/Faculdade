@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nome do astronauta
+    <input type="text" id="nomeAstronauta">
+    <br>
+    Nome do planeta da viagem
+    <input type="text" id="planetaViagem">
+    <br>
+    Tempo relativo no planeta (a Terra é N vezes mais rápida)
+    <input type="text" id="tempoRelativo">
+    <br>
+    Quantidade de dias da viagem
+    <input type="text" id="diasViagem">
+    <br>
+    Quantidade de horas da viagem
+    <input type="text" id="horasViagem">
+    <br>
+    Quantidade de minutos da viagem
+    <input type="text" id="minutosViagem">
+    <br>
+    <button onclick="registrar()">Registrar Viagem</button>
+    <button onclick="relatorio()">Relatório de Viagens</button>
+    <button onclick="consultar()">Consultar Astronauta</button>
+    <div id="msg"></div>
+</body>
+
+</html>
+
+<script>
+    let viagens = []
+    function registrar() {
+        nome = nomeAstronauta.value;
+        planeta = planetaViagem.value;
+        tempo = Number(tempoRelativo.value);
+        dias = Number(diasViagem.value);
+        horas = Number(horasViagem.value);
+        minutos = Number(minutosViagem.value);
+
+        if ((dias > 0 || horas > 0 || minutos > 0) & nome != '' & planeta != '' & tempo > 0) {
+            let tempoTotal = 1440 * dias + horas * 60 + minutos;
+            let tempoTerra = tempoTotal * tempo;
+            let anosViajados = tempoTerra / 525600;
+            anosViajados = anosViajados.toFixed(1)
+            let json = { nome, planeta, tempo, dias, horas, minutos, anosViajados, tempoTerra }
+            viagens.push(json);
+            console.log(json);
+        } else {
+            alert('Preencha os campos corretamente e informe um tempo de viagem válido!')
+        }
+    }
+
+    function relatorio() {
+        let mssg = ''
+        for (let i = 0; i < viagens.length; i++) {
+            let anos = viagens[i].anosViajados;
+            mssg += `Viagem ${i + 1}: <br>Astronauta ${viagens[i].nome} ficou fora por pelo menos ${anos} anos no tempo da Terra.<br>
+            A criança que nasceu quando ele saiu provavelmente está assim hoje <br>`
+            if (anos <= 13) {
+                mssg += `<img src='./bart_kid.png'/><br>`;
+            } else if (anos <= 30) {
+                mssg += `<img src='./bart_teenager.png'/><br>`;
+            } else if (anos <= 65) {
+                mssg += `<img src='./bart_adult.png'/><br>`;
+            } else if (anos <= 100) {
+                mssg += `<img src='./bart_old.png'/><br>`;
+            } else {
+                mssg += `<img src='./bart_skull.png'/><br>`;
+            }
+        }
+        msg.innerHTML = mssg;
+    }
+
+    function consultar() {
+        msg.innerHTML = ''
+        let nAchado = false
+        let mssg = '';
+        let solo = 0;
+        let nome = prompt("Qual o nome do astronauta?");
+        let contador = 0
+        for(let i = 0; i<viagens.length;i++){
+            if(nome.toLowerCase() == viagens[i].nome.toLowerCase()){
+                nAchado = true;
+                if(solo == 0){
+                    solo++;
+                    mssg = `Astronauta ${nome} viajou para o planeta ${viagens[i].planeta} com o tempo na terra de ${viagens[i].tempoTerra} minutos`
+                }else if(solo == 1) {
+                    i=-1;
+                    solo++;
+                    mssg = `Astronauta ${nome} viajou para:`
+                }else {
+                    contador++;
+                    mssg +=`<br> ${contador} - planeta ${viagens[i].planeta} com o tempo na terra de ${viagens[i].tempoTerra}`
+                }
+            }
+        }
+        if(!nAchado){
+            alert(`O astronauta ${nome} não tem viagens registradas`)
+        }
+        msg.innerHTML = mssg;
+    }
+
+
+</script>
