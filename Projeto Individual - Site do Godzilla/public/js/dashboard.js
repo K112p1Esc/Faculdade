@@ -76,8 +76,8 @@ function buscarDados2() {
             let QMais = null;
             let QMenos = null;
             let maxAcertos = -1;
-            let minAcertos = Infinity;
-            for (let questao in contagemQuestoes) {
+            let minAcertos = Infinity; // só para ajudar na contagem, pq qualquer número é menor que inifinito.
+            for (let questao in contagemQuestoes) { // Só para lembrar: percorro o contagem questao para ficar acessando ele
                 let acertos = contagemQuestoes[questao];
                 if (acertos > maxAcertos) {
                     maxAcertos = acertos;
@@ -88,10 +88,20 @@ function buscarDados2() {
                     QMenos = questao;
                 }
             }
+
+            let totalAcertos = 0;
+            for (let i = 1; i <= 10; i++) { // Com isso eu pego o total de vezes que x questão foi acertada e vou somando
+                totalAcertos += contagemQuestoes[i];
+            }
+            let mediaUsuarios = totalAcertos / buscar2.length; // faço a média
+            mediaUsuarios = mediaUsuarios.toFixed(2)
+
+            console.log("Média de acertos por usuário:", mediaUsuarios);
             console.log(`Questão mais acertada: ${QMais} (${maxAcertos} acertos)`);
             console.log(`Questão menos acertada: ${QMenos} (${minAcertos} acertos)`);
             maisAcertada.innerHTML = `${QMais} | (${maxAcertos}x)`;
             menosAcertada.innerHTML = `${QMenos} | (${minAcertos}x)`;
+            mediaAcerto.innerHTML = mediaUsuarios;
         })
         .catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);

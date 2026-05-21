@@ -16,13 +16,15 @@ function cadastrar() {
         alert('Todos os campos em branco')
     } else if (nomeVar.length <= 1) {
         alert('Nome com um ou menos caracteres')
-    } else if (emailVar.indexOf('@') == -1) {
-        alert('Não contém arroba');
-    } else if (emailVar.indexOf('.') == -1) {
-        alert('Não contém .');
+    } else if (
+        emailVar.indexOf('@') === -1 ||
+        emailVar.indexOf('.') === -1 ||
+        emailVar.indexOf('@') > emailVar.lastIndexOf('.') // melhora de verificação
+    ) {
+        alert('Email inválido');
     } else if (senhaVar.length <= 6) {
         alert('Senha com 6 ou menos digitos');
-    } else if (senhaVar != confirmacaoSenhaVar) {
+    } else if (senhaVar !== confirmacaoSenhaVar) {
         alert('Não é igual a senha');
     } else {
 
@@ -48,7 +50,7 @@ function cadastrar() {
 
                     setTimeout(() => {
                         window.location = "../pages/login.html";
-                    }, "2000");
+                    }, 2000);
 
                 } else {
                     throw "Houve um erro ao tentar realizar o cadastro!";

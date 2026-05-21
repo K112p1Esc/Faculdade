@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/filmes.css">
 </head>
 
 <body>
@@ -29,7 +30,17 @@
         </div>
     </header>
     <main>
-
+        <section class="filmesContainer">
+            <div class="filmeTítulo" id="filmeTraje"></div>
+            <div class="avisoSpoiler" id="anoTraje"></div>
+            <div class="imagemFilme" id="imagemTraje"></div>
+            <div class="botoesNavegacao">
+                <button class="btnVoltar" onclick="previousSlide()">← Voltar</button>
+                <button class="btnAvancar" onclick="nextSlide()">Avançar →</button>
+            </div>
+            <div class="avisoSpoiler">Atenção: o conteúdo abaixo descreve a aparência do traje, suscetível a spoilers.</div>
+            <div class="textoFilme" id="textoTraje"></div>
+        </section>
     </main>
 
     <footer>
@@ -46,6 +57,8 @@
     </footer>
 
     <script src="../js/finalizarLogin.js"></script>
+    <script src="../js/trajes2.js"></script>
+    <script src="../js/trajes.js"></script>
 </body>
 
 </html>
