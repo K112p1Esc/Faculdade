@@ -47,11 +47,7 @@ function cadastrar() {
 
                 if (resposta.ok) {
                     console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
-
-                    setTimeout(() => {
                         window.location = "../pages/login.html";
-                    }, 2000);
-
                 } else {
                     throw "Houve um erro ao tentar realizar o cadastro!";
                 }
